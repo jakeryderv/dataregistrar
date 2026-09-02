@@ -20,7 +20,10 @@ classifiers = [
   "Typing :: Typed",
 ]
 dependencies = [
+  "httpx>=0.28.1",
+  "platformdirs>=4.11.7",
   "pydantic>=2.7",
+  "ruamel-yaml>=0.19.1",
   "typer>=0.12",
 ]
 
@@ -29,6 +32,9 @@ all = []
 
 [project.scripts]
 dreg = "dataregistrar.cli:app"
+
+[project.entry-points."dataregistrar.adapters"]
+uci = "dataregistrar.adapters.uci:UCIAdapter"
 
 [project.urls]
 Homepage = "https://github.com/jakeryderv/dataregistrar"
@@ -40,6 +46,7 @@ dev = [
   "pytest>=8",
   "ruff>=0.15",
   "pyright>=1.1.400",
+  "pytest-recording>=0.13.4",
 ]
 
 [build-system]
@@ -61,4 +68,4 @@ pythonVersion = "3.11"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = "-q"
+addopts = "-q --block-network"

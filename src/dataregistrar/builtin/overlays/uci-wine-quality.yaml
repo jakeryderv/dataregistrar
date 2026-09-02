@@ -1,0 +1,28 @@
+# Verified overlay for UCI 186. The UCI API exposes no license field; the dataset page does.
+canonical: uci-wine-quality
+kind: dataset
+name: Wine Quality
+publisher: UCI Machine Learning Repository
+cite_as: "Cortez, P., Cerdeira, A., Almeida, F., Matos, T., & Reis, J. (2009). Wine Quality. UCI Machine Learning Repository. https://doi.org/10.24432/C56S3T"
+
+distributions:
+  - id: uci:186
+    role: official
+    sha256: 428bd8df7313b159988405ae5e3be6d363993d73f7ffc2adedfdc1d496508191
+
+license:
+  spdx: CC-BY-4.0
+  evidence_url: https://archive.ics.uci.edu/dataset/186/wine+quality
+  verified_at: 2026-09-02
+  verified_by: jakeryderv
+
+rights:
+  commercial_use: true
+  redistribution: true
+  derivatives: true
+  model_training: unknown
+  attribution_required: true
+  share_alike: false
+  confidence: verified
+
+status: verified

@@ -2,7 +2,7 @@
 
 Current state of the design. For why, see [`adr/`](adr/). For the product vision, see [`vision.md`](vision.md).
 
-**Status:** accepted, no code yet. Tooling choices are in [ADR 0002](adr/0002-tooling-and-packaging-baseline.md). Project license is Apache-2.0.
+**Status:** walking skeleton implemented (UCI adapter, overlays, policy engine, federated search, CLI). No retrieval, cache, or `resolve` yet. Tooling choices are in [ADR 0002](adr/0002-tooling-and-packaging-baseline.md). Project license is Apache-2.0.
 
 ## Modules
 
@@ -13,7 +13,7 @@ One responsibility each, matching the three layers in the vision.
 | `model` | Record, Kind, Status, License, Rights, AccessPlan. Pure data, no I/O. |
 | `adapters` | The `Adapter` protocol, a base class with caching hooks, shipped adapters, entry-point discovery. |
 | `registry` | Layer resolution (built-in → user/org → project), sources loader, overlay loader and merge. |
-| `search` | Fan-out to adapters, cache, normalize, merge overlays, rank. |
+| `federated` | Fan-out to adapters, cache, normalize, merge overlays, rank. Named `federated` because `dataregistrar.search()` is the SDK function. |
 | `policy` | SPDX license-to-rights table, rights derivation, presets, `DatasetPolicyError`. |
 | `representations` | `as_pandas`, `as_arrow`, `as_numpy` behind lazy imports. |
 | `cli` | Typer app over all of the above, including the overlay create/verify workflow. |
@@ -21,7 +21,7 @@ One responsibility each, matching the three layers in the vision.
 Dependency direction is strictly downward:
 
 ```text
-cli → search → registry → adapters → model
+cli → federated → registry → adapters → model
               ↘ policy ↗
 ```
 
@@ -52,7 +52,7 @@ dataregistrar/
 │   │   ├── layers.py
 │   │   ├── sources.py
 │   │   └── overlays.py
-│   ├── search.py
+│   ├── federated.py
 │   ├── policy/
 │   │   ├── engine.py
 │   │   └── licenses.yaml        SPDX id → rights table
@@ -99,6 +99,9 @@ Sources and overlays resolve in order; later wins.
 
 Every overlay records which layer it came from, so `verified` means verified by a named reviewer in a named layer.
 
-## Next step
+## Next steps
 
-Walking skeleton: one adapter, one record, one search, one policy check, end to end with a recorded cassette.
+1. `resolve` and `retrieve` on the adapter protocol, with tabular representations.
+2. Response cache with per-source TTL.
+3. Hugging Face adapter, which exercises gating and license tags.
+4. Overlay CLI: create from a record, run the verification checklist, mark verified.

@@ -23,6 +23,11 @@ fmt:
     uv run ruff format .
     uv run ruff check --fix .
 
+# Re-record HTTP cassettes against live sources. Only when an adapter or source changes.
+record:
+    rm -f tests/cassettes/*.yaml
+    uv run pytest tests/contract tests/e2e -o addopts="" --record-mode=once
+
 # Build sdist and wheel into dist/.
 build:
     rm -rf dist

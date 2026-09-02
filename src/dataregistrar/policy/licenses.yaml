@@ -1,0 +1,99 @@
+# License-to-rights table, keyed by SPDX identifier. Versioned and reviewed like any record.
+#
+# Every value is true, false, or unknown. `model_training` is left unknown for most
+# licenses because the question is legally unsettled; only public-domain dedications say true.
+# A license missing from this table yields unknown for every right.
+version: 1
+
+licenses:
+  CC0-1.0:
+    commercial_use: true
+    redistribution: true
+    derivatives: true
+    model_training: true
+    attribution_required: false
+    share_alike: false
+  PDDL-1.0:
+    commercial_use: true
+    redistribution: true
+    derivatives: true
+    model_training: true
+    attribution_required: false
+    share_alike: false
+  CC-BY-4.0:
+    commercial_use: true
+    redistribution: true
+    derivatives: true
+    model_training: unknown
+    attribution_required: true
+    share_alike: false
+  CC-BY-SA-4.0:
+    commercial_use: true
+    redistribution: true
+    derivatives: true
+    model_training: unknown
+    attribution_required: true
+    share_alike: true
+  CC-BY-NC-4.0:
+    commercial_use: false
+    redistribution: true
+    derivatives: true
+    model_training: unknown
+    attribution_required: true
+    share_alike: false
+  CC-BY-NC-SA-4.0:
+    commercial_use: false
+    redistribution: true
+    derivatives: true
+    model_training: unknown
+    attribution_required: true
+    share_alike: true
+  CC-BY-ND-4.0:
+    commercial_use: true
+    redistribution: true
+    derivatives: false
+    model_training: unknown
+    attribution_required: true
+    share_alike: false
+  ODC-By-1.0:
+    commercial_use: true
+    redistribution: true
+    derivatives: true
+    model_training: unknown
+    attribution_required: true
+    share_alike: false
+  ODbL-1.0:
+    commercial_use: true
+    redistribution: true
+    derivatives: true
+    model_training: unknown
+    attribution_required: true
+    share_alike: true
+  MIT:
+    commercial_use: true
+    redistribution: true
+    derivatives: true
+    model_training: unknown
+    attribution_required: true
+    share_alike: false
+  Apache-2.0:
+    commercial_use: true
+    redistribution: true
+    derivatives: true
+    model_training: unknown
+    attribution_required: true
+    share_alike: false
+
+# Presets are documented rules over rights, not legal certainty. A preset passes only when
+# every listed right has exactly the listed value; unknown never passes.
+presets:
+  commercial:
+    commercial_use: true
+  redistributable:
+    redistribution: true
+  permissive:
+    commercial_use: true
+    redistribution: true
+    derivatives: true
+    share_alike: false
+  any: {}

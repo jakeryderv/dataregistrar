@@ -1,0 +1,5 @@
+# Shipped sources. A user or project layer can override any entry by id, or disable it.
+sources:
+  - id: uci
+    adapter: uci
+    kinds: [dataset]

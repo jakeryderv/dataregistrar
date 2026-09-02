@@ -1,0 +1,35 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - archive.ics.uci.edu
+      user-agent:
+      - python-httpx/0.28.1
+    method: GET
+    uri: https://archive.ics.uci.edu/api/datasets/list?search=wine
+  response:
+    body:
+      string: '{"status":200,"statusText":"OK","data":[{"id":109,"name":"Wine"},{"id":186,"name":"Wine
+        Quality"}]}'
+    headers:
+      connection:
+      - keep-alive
+      content-type:
+      - text/plain;charset=UTF-8
+      date:
+      - Wed, 02 Sep 2026 05:25:36 GMT
+      server:
+      - nginx/1.31.4
+      transfer-encoding:
+      - chunked
+    status:
+      code: 200
+      message: OK
+version: 1
