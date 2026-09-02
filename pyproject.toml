@@ -1,0 +1,64 @@
+[project]
+name = "dataregistrar"
+version = "0.0.1"
+description = "Provider-agnostic catalog and access layer for public data, with licensing and provenance preserved."
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+authors = [{ name = "Jake Van Slyke" }]
+requires-python = ">=3.11"
+keywords = ["datasets", "data-catalog", "licensing", "provenance", "huggingface", "uci"]
+classifiers = [
+  "Development Status :: 1 - Planning",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Science/Research",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Scientific/Engineering",
+  "Typing :: Typed",
+]
+dependencies = [
+  "pydantic>=2.7",
+  "typer>=0.12",
+]
+
+[project.optional-dependencies]
+all = []
+
+[project.scripts]
+dreg = "dataregistrar.cli:app"
+
+[project.urls]
+Homepage = "https://github.com/jakeryderv/dataregistrar"
+Repository = "https://github.com/jakeryderv/dataregistrar"
+Issues = "https://github.com/jakeryderv/dataregistrar/issues"
+
+[dependency-groups]
+dev = [
+  "pytest>=8",
+  "ruff>=0.15",
+  "pyright>=1.1.400",
+]
+
+[build-system]
+requires = ["uv_build>=0.7,<1"]
+build-backend = "uv_build"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+extend-exclude = ["docs"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
+
+[tool.pyright]
+include = ["src", "tests"]
+typeCheckingMode = "strict"
+pythonVersion = "3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
