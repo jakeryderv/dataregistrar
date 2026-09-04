@@ -1,0 +1,77 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - huggingface.co
+      user-agent:
+      - python-httpx/0.28.1
+    method: GET
+    uri: https://huggingface.co/api/datasets/ylecun/mnist
+  response:
+    body:
+      string: "{\"_id\":\"621ffdd236468d709f181ec6\",\"id\":\"ylecun/mnist\",\"author\":\"ylecun\",\"sha\":\"77f3279092a1c1579b2250db8eafed0ad422088c\",\"lastModified\":\"2024-08-08T06:07:00.000Z\",\"private\":false,\"gated\":false,\"disabled\":false,\"tags\":[\"task_categories:image-classification\",\"task_ids:multi-class-image-classification\",\"annotations_creators:expert-generated\",\"language_creators:found\",\"multilinguality:monolingual\",\"source_datasets:extended|other-nist\",\"language:en\",\"license:mit\",\"size_categories:10K<n<100K\",\"format:parquet\",\"modality:image\",\"library:datasets\",\"library:pandas\",\"library:polars\",\"library:mlcroissant\",\"region:us\"],\"description\":\"\\n\\t\\n\\t\\t\\n\\t\\n\\t\\n\\t\\tDataset
+        Card for MNIST\\n\\t\\n\\n\\n\\t\\n\\t\\t\\n\\t\\n\\t\\n\\t\\tDataset Summary\\n\\t\\n\\nThe
+        MNIST dataset consists of 70,000 28x28 black-and-white images of handwritten
+        digits extracted from two NIST databases. There are 60,000 images in the training
+        dataset and 10,000 images in the validation dataset, one class per digit so
+        a total of 10 classes, with 7,000 images (6,000 train images and 1,000 test
+        images) per class.\\nHalf of the image were drawn by Census Bureau employees
+        and the other half by high school\u2026 See the full description on the dataset
+        page: https://huggingface.co/datasets/ylecun/mnist.\",\"paperswithcode_id\":\"mnist\",\"downloads\":67784,\"likes\":267,\"cardData\":{\"annotations_creators\":[\"expert-generated\"],\"language_creators\":[\"found\"],\"language\":[\"en\"],\"license\":[\"mit\"],\"multilinguality\":[\"monolingual\"],\"size_categories\":[\"10K<n<100K\"],\"source_datasets\":[\"extended|other-nist\"],\"task_categories\":[\"image-classification\"],\"task_ids\":[\"multi-class-image-classification\"],\"paperswithcode_id\":\"mnist\",\"pretty_name\":\"MNIST\",\"dataset_info\":{\"config_name\":\"mnist\",\"features\":[{\"name\":\"image\",\"dtype\":\"image\"},{\"name\":\"label\",\"dtype\":{\"class_label\":{\"names\":{\"0\":\"0\",\"1\":\"1\",\"2\":\"2\",\"3\":\"3\",\"4\":\"4\",\"5\":\"5\",\"6\":\"6\",\"7\":\"7\",\"8\":\"8\",\"9\":\"9\"}}}}],\"splits\":[{\"name\":\"train\",\"num_bytes\":17223300,\"num_examples\":60000},{\"name\":\"test\",\"num_bytes\":2875182,\"num_examples\":10000}],\"download_size\":18157506,\"dataset_size\":20098482},\"configs\":[{\"config_name\":\"mnist\",\"data_files\":[{\"split\":\"train\",\"path\":\"mnist/train-*\"},{\"split\":\"test\",\"path\":\"mnist/test-*\"}],\"default\":true}]},\"siblings\":[{\"rfilename\":\".gitattributes\"},{\"rfilename\":\"README.md\"},{\"rfilename\":\"mnist/test-00000-of-00001.parquet\"},{\"rfilename\":\"mnist/train-00000-of-00001.parquet\"}],\"createdAt\":\"2022-03-02T23:29:22.000Z\",\"usedStorage\":150052224}"
+    headers:
+      access-control-allow-origin:
+      - https://huggingface.co
+      access-control-expose-headers:
+      - X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash
+      access-control-max-age:
+      - '86400'
+      alt-svc:
+      - h3=":443"; ma=86400
+      connection:
+      - keep-alive
+      content-length:
+      - '2456'
+      content-type:
+      - application/json; charset=utf-8
+      cross-origin-opener-policy:
+      - same-origin
+      date:
+      - Fri, 04 Sep 2026 03:53:09 GMT
+      etag:
+      - W/"998-nRy+vlEZ8IFI98yOgEL4dwmOTXw"
+      ratelimit:
+      - '"api";r=494;t=39'
+      ratelimit-policy:
+      - '"fixed window";"api";q=500;w=300'
+      referrer-policy:
+      - strict-origin-when-cross-origin
+      strict-transport-security:
+      - max-age=31536000
+      transfer-encoding:
+      - chunked
+      vary:
+      - Origin
+      - Accept-Encoding
+      via:
+      - 1.1 a77d03a5ac5c10371179d15c7ac8ad24.cloudfront.net (CloudFront)
+      x-amz-cf-id:
+      - uQlT7LJJ83sjNj5pZY94wVZ04SyV9YuZ2em7_mt0ugbLB5EV9X70sA==
+      x-amz-cf-pop:
+      - MCI50-P1
+      x-cache:
+      - Miss from cloudfront
+      x-powered-by:
+      - huggingface-moon
+      x-request-id:
+      - Root=1-6a9a40a5-25000ba23ea4c28158aefb10
+    status:
+      code: 200
+      message: OK
+version: 1

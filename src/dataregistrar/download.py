@@ -30,13 +30,14 @@ def sha256_of(path: Path) -> str:
 
 def download(client: httpx.Client, planned: PlannedFile, destination: Path) -> Path:
     """Fetch one file. Reuses an existing file when its checksum matches or none is expected."""
-    destination.mkdir(parents=True, exist_ok=True)
     target = destination / planned.filename
+    target.parent.mkdir(parents=True, exist_ok=True)
     if target.is_file() and (planned.sha256 is None or sha256_of(target) == planned.sha256):
         return target
 
     partial = target.with_name(target.name + ".part")
-    with client.stream("GET", str(planned.url)) as response:
+    # Hubs commonly redirect file URLs to a CDN. httpx drops Authorization on cross-origin hops.
+    with client.stream("GET", str(planned.url), follow_redirects=True) as response:
         response.raise_for_status()
         with partial.open("wb") as handle:
             for chunk in response.iter_bytes(CHUNK):

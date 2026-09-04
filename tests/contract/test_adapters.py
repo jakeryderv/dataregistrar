@@ -3,13 +3,23 @@
 import pytest
 
 from dataregistrar.adapters import Adapter
+from dataregistrar.adapters.huggingface import HuggingFaceAdapter
 from dataregistrar.adapters.uci import UCIAdapter
-from dataregistrar.model import Rights, Status
+from dataregistrar.model import Confidence, Record, Rights, Status
 
 CASES: list[tuple[Adapter, str, str, str]] = [
     # adapter, search query, expected id in results, native id for get
     (UCIAdapter(), "wine", "uci:186", "186"),
+    (HuggingFaceAdapter(), "mnist", "hf:ylecun/mnist", "ylecun/mnist"),
 ]
+
+
+def _rights_are_honest(r: "Record") -> None:
+    """Rights may be derived from a declared license, but never at verified confidence,
+    and never at all without a license id."""
+    assert r.rights.confidence is Confidence.IMPORTED
+    if r.license.spdx is None:
+        assert r.rights == Rights()
 
 
 @pytest.mark.vcr
@@ -23,8 +33,8 @@ def test_search_returns_normalized_records(
         assert r.id.startswith(f"{adapter.id}:")
         assert r.source == adapter.id
         assert r.kind in adapter.kinds
-        assert r.status in {Status.DISCOVERED, Status.IMPORTED}
-        assert r.rights == Rights(), "adapters never guess rights"
+        assert r.status in {Status.DISCOVERED, Status.IMPORTED, Status.RESTRICTED}
+        _rights_are_honest(r)
 
 
 @pytest.mark.vcr
@@ -38,7 +48,7 @@ def test_get_returns_imported_record_with_provider_metadata(
     assert r.name
     assert r.url is not None
     assert r.source_metadata, "provider metadata is preserved verbatim"
-    assert r.rights == Rights()
+    _rights_are_honest(r)
 
 
 @pytest.mark.vcr

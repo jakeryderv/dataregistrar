@@ -20,7 +20,9 @@ def test_commercial_search_keeps_verified_wine_quality_and_drops_the_rest(
     commercial = search_module.search(builtin_registry, "wine", policy="commercial")
 
     assert {r.id for r in everything} >= {"uci:109", "uci:186"}
-    assert [r.id for r in commercial] == ["uci:186"]
+    assert "uci:186" in {r.id for r in commercial}
+    assert all(r.rights.commercial_use is True for r in commercial)
+    assert "uci:109" not in {r.id for r in commercial}
 
     wine_quality = commercial[0]
     assert wine_quality.status is Status.VERIFIED

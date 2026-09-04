@@ -47,6 +47,30 @@ def test_existing_verified_file_is_not_downloaded_again(tmp_path: Path) -> None:
     assert len(calls) == 1
 
 
+def test_nested_filename_creates_parent_directories(tmp_path: Path) -> None:
+    planned = PlannedFile(url=HttpUrl("https://x.test/d.csv"), filename="data/sub/d.csv")
+    path = download(_client([]), planned, tmp_path)
+    assert path == tmp_path / "data" / "sub" / "d.csv"
+    assert path.read_bytes() == BODY
+
+
+def test_redirect_to_cdn_is_followed(tmp_path: Path) -> None:
+    calls: list[str] = []
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        calls.append(str(request.url))
+        if request.url.host == "hub.test":
+            return httpx.Response(302, headers={"location": "https://cdn.test/blob"})
+        return httpx.Response(200, content=BODY)
+
+    client = httpx.Client(transport=httpx.MockTransport(handler))
+    planned = PlannedFile(
+        url=HttpUrl("https://hub.test/resolve/d.csv"), filename="d.csv", sha256=GOOD
+    )
+    assert download(client, planned, tmp_path).read_bytes() == BODY
+    assert calls == ["https://hub.test/resolve/d.csv", "https://cdn.test/blob"]
+
+
 def test_existing_stale_file_is_replaced_when_checksum_known(tmp_path: Path) -> None:
     calls: list[str] = []
     (tmp_path / "d.csv").write_bytes(b"old")

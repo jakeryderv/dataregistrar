@@ -1,0 +1,177 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - huggingface.co
+      user-agent:
+      - python-httpx/0.28.1
+    method: GET
+    uri: https://huggingface.co/api/datasets?search=mnist&limit=20&sort=downloads&direction=-1
+  response:
+    body:
+      string: "[{\"_id\":\"621ffdd236468d709f181ec6\",\"id\":\"ylecun/mnist\",\"author\":\"ylecun\",\"disabled\":false,\"gated\":false,\"lastModified\":\"2024-08-08T06:07:00.000Z\",\"likes\":267,\"private\":false,\"sha\":\"77f3279092a1c1579b2250db8eafed0ad422088c\",\"description\":\"\\n\\t\\n\\t\\t\\n\\t\\tDataset
+        Card for MNIST\\n\\t\\n\\n\\n\\t\\n\\t\\t\\n\\t\\tDataset Summary\\n\\t\\n\\nThe
+        MNIST dataset consists of 70,000 28x28 black-and-white images of handwritten
+        digits extracted from two NIST databases. There are 60,000 images in the training
+        dataset and 10,000 images in the validation dataset, one class per digit so
+        a total of 10 classes, with 7,000 images (6,000 train images and 1,000 test
+        images) per class.\\nHalf of the image were drawn by Census Bureau employees
+        and the other half by high school students\u2026 See the full description
+        on the dataset page: https://huggingface.co/datasets/ylecun/mnist.\",\"downloads\":67784,\"paperswithcode_id\":\"mnist\",\"tags\":[\"task_categories:image-classification\",\"task_ids:multi-class-image-classification\",\"annotations_creators:expert-generated\",\"language_creators:found\",\"multilinguality:monolingual\",\"source_datasets:extended|other-nist\",\"language:en\",\"license:mit\",\"size_categories:10K<n<100K\",\"format:parquet\",\"modality:image\",\"library:datasets\",\"library:pandas\",\"library:polars\",\"library:mlcroissant\",\"region:us\"],\"createdAt\":\"2022-03-02T23:29:22.000Z\",\"key\":\"\"},{\"_id\":\"621ffdd236468d709f181e2b\",\"id\":\"zalando-datasets/fashion_mnist\",\"author\":\"zalando-datasets\",\"disabled\":false,\"gated\":false,\"lastModified\":\"2024-08-08T06:10:25.000Z\",\"likes\":67,\"private\":false,\"sha\":\"531be5e2ccc9dba0c201ad3ae567a4f3d16ecdd2\",\"description\":\"\\n\\t\\n\\t\\t\\n\\t\\tDataset
+        Card for FashionMNIST\\n\\t\\n\\n\\n\\t\\n\\t\\t\\n\\t\\tDataset Summary\\n\\t\\n\\nFashion-MNIST
+        is a dataset of Zalando's article images\u2014consisting of a training set
+        of 60,000 examples and a test set of 10,000 examples. Each example is a 28x28
+        grayscale image, associated with a label from 10 classes. We intend Fashion-MNIST
+        to serve as a direct drop-in replacement for the original MNIST dataset for
+        benchmarking machine learning algorithms. It shares the same image size and
+        structure of training and testing\u2026 See the full description on the dataset
+        page: https://huggingface.co/datasets/zalando-datasets/fashion_mnist.\",\"downloads\":10753,\"paperswithcode_id\":\"fashion-mnist\",\"tags\":[\"task_categories:image-classification\",\"task_ids:multi-class-image-classification\",\"annotations_creators:expert-generated\",\"language_creators:found\",\"multilinguality:monolingual\",\"source_datasets:original\",\"language:en\",\"license:mit\",\"size_categories:10K<n<100K\",\"format:parquet\",\"modality:image\",\"library:datasets\",\"library:pandas\",\"library:mlcroissant\",\"library:polars\",\"arxiv:1708.07747\",\"region:us\"],\"createdAt\":\"2022-03-02T23:29:22.000Z\",\"key\":\"\"},{\"_id\":\"686ab0eaa74a04d43d42dd0e\",\"id\":\"Voxel51/curated-mnist\",\"author\":\"Voxel51\",\"disabled\":false,\"gated\":false,\"lastModified\":\"2025-08-08T17:26:36.000Z\",\"likes\":0,\"private\":false,\"sha\":\"6fb4c3d269707c49d05391cba6d8390e83826a65\",\"description\":\"\\n\\t\\n\\t\\t\\n\\t\\tDataset
+        Card for CuratedMNIST\\n\\t\\n\\nThis dataset is a curated version of the
+        classic MNIST dataset, enriched with model predictions, embeddings, and various
+        analytical fields generated using the FiftyOne library. It was created as
+        part of the \\\"Image Classification and Dataset Curation with FiftyOne and
+        PyTorch\\\" tutorial to demonstrate practical computer vision workflows.\\nThe
+        dataset contains the original 60,000 training and 10,000 test samples, with
+        the training set further split into\u2026 See the full description on the
+        dataset page: https://huggingface.co/datasets/Voxel51/curated-mnist.\",\"downloads\":8307,\"tags\":[\"task_categories:image-classification\",\"language:en\",\"license:mit\",\"size_categories:10K<n<100K\",\"modality:image\",\"library:fiftyone\",\"arxiv:2103.00020\",\"region:us\",\"fiftyone\",\"image\",\"image-classification\"],\"createdAt\":\"2025-07-06T17:22:50.000Z\",\"key\":\"\"},{\"_id\":\"6873c2b3b38be9b401cb4909\",\"id\":\"Voxel51/American-Sign-Language-MNIST\",\"author\":\"Voxel51\",\"disabled\":false,\"gated\":false,\"lastModified\":\"2025-07-15T20:40:08.000Z\",\"likes\":3,\"private\":false,\"sha\":\"c0a9f9973390ce7e708557f1c1a27465cce103b8\",\"description\":\"\\n\\t\\n\\t\\t\\n\\t\\tDataset
+        Card for ASL-MNIST\\n\\t\\n\\nThis is a FiftyOne dataset with 34,627 samples
+        of American Sign Language (ASL) alphabet images, converted from the original
+        Kaggle Sign Language MNIST dataset into a format optimized for computer vision
+        workflows.\\n\\n\\n\\t\\n\\t\\t\\n\\t\\n\\t\\n\\t\\tInstallation\\n\\t\\n\\nIf
+        you haven't already, install FiftyOne:\\npip install -U fiftyone\\n\\n\\n\\t\\n\\t\\t\\n\\t\\n\\t\\n\\t\\tUsage\\n\\t\\n\\nimport
+        fiftyone as fo\\nfrom fiftyone.utils.huggingface import load_from_hub\\n\\n#
+        Load the dataset\\n# Note: other available arguments\u2026 See the full description
+        on the dataset page: https://huggingface.co/datasets/Voxel51/American-Sign-Language-MNIST.\",\"downloads\":5169,\"tags\":[\"task_categories:image-classification\",\"language:en\",\"license:mit\",\"size_categories:10K<n<100K\",\"format:imagefolder\",\"modality:image\",\"library:datasets\",\"library:mlcroissant\",\"library:fiftyone\",\"region:us\",\"fiftyone\",\"image\",\"image-classification\"],\"createdAt\":\"2025-07-13T14:29:07.000Z\",\"key\":\"\"},{\"_id\":\"6946cf3ec131e07a13b40b75\",\"id\":\"spaicom-lab/semasia-mnist\",\"author\":\"spaicom-lab\",\"disabled\":false,\"gated\":false,\"lastModified\":\"2026-07-02T11:26:40.000Z\",\"likes\":0,\"private\":false,\"sha\":\"e421008bffc39c33669087260ad193e1621cec31\",\"description\":\"\\n\\t\\n\\t\\t\\n\\t\\n\\t\\n\\t\\tLatents
+        for mnist (timm)\\n\\t\\n\\n\\n\\n&nbsp;&nbsp;&nbsp;\\n \\n\\n\\n\\nThis repository
+        hosts precomputed latent representations (embeddings) extracted from timm
+        image-classification backbones on mnist, released as part of SEMASIA \u2014
+        a large-scale resource for studying semantic communication, cross-model latent
+        space alignment, and explainability.\\nEach config corresponds to a single
+        model;\\nonly that model's Parquet files are read on load_dataset.\\n\\n\\t\\n\\t\\t\\n\\t\\n\\t\\n\\t\\tUsage\\n\\t\\n\\nLoad
+        with datasets and convert to\u2026 See the full description on the dataset
+        page: https://huggingface.co/datasets/spaicom-lab/semasia-mnist.\",\"downloads\":4769,\"tags\":[\"task_categories:feature-extraction\",\"size_categories:100M<n<1B\",\"format:parquet\",\"format:optimized-parquet\",\"modality:tabular\",\"modality:text\",\"library:datasets\",\"library:pandas\",\"library:polars\",\"library:mlcroissant\",\"arxiv:2605.09485\",\"region:us\",\"semantic-communication\",\"explainability\",\"latent-space-alignment\",\"interpretability\",\"image-classification\",\"timm\"],\"createdAt\":\"2025-12-20T16:30:54.000Z\",\"key\":\"\"},{\"_id\":\"6951c0b29d961349bbd7c33e\",\"id\":\"spaicom-lab/semasia-fashion_mnist\",\"author\":\"spaicom-lab\",\"disabled\":false,\"gated\":false,\"lastModified\":\"2026-07-02T11:26:45.000Z\",\"likes\":0,\"private\":false,\"sha\":\"528cc83e972317c4b40d464245ee96c35882b303\",\"description\":\"\\n\\t\\n\\t\\t\\n\\t\\n\\t\\n\\t\\tLatents
+        for fashion_mnist (timm)\\n\\t\\n\\n\\n\\n&nbsp;&nbsp;&nbsp;\\n \\n\\n\\n\\nThis
+        repository hosts precomputed latent representations (embeddings) extracted
+        from timm image-classification backbones on fashion_mnist, released as part
+        of SEMASIA \u2014 a large-scale resource for studying semantic communication,
+        cross-model latent space alignment, and explainability.\\nEach config corresponds
+        to a single model;\\nonly that model's Parquet files are read on load_dataset.\\n\\n\\t\\n\\t\\t\\n\\t\\n\\t\\n\\t\\tUsage\\n\\t\\n\\nLoad
+        with\u2026 See the full description on the dataset page: https://huggingface.co/datasets/spaicom-lab/semasia-fashion_mnist.\",\"downloads\":4321,\"tags\":[\"task_categories:feature-extraction\",\"size_categories:100M<n<1B\",\"format:parquet\",\"modality:tabular\",\"modality:text\",\"library:datasets\",\"library:pandas\",\"library:polars\",\"library:mlcroissant\",\"arxiv:2605.09485\",\"region:us\",\"semantic-communication\",\"explainability\",\"latent-space-alignment\",\"interpretability\",\"image-classification\",\"timm\"],\"createdAt\":\"2025-12-28T23:43:46.000Z\",\"key\":\"\"},{\"_id\":\"62b61eb7d25e06ad3e8f5716\",\"id\":\"chrisjay/mnist-adversarial-dataset\",\"author\":\"chrisjay\",\"disabled\":false,\"gated\":false,\"lastModified\":\"2023-10-19T02:10:24.000Z\",\"likes\":4,\"private\":false,\"sha\":\"1f79ccc797541c5f342e0f1300e058d004c2186e\",\"downloads\":1966,\"tags\":[\"size_categories:1K<n<10K\",\"format:imagefolder\",\"modality:image\",\"library:datasets\",\"library:mlcroissant\",\"region:us\"],\"createdAt\":\"2022-06-24T20:29:43.000Z\",\"key\":\"\"},{\"_id\":\"66d2f19eb003aeb6d1c6eadc\",\"id\":\"p2pfl/MNIST\",\"author\":\"p2pfl\",\"disabled\":false,\"gated\":false,\"lastModified\":\"2025-04-19T11:35:08.000Z\",\"likes\":1,\"private\":false,\"sha\":\"ecb370d315b010e81b2ce4e0a2d1ff9f86a1aab5\",\"description\":\"\\n\\t\\n\\t\\t\\n\\t\\t\U0001F5BC\uFE0F
+        MNIST (Extracted from PyTorch Vision)\\n\\t\\n\\nMNIST is a classic dataset
+        of handwritten digits, widely used for image classification tasks in machine
+        learning.\\n\\n\\t\\n\\t\\t\\n\\t\\t\u2139\uFE0F Dataset Details\\n\\t\\n\\n\\n\\t\\n\\t\\t\\n\\t\\t\U0001F4D6
+        Dataset Description\\n\\t\\n\\nThe MNIST database of handwritten digits is
+        a commonly used benchmark dataset in machine learning. It consists of 70,000
+        grayscale images of handwritten digits (0-9), each with a size of 28x28 pixels.
+        The dataset is split into 60,000 training images and 10,000\u2026 See the
+        full description on the dataset page: https://huggingface.co/datasets/p2pfl/MNIST.\",\"downloads\":1443,\"tags\":[\"task_categories:image-classification\",\"task_ids:multi-class-image-classification\",\"multilinguality:monolingual\",\"language:en\",\"license:mit\",\"size_categories:10K<n<100K\",\"format:parquet\",\"modality:image\",\"library:datasets\",\"library:pandas\",\"library:mlcroissant\",\"library:polars\",\"region:us\"],\"createdAt\":\"2024-08-31T10:34:06.000Z\",\"key\":\"\"},{\"_id\":\"64a2edc85d82c84b0d6a8d60\",\"id\":\"Mike0307/MNIST-M\",\"author\":\"Mike0307\",\"disabled\":false,\"gated\":false,\"lastModified\":\"2024-04-09T15:17:56.000Z\",\"likes\":0,\"private\":false,\"sha\":\"bca0c963fd95756a36b8fbcff13417770310ffb6\",\"description\":\"\\n\\t\\n\\t\\t\\n\\t\\tTrain
+        Example\\n\\t\\n\\n\U0001F449Domain-Adversarial-Neural-Network\\n\",\"downloads\":1157,\"tags\":[\"license:mit\",\"size_categories:10K<n<100K\",\"format:parquet\",\"modality:image\",\"library:datasets\",\"library:pandas\",\"library:mlcroissant\",\"library:polars\",\"region:us\"],\"createdAt\":\"2023-07-03T15:48:24.000Z\",\"key\":\"\"},{\"_id\":\"689b15cbd8e555897d218409\",\"id\":\"FrankCCCCC/colored_mnist_28\",\"author\":\"FrankCCCCC\",\"disabled\":false,\"gated\":false,\"lastModified\":\"2025-08-13T05:48:34.000Z\",\"likes\":0,\"private\":false,\"sha\":\"a9565562419e1824a259781fc9d066360a708dc8\",\"description\":\"\\n\\t\\n\\t\\t\\n\\t\\tColored
+        MNIST Dataset\\n\\t\\n\\nA comprehensive dataset of MNIST digits with RGB
+        colored backgrounds, designed for multi-objective classification tasks including
+        digit recognition and background color classification.\\n  \\n\\n\\t\\n\\t\\n\\t\\n\\t\\tOverview\\n\\t\\n\\nThis
+        dataset extends the classic MNIST digit dataset by adding colored backgrounds
+        (blue, green, red) to create a multi-label classification challenge. Each
+        image contains:\\nDigit label: 0-9 (digit recognition)  \\nColor label: blue,
+        green, red (background\u2026 See the full description on the dataset page:
+        https://huggingface.co/datasets/FrankCCCCC/colored_mnist_28.\",\"downloads\":1069,\"tags\":[\"task_categories:image-classification\",\"language:en\",\"license:apache-2.0\",\"size_categories:10K<n<100K\",\"format:imagefolder\",\"modality:image\",\"library:datasets\",\"library:mlcroissant\",\"region:us\"],\"createdAt\":\"2025-08-12T10:22:03.000Z\",\"key\":\"\"},{\"_id\":\"69873d6859159e6393007b3e\",\"id\":\"Blackrose900/N-MNIST\",\"author\":\"Blackrose900\",\"disabled\":false,\"gated\":false,\"lastModified\":\"2026-02-07T19:07:02.000Z\",\"likes\":0,\"private\":false,\"sha\":\"e3258ce36600068ff896b6df5a177d20d38d5163\",\"downloads\":787,\"tags\":[\"license:cc-by-4.0\",\"region:us\"],\"createdAt\":\"2026-02-07T13:26:00.000Z\",\"key\":\"\"},{\"_id\":\"63ca2e557e710e28ce96356c\",\"id\":\"clip-benchmark/wds_mnist\",\"author\":\"clip-benchmark\",\"disabled\":false,\"gated\":false,\"lastModified\":\"2023-01-20T06:02:15.000Z\",\"likes\":0,\"private\":false,\"sha\":\"ba1491816962d0a3e81e178cf5f857f8ea5ebe1b\",\"downloads\":618,\"tags\":[\"size_categories:10K<n<100K\",\"format:webdataset\",\"modality:image\",\"modality:text\",\"library:datasets\",\"library:webdataset\",\"library:mlcroissant\",\"region:us\"],\"createdAt\":\"2023-01-20T06:01:57.000Z\",\"key\":\"\"},{\"_id\":\"6826074396decebea1f4b4e4\",\"id\":\"TimSchneider42/tactile-mnist-mnist3d\",\"author\":\"TimSchneider42\",\"disabled\":false,\"gated\":false,\"lastModified\":\"2025-05-15T20:30:39.000Z\",\"likes\":0,\"private\":false,\"sha\":\"1efb1e3735223b8cc0587b7445f5986340681b73\",\"description\":\"Documentation
+        is available at https://github.com/TimSchneider42/tactile-mnist/blob/main/doc/datasets.md#3d-mesh-datasets.\\n\",\"downloads\":523,\"tags\":[\"task_categories:other\",\"language:en\",\"license:cc-by-2.0\",\"size_categories:10K<n<100K\",\"format:parquet\",\"library:datasets\",\"library:dask\",\"library:mlcroissant\",\"library:polars\",\"region:us\",\"Mesh\",\"Classification\",\"Mesh
+        Classification\"],\"createdAt\":\"2025-05-15T15:24:51.000Z\",\"key\":\"\"},{\"_id\":\"67c1b19dac50c478ff4bf078\",\"id\":\"Max-Ploter/detection-moving-mnist-easy\",\"author\":\"Max-Ploter\",\"disabled\":false,\"gated\":false,\"lastModified\":\"2025-04-09T08:33:53.000Z\",\"likes\":3,\"private\":false,\"sha\":\"25f85182d8ed03eb350bd18c9d043ea5e87a21cd\",\"description\":\"\\n\\t\\n\\t\\t\\n\\t\\tDetection
+        Moving MNIST (Easy)\\n\\t\\n\\n\\n\\t\\n\\t\\t\\n\\n\\n\\n\\n\\t\\t\\n\\n\\n\\n\\n\\t\\n\\n\\n\\t\\n\\t\\t\\n\\t\\n\\t\\n\\t\\tDescription\\n\\t\\n\\nRepository:
+        https://github.com/maxploter/detection-moving-mnist\\nA synthetic video dataset
+        for object detection and tracking, featuring moving MNIST digits with:\\n\\n1-10
+        digits per sequence\\nLinear trajectories with small random translations\\n128x128
+        resolution grayscale frames20 frames per video sequence\\nDigit size 28x28\\nPer-frame
+        annotations including:\\nDigit labels (0-9)\\nCenter coordinates (x,y)\u2026
+        See the full description on the dataset page: https://huggingface.co/datasets/Max-Ploter/detection-moving-mnist-easy.\",\"downloads\":376,\"tags\":[\"task_categories:object-detection\",\"language:en\",\"license:apache-2.0\",\"size_categories:10K<n<100K\",\"format:arrow\",\"library:datasets\",\"library:mlcroissant\",\"region:us\"],\"createdAt\":\"2025-02-28T12:52:45.000Z\",\"key\":\"\"},{\"_id\":\"6634975af27c4c6790a26af2\",\"id\":\"VQA-Illusion/MNIST_test\",\"author\":\"VQA-Illusion\",\"disabled\":false,\"gated\":false,\"lastModified\":\"2026-09-02T20:12:01.000Z\",\"likes\":0,\"private\":false,\"sha\":\"81ad1bbc995810369a5d3b4aceb84b882b55ced1\",\"description\":\"\\n\\t\\n\\t\\t\\n\\t\\n\\t\\n\\t\\tIllusionMNIST
+        \u2014 Test Set\\n\\t\\n\\n\\n\\t\\n\\t\\t\\n\\t\\n\\t\\n\\t\\tDataset summary\\n\\t\\n\\nThis
+        repository contains the public test split of IllusionMNIST, introduced in
+        Illusory VQA: Benchmarking and Enhancing Multimodal Models on Visual Illusions.
+        Every indexed example can be compared across source-condition, illusion, filtered-illusion,
+        illusionless-control, and filtered-illusionless-control images.\\nThe source-condition
+        images are sampled from MNIST and resized to 512 \xD7 512 pixels. Illusion
+        images were\u2026 See the full description on the dataset page: https://huggingface.co/datasets/VQA-Illusion/MNIST_test.\",\"downloads\":349,\"tags\":[\"task_categories:image-classification\",\"task_categories:visual-question-answering\",\"language:en\",\"license:mit\",\"size_categories:1K<n<10K\",\"format:imagefolder\",\"modality:image\",\"library:datasets\",\"library:mlcroissant\",\"arxiv:2412.08169\",\"region:us\",\"visual-illusions\",\"pareidolia\",\"multimodal\",\"synthetic\",\"mnist\"],\"createdAt\":\"2024-05-03T07:50:50.000Z\",\"key\":\"\"},{\"_id\":\"634d8252bd6b92cf9501bcf7\",\"id\":\"barkermrl/mnist-c\",\"author\":\"barkermrl\",\"disabled\":false,\"gated\":false,\"lastModified\":\"2022-10-17T17:28:57.000Z\",\"likes\":1,\"private\":false,\"sha\":\"ac8e5493caf159f4f717379cc7f434ad3c52e2f6\",\"description\":\"Source:
+        https://github.com/google-research/mnist-c\\n\\n\\t\\n\\t\\t\\n\\t\\tMNIST-C\\n\\t\\n\\nThis
+        repository contains the source code used to create the MNIST-C dataset, a\\ncorrupted
+        MNIST benchmark for testing out-of-distribution robustness of computer\\nvision
+        models.\\nPlease see our full paper https://arxiv.org/abs/1906.02337 for more
+        details.\\n\\n\\t\\n\\t\\t\\n\\t\\tDataset\\n\\t\\n\\nThe static dataset is
+        available for download at https://zenodo.org/record/3239543.\\n\",\"downloads\":292,\"tags\":[\"license:apache-2.0\",\"arxiv:1906.02337\",\"region:us\"],\"createdAt\":\"2022-10-17T16:26:58.000Z\",\"key\":\"\"},{\"_id\":\"621ffdd236468d709f183091\",\"id\":\"cgarciae/point-cloud-mnist\",\"author\":\"cgarciae\",\"disabled\":false,\"gated\":false,\"lastModified\":\"2021-10-31T23:09:55.000Z\",\"likes\":4,\"private\":false,\"sha\":\"b88be4d36f97e51173120d42cd35ce2ffa074cc9\",\"citation\":\"#
+        @article{lecun2010mnist,\\n#   title={MNIST handwritten digit database},\\n#
+        \  author={LeCun, Yann and Cortes, Corinna and Burges, CJ},\\n#   journal={ATT
+        Labs [Online]. Available: http://yann.lecun.com/exdb/mnist},\\n#   volume={2},\\n#
+        \  year={2010}\\n# }\\n#\",\"description\":\"The MNIST dataset consists of
+        70,000 28x28 black-and-white points in 10 classes (one for each digits), with
+        7,000\\npoints per class. There are 60,000 training points and 10,000 test
+        points.\",\"downloads\":276,\"tags\":[\"region:us\"],\"createdAt\":\"2022-03-02T23:29:22.000Z\",\"key\":\"\"},{\"_id\":\"69b86137d52663aed6f1de22\",\"id\":\"oriyonay/quickdraw-mnist\",\"author\":\"oriyonay\",\"disabled\":false,\"gated\":false,\"lastModified\":\"2026-03-17T01:27:27.000Z\",\"likes\":0,\"private\":false,\"sha\":\"cac192c1bebc62a89ecf47a929c98698fc578742\",\"description\":\"\\n\\t\\n\\t\\t\\n\\t\\tQuickDraw-MNIST\\n\\t\\n\\nQuickDraw-MNIST
+        is a 20-class sketch-recognition dataset prepared for Texas A&M's CSCE 624
+        (Sketch Recognition) class.\\nThe data is sourced from Google's Quick, Draw!
+        dataset.\\n\\n\\t\\n\\t\\t\\n\\t\\tDataset Structure\\n\\t\\n\\n\\nNumber
+        of images: 100,000\\nNumber of classes: 20\\nImages: 64 x 64 grayscale\\nLabels:
+        integer class ids with a human-readable label_name column\\n\\nClasses: The
+        Eiffel Tower, airplane, angel, bed, chair, clock, diamond, donut, fork, frog,
+        hourglass, leaf, line, mushroom\u2026 See the full description on the dataset
+        page: https://huggingface.co/datasets/oriyonay/quickdraw-mnist.\",\"downloads\":251,\"tags\":[\"task_categories:image-classification\",\"language:en\",\"license:cc-by-4.0\",\"size_categories:100K<n<1M\",\"modality:image\",\"region:us\",\"computer-vision\",\"image-classification\",\"education\",\"quickdraw\",\"mnist-like\"],\"createdAt\":\"2026-03-16T19:59:51.000Z\",\"key\":\"\"},{\"_id\":\"6826325310f13cdfccca3cd2\",\"id\":\"TimSchneider42/tactile-mnist-touch-syn-single-t32-320x240\",\"author\":\"TimSchneider42\",\"disabled\":false,\"gated\":false,\"lastModified\":\"2025-05-15T20:26:26.000Z\",\"likes\":0,\"private\":false,\"sha\":\"8e4298bff9d4d03634b6ac9ad65847a92750e1f6\",\"description\":\"Documentation
+        is available at https://github.com/TimSchneider42/tactile-mnist/blob/main/doc/datasets.md#touch-datasets.\\n\",\"downloads\":218,\"tags\":[\"task_categories:image-classification\",\"language:en\",\"license:cc-by-2.0\",\"size_categories:100K<n<1M\",\"format:parquet\",\"modality:image\",\"modality:text\",\"library:datasets\",\"library:dask\",\"library:mlcroissant\",\"library:polars\",\"region:us\",\"Tactile
+        Sensing\",\"Classification\",\"GelSight Mini\",\"Image\"],\"createdAt\":\"2025-05-15T18:28:35.000Z\",\"key\":\"\"},{\"_id\":\"675c2cc9513823850b87b41e\",\"id\":\"mengfanlei/chinese-mnist\",\"author\":\"mengfanlei\",\"disabled\":false,\"gated\":false,\"lastModified\":\"2024-12-13T12:51:38.000Z\",\"likes\":0,\"private\":false,\"sha\":\"d998c1c38b5ed877f973c3287ef885e0fe550425\",\"downloads\":213,\"tags\":[\"region:us\"],\"createdAt\":\"2024-12-13T12:47:05.000Z\",\"key\":\"\"}]"
+    headers:
+      access-control-allow-origin:
+      - https://huggingface.co
+      access-control-expose-headers:
+      - X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash
+      access-control-max-age:
+      - '86400'
+      alt-svc:
+      - h3=":443"; ma=86400
+      connection:
+      - keep-alive
+      content-length:
+      - '19068'
+      content-type:
+      - application/json; charset=utf-8
+      cross-origin-opener-policy:
+      - same-origin
+      date:
+      - Fri, 04 Sep 2026 03:53:09 GMT
+      etag:
+      - W/"4a7c-YslQySud5C6ymSRpSlVuo2E6n48"
+      link:
+      - <https://huggingface.co/api/datasets?search=mnist&limit=20&sort=downloads&direction=-1&cursor=eyIkb3IiOlt7ImRvd25sb2FkcyI6MjEzLCJfaWQiOnsiJGd0IjoiNjc1YzJjYzk1MTM4MjM4NTBiODdiNDFlIn19LHsiZG93bmxvYWRzIjp7IiRsdCI6MjEzfX0seyJkb3dubG9hZHMiOm51bGx9XX0%3D>;
+        rel="next"
+      ratelimit:
+      - '"api";r=495;t=39'
+      ratelimit-policy:
+      - '"fixed window";"api";q=500;w=300'
+      referrer-policy:
+      - strict-origin-when-cross-origin
+      server-timing:
+      - mongo1-0;dur=5.49957299977541
+      strict-transport-security:
+      - max-age=31536000
+      transfer-encoding:
+      - chunked
+      vary:
+      - Origin
+      - Accept-Encoding
+      via:
+      - 1.1 a77d03a5ac5c10371179d15c7ac8ad24.cloudfront.net (CloudFront)
+      x-amz-cf-id:
+      - sGTJgaohAi6LE4pO7XFUexSPPyQwhDzyvYKGOer4G_6Z2IngJ0kAJg==
+      x-amz-cf-pop:
+      - MCI50-P1
+      x-cache:
+      - Miss from cloudfront
+      x-powered-by:
+      - huggingface-moon
+      x-request-id:
+      - Root=1-6a9a40a5-10eb03f849439ed13e1b5b09
+    status:
+      code: 200
+      message: OK
+version: 1

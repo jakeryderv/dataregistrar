@@ -3,3 +3,8 @@ sources:
   - id: uci
     adapter: uci
     kinds: [dataset]
+  - id: hf
+    adapter: huggingface
+    kinds: [dataset]
+    config:
+      limit: 20

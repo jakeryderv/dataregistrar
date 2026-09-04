@@ -8,6 +8,7 @@ from rich.console import Console
 from rich.table import Table
 
 import dataregistrar
+from dataregistrar.adapters import AccessRequired
 from dataregistrar.download import ChecksumMismatch
 from dataregistrar.model import Record, Status
 from dataregistrar.policy import DatasetPolicyError
@@ -64,12 +65,11 @@ def search(
         console.print("[yellow]no results[/yellow]")
         raise typer.Exit(code=1)
     table = Table(box=None, pad_edge=False)
-    for col in ("id", "name", "status", "license", "commercial", "confidence"):
+    for col in ("id", "status", "license", "commercial", "confidence"):
         table.add_column(col)
     for r in records:
         table.add_row(
             r.id,
-            r.name,
             r.status,
             r.license.spdx or "unknown",
             _fmt_right(r.rights.commercial_use),
@@ -139,6 +139,10 @@ def fetch(
         console.print("[red]ChecksumMismatch[/red]\n")
         console.print(str(err), highlight=False)
         raise typer.Exit(code=3) from None
+    except AccessRequired as err:
+        console.print("[red]AccessRequired[/red]\n")
+        console.print(str(err), highlight=False)
+        raise typer.Exit(code=4) from None
     for planned, path in zip(local.plan.files, local.paths, strict=True):
         verified = "checksum verified" if planned.sha256 else "no recorded checksum"
         console.print(f"{path}  [dim]({verified})[/dim]")

@@ -24,11 +24,135 @@ interactions:
       content-type:
       - text/plain;charset=UTF-8
       date:
-      - Wed, 02 Sep 2026 05:25:36 GMT
+      - Fri, 04 Sep 2026 03:53:12 GMT
       server:
       - nginx/1.31.4
       transfer-encoding:
       - chunked
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - huggingface.co
+      user-agent:
+      - python-httpx/0.28.1
+    method: GET
+    uri: https://huggingface.co/api/datasets?search=wine&limit=20&sort=downloads&direction=-1
+  response:
+    body:
+      string: "[{\"_id\":\"67ad06fd8488fcbf442b76b5\",\"id\":\"spawn99/wine-reviews\",\"author\":\"spawn99\",\"disabled\":false,\"gated\":false,\"lastModified\":\"2025-02-12T20:50:21.000Z\",\"likes\":2,\"private\":false,\"sha\":\"e6b10f4db3091a6fed8c5b294c0cc885e7f6e99d\",\"description\":\"\\n\\t\\n\\t\\t\\n\\t\\tOriginal
+        Dataset Details\\n\\t\\n\\n\\nLicense: CC BY-NC-SA 4.0\\nAttribution: Zackthoutt\\nSource:
+        Wine Reviews Dataset on Kaggle\\n\\n\",\"downloads\":742,\"tags\":[\"task_categories:text-classification\",\"size_categories:100K<n<1M\",\"format:parquet\",\"modality:tabular\",\"modality:text\",\"library:datasets\",\"library:pandas\",\"library:mlcroissant\",\"library:polars\",\"region:us\"],\"createdAt\":\"2025-02-12T20:39:25.000Z\",\"key\":\"\"},{\"_id\":\"652a235c6cdea40585d6a0e3\",\"id\":\"codesignal/wine-quality\",\"author\":\"codesignal\",\"disabled\":false,\"gated\":false,\"lastModified\":\"2025-11-04T16:29:12.000Z\",\"likes\":2,\"private\":false,\"sha\":\"a90690dd91e947252ac664b495fb043ca545da23\",\"downloads\":668,\"tags\":[\"language:en\",\"license:cc-by-4.0\",\"size_categories:1K<n<10K\",\"format:parquet\",\"modality:tabular\",\"library:datasets\",\"library:pandas\",\"library:mlcroissant\",\"library:polars\",\"region:us\"],\"createdAt\":\"2023-10-14T05:13:00.000Z\",\"key\":\"\"},{\"_id\":\"6636ae911f128970c7670c8c\",\"id\":\"lerobot/aloha_mobile_wipe_wine\",\"author\":\"lerobot\",\"disabled\":false,\"gated\":false,\"lastModified\":\"2025-09-27T11:40:14.000Z\",\"likes\":3,\"private\":false,\"sha\":\"b57bde2a10c343cbc2be9a0052f126854c4bb091\",\"description\":\"This
+        dataset was created using LeRobot.\\n\\n\\t\\n\\t\\t\\n\\t\\tDataset Structure\\n\\t\\n\\nmeta/info.json:\\n{\\n
+        \   \\\"codebase_version\\\": \\\"v2.0\\\",\\n    \\\"robot_type\\\": \\\"aloha\\\",\\n
+        \   \\\"total_episodes\\\": 50,\\n    \\\"total_frames\\\": 65000,\\n    \\\"total_tasks\\\":
+        1,\\n    \\\"total_videos\\\": 150,\\n    \\\"total_chunks\\\": 1,\\n    \\\"chunks_size\\\":
+        1000,\\n    \\\"fps\\\": 50,\\n    \\\"splits\\\": {\\n        \\\"train\\\":
+        \\\"0:50\\\"\\n    },\\n    \\\"data_path\\\": \\\"data/chunk-{episode_chunk:03d}/episode_{episode_index:06d}.parquet\\\",\\n
+        \   \\\"video_path\\\":\u2026 See the full description on the dataset page:
+        https://huggingface.co/datasets/lerobot/aloha_mobile_wipe_wine.\",\"downloads\":519,\"tags\":[\"task_categories:robotics\",\"license:mit\",\"size_categories:10K<n<100K\",\"format:parquet\",\"modality:tabular\",\"modality:timeseries\",\"modality:video\",\"library:datasets\",\"library:pandas\",\"library:mlcroissant\",\"library:polars\",\"arxiv:2401.02117\",\"region:us\",\"LeRobot\",\"aloha\"],\"createdAt\":\"2024-05-04T21:54:25.000Z\",\"key\":\"\"},{\"_id\":\"681110512bb887fa76790817\",\"id\":\"GR00T-Dateset/gr1_arms_waist-WineToCabinet\",\"author\":\"GR00T-Dateset\",\"disabled\":false,\"gated\":false,\"lastModified\":\"2025-04-29T18:10:03.000Z\",\"likes\":0,\"private\":false,\"sha\":\"c35043f63eb2e50f615bcacce91ab83d007955be\",\"downloads\":380,\"tags\":[\"size_categories:1M<n<10M\",\"format:parquet\",\"modality:tabular\",\"modality:video\",\"library:datasets\",\"library:dask\",\"library:polars\",\"library:mlcroissant\",\"region:us\"],\"createdAt\":\"2025-04-29T17:45:53.000Z\",\"key\":\"\"},{\"_id\":\"66956e6811dbbf600cb1e2c2\",\"id\":\"lerobot-raw/aloha_mobile_wipe_wine_raw\",\"author\":\"lerobot-raw\",\"disabled\":false,\"gated\":false,\"lastModified\":\"2024-07-15T18:46:26.000Z\",\"likes\":0,\"private\":false,\"sha\":\"33ec9500ca95a31d21b151ee6edf5f7c9f7ca956\",\"downloads\":354,\"tags\":[\"size_categories:n<1K\",\"format:imagefolder\",\"modality:image\",\"modality:video\",\"library:datasets\",\"library:mlcroissant\",\"region:us\"],\"createdAt\":\"2024-07-15T18:46:00.000Z\",\"key\":\"\"},{\"_id\":\"69d408f3f82106522420032d\",\"id\":\"christian0420/drifting-vla-v2-aloha_mobile_wipe_wine\",\"author\":\"christian0420\",\"disabled\":false,\"gated\":false,\"lastModified\":\"2026-04-09T03:14:37.000Z\",\"likes\":0,\"private\":false,\"sha\":\"e80c0ed61f2e636a1a1624d7dc433438eb0df57d\",\"downloads\":351,\"tags\":[\"region:us\"],\"createdAt\":\"2026-04-06T19:26:43.000Z\",\"key\":\"\"},{\"_id\":\"644a9b28d4483bfaa06b80f4\",\"id\":\"james-burton/wine_reviews\",\"author\":\"james-burton\",\"disabled\":false,\"gated\":false,\"lastModified\":\"2023-04-27T15:56:36.000Z\",\"likes\":0,\"private\":false,\"sha\":\"35c2acf5531872b556e960597f92eba7beccce2a\",\"description\":\"\\n\\t\\n\\t\\t\\n\\t\\tDataset
+        Card for \\\"wine_reviews\\\"\\n\\t\\n\\nMore Information needed\\n\",\"downloads\":236,\"tags\":[\"size_categories:100K<n<1M\",\"format:parquet\",\"modality:tabular\",\"modality:text\",\"library:datasets\",\"library:pandas\",\"library:mlcroissant\",\"library:polars\",\"region:us\"],\"createdAt\":\"2023-04-27T15:56:24.000Z\",\"key\":\"\"},{\"_id\":\"6a374af4126105f6d4ba941e\",\"id\":\"Thcrull/win-exe-malware-analysis\",\"author\":\"Thcrull\",\"disabled\":false,\"gated\":false,\"lastModified\":\"2026-06-23T17:35:25.000Z\",\"likes\":0,\"private\":false,\"sha\":\"6c8ff4873915b742ed36ae41b20c91482b1554db\",\"description\":\"\\n\\t\\n\\t\\t\\n\\t\\n\\t\\n\\t\\tWindows
+        Executable Malware Analysis Dataset\\n\\t\\n\\nThis repository contains the
+        dataset and JSON reports for the thesis research project:\\nLLM-Based Autonomous
+        Agents for Dynamic Malware Analysis\\nThe dataset was created to evaluate
+        whether Qwen3-4B can classify Windows executables as benign or malicious using
+        reduced CAPEv2 dynamic-analysis reports.\\nThis thesis was part of the 2026
+        Research Project course from the Computer Science and Engineering Bachelor
+        at TU Delft:\u2026 See the full description on the dataset page: https://huggingface.co/datasets/Thcrull/win-exe-malware-analysis.\",\"downloads\":233,\"tags\":[\"task_categories:text-classification\",\"language:en\",\"license:mit\",\"size_categories:1K<n<10K\",\"region:us\",\"malware-analysis\",\"dynamic-analysis\",\"capev2\",\"qwen\",\"windows-executables\",\"cybersecurity\",\"TUDelft-CSE-research-project\"],\"createdAt\":\"2026-06-21T02:22:44.000Z\",\"key\":\"\"},{\"_id\":\"621ffdd236468d709f18239a\",\"id\":\"GroNLP/ik-nlp-22_winemag\",\"author\":\"GroNLP\",\"disabled\":false,\"gated\":false,\"lastModified\":\"2022-02-13T11:03:27.000Z\",\"likes\":6,\"private\":false,\"sha\":\"90eb39f35fc64e556fc17f06d4137a4a69ec3297\",\"downloads\":201,\"tags\":[\"license:cc-by-sa-4.0\",\"size_categories:10K<n<100K\",\"format:csv\",\"modality:tabular\",\"modality:text\",\"library:datasets\",\"library:pandas\",\"library:mlcroissant\",\"library:polars\",\"region:us\"],\"createdAt\":\"2022-03-02T23:29:22.000Z\",\"key\":\"\"},{\"_id\":\"68db0ada6359ae9196aa5066\",\"id\":\"cipher982/wine-images-126k\",\"author\":\"cipher982\",\"disabled\":false,\"gated\":false,\"lastModified\":\"2026-01-21T22:05:09.000Z\",\"likes\":1,\"private\":false,\"sha\":\"b5c88ef02b82d770106d469ff59c93c12fb5e51a\",\"description\":\"\\n\\t\\n\\t\\t\\n\\t\\tWine
+        Images Dataset 126K\\n\\t\\n\\nA comprehensive dataset of 107,821 wine bottle
+        images linked to the Wine Text Dataset 126K. This companion dataset provides
+        high-quality wine bottle images for computer vision, multimodal machine learning,
+        and wine recognition tasks.\\n\\n\\t\\n\\t\\t\\n\\t\\tDataset Description\\n\\t\\n\\nThis
+        dataset contains wine bottle images scraped from wine retailer websites. Each
+        image is linked to detailed wine information (descriptions, pricing, categories,
+        regions) via stable IDs that\u2026 See the full description on the dataset
+        page: https://huggingface.co/datasets/cipher982/wine-images-126k.\",\"downloads\":189,\"tags\":[\"task_categories:image-classification\",\"task_categories:feature-extraction\",\"task_categories:image-to-text\",\"language:en\",\"license:cc-by-4.0\",\"size_categories:100K<n<1M\",\"format:parquet\",\"format:optimized-parquet\",\"modality:image\",\"modality:text\",\"library:datasets\",\"library:dask\",\"library:polars\",\"library:mlcroissant\",\"region:us\",\"wine\",\"food-and-drink\",\"image-classification\",\"computer-vision\",\"multimodal\"],\"createdAt\":\"2025-09-29T22:40:26.000Z\",\"key\":\"\"},{\"_id\":\"696fe3c03b1fe1d6aa7ae8ca\",\"id\":\"LibreYOLO/wine-labels\",\"author\":\"LibreYOLO\",\"disabled\":false,\"gated\":false,\"lastModified\":\"2026-01-20T20:23:17.000Z\",\"likes\":0,\"private\":false,\"sha\":\"77a7668f4b7d17eb1ddf9c7e18735a8b59c88b1e\",\"description\":\"\\n\\t\\n\\t\\t\\n\\t\\tWine
+        Labels\\n\\t\\n\\nThis dataset is part of the Roboflow 100 benchmark, a diverse
+        collection of 100 object detection datasets spanning 7 imagery domains.\\n\\n\\t\\n\\t\\t\\n\\t\\tDataset
+        Statistics\\n\\t\\n\\n\\n\\t\\n\\t\\t\\nSplit\\nImages\\n\\n\\n\\t\\t\\nTrain\\n3,172\\n\\n\\nValidation\\n841\\n\\n\\nTest\\n630\\n\\n\\nTotal\\n4,643\\n\\n\\n\\t\\n\\n\\n\\t\\n\\t\\t\\n\\t\\tClasses
+        (12)\\n\\t\\n\\n\\nAlcoholPercentage\\nAppellation AOC DOC AVARegion\\nAppellation
+        QualityLevel\\nCountryCountry\\nDistinct Logo\\nEstablished YearYear\\nMaker-Name\\nOrganic\\nSustainable\\nSweetness-Brut-SecSweetness-Brut-Sec\\nTypeWine\u2026
+        See the full description on the dataset page: https://huggingface.co/datasets/LibreYOLO/wine-labels.\",\"downloads\":183,\"tags\":[\"task_categories:object-detection\",\"license:cc-by-4.0\",\"size_categories:1K<n<10K\",\"arxiv:2211.13523\",\"region:us\",\"roboflow\",\"roboflow-100\",\"rf100\",\"yolo\",\"libreyolo\",\"real-world\",\"computer-vision\",\"bounding-box\"],\"createdAt\":\"2026-01-20T20:21:20.000Z\",\"key\":\"\"},{\"_id\":\"6a8d97e9d9eb07653d696e89\",\"id\":\"fitz0401/franka_pour_wine_lillet_water\",\"author\":\"fitz0401\",\"disabled\":false,\"gated\":false,\"lastModified\":\"2026-08-25T13:51:56.000Z\",\"likes\":0,\"private\":false,\"sha\":\"21df793aecfe5d14a71f83f2628f20462012462b\",\"description\":\"This
+        dataset was created using LeRobot.\\n\\n\\t\\n\\t\\t\\n\\t\\n\\t\\n\\t\\tDataset
+        Structure\\n\\t\\n\\nmeta/info.json:\\n{\\n    \\\"codebase_version\\\": \\\"v2.1\\\",\\n
+        \   \\\"robot_type\\\": \\\"fr3\\\",\\n    \\\"total_episodes\\\": 32,\\n
+        \   \\\"total_frames\\\": 36670,\\n    \\\"total_tasks\\\": 1,\\n    \\\"total_videos\\\":
+        0,\\n    \\\"total_chunks\\\": 1,\\n    \\\"chunks_size\\\": 1000,\\n    \\\"fps\\\":
+        15,\\n    \\\"splits\\\": {\\n        \\\"train\\\": \\\"0:32\\\"\\n    },\\n
+        \   \\\"data_path\\\": \\\"data/chunk-{episode_chunk:03d}/episode_{episode_index:06d}.parquet\\\",\\n
+        \   \\\"video_path\\\":\u2026 See the full description on the dataset page:
+        https://huggingface.co/datasets/fitz0401/franka_pour_wine_lillet_water.\",\"downloads\":171,\"tags\":[\"task_categories:robotics\",\"license:apache-2.0\",\"size_categories:10K<n<100K\",\"format:parquet\",\"modality:image\",\"modality:timeseries\",\"library:datasets\",\"library:dask\",\"library:polars\",\"library:mlcroissant\",\"library:lerobot\",\"region:us\",\"LeRobot\",\"droid\",\"fr3\",\"pi05\",\"lerobot\"],\"createdAt\":\"2026-08-25T13:26:01.000Z\",\"key\":\"\"},{\"_id\":\"6899720d8438f7a94de2a429\",\"id\":\"DorayakiLin/stack_wine_1000_25_08_09_lerobotv21\",\"author\":\"DorayakiLin\",\"disabled\":false,\"gated\":false,\"lastModified\":\"2025-08-11T04:51:38.000Z\",\"likes\":0,\"private\":false,\"sha\":\"26e0b1c8edd30ab409d84c3442473504646fb08c\",\"downloads\":164,\"tags\":[\"size_categories:100K<n<1M\",\"format:parquet\",\"modality:tabular\",\"modality:video\",\"library:datasets\",\"library:dask\",\"library:mlcroissant\",\"library:polars\",\"region:us\"],\"createdAt\":\"2025-08-11T04:31:09.000Z\",\"key\":\"\"},{\"_id\":\"6890b9a1c95f2319aeb21cff\",\"id\":\"DorayakiLin/stack_wine_25_08_03_lerobotv21\",\"author\":\"DorayakiLin\",\"disabled\":false,\"gated\":false,\"lastModified\":\"2025-08-10T01:29:21.000Z\",\"likes\":0,\"private\":false,\"sha\":\"f98f3a8d1ac805f78cdd8a3c38d62d239bfacd00\",\"downloads\":154,\"tags\":[\"size_categories:10K<n<100K\",\"format:parquet\",\"modality:tabular\",\"modality:video\",\"library:datasets\",\"library:dask\",\"library:mlcroissant\",\"library:polars\",\"region:us\"],\"createdAt\":\"2025-08-04T13:46:09.000Z\",\"key\":\"\"},{\"_id\":\"68904cfa393af5df1ab97979\",\"id\":\"DorayakiLin/stack_wine_25_08_03_parquet\",\"author\":\"DorayakiLin\",\"disabled\":false,\"gated\":false,\"lastModified\":\"2025-08-04T06:56:20.000Z\",\"likes\":0,\"private\":false,\"sha\":\"669be45b2ffbfbd7b07c917982b88baddeab265d\",\"downloads\":152,\"tags\":[\"size_categories:10K<n<100K\",\"format:parquet\",\"modality:text\",\"library:datasets\",\"library:dask\",\"library:mlcroissant\",\"library:polars\",\"region:us\"],\"createdAt\":\"2025-08-04T06:02:34.000Z\",\"key\":\"\"},{\"_id\":\"641ceece51f02a7216925777\",\"id\":\"mstz/wine\",\"author\":\"mstz\",\"disabled\":false,\"gated\":false,\"lastModified\":\"2025-10-08T09:43:42.000Z\",\"likes\":3,\"private\":false,\"sha\":\"2042c73ed074afafc54264ba6ef0ad0450fa1e04\",\"description\":\"\\n\\t\\n\\t\\t\\n\\t\\tWine\\n\\t\\n\\nThe
+        Wine dataset from Kaggle.\\nClassify wine as red or white.\\n\\n\\t\\n\\t\\t\\n\\t\\tConfigurations
+        and tasks\\n\\t\\n\\n\\n\\t\\n\\t\\t\\nConfiguration\\nTask\\nDescription\\n\\n\\n\\t\\t\\nwine\\nBinary
+        classification\\nIs this red wine?\\n\\n\\n\\t\\n\\n\\n\\t\\n\\t\\t\\n\\t\\tUsage\\n\\t\\n\\nfrom
+        datasets import load_dataset\\n\\ndataset = load_dataset(\\\"mstz/wine\\\")[\\\"train\\\"]\\n\\n\",\"downloads\":133,\"tags\":[\"task_categories:tabular-classification\",\"language:en\",\"license:cc\",\"size_categories:1K<n<10K\",\"format:csv\",\"modality:tabular\",\"library:datasets\",\"library:pandas\",\"library:mlcroissant\",\"library:polars\",\"region:us\",\"tabular_classification\",\"binary_classification\",\"multiclass_classification\"],\"createdAt\":\"2023-03-24T00:29:02.000Z\",\"key\":\"\"},{\"_id\":\"68cfeadbac97775b61a1a9db\",\"id\":\"christopher/winesensed\",\"author\":\"christopher\",\"disabled\":false,\"gated\":false,\"lastModified\":\"2025-09-22T09:50:27.000Z\",\"likes\":0,\"private\":false,\"sha\":\"b6d1f4d0ed58184e2f3787a1720de2a207860681\",\"description\":\"README
+        will be populated soon. https://thoranna.github.io/learning_to_taste\\n@inproceedings{bender:2023:learning-to-taste-multimodal-wine-dataset,\\n
+        \ author       = {Thoranna Bender and\\n                  Simon M{\\\\o}e
+        S{\\\\o}rensen and\\n                  Alireza Kashani and\\n                  Kristjan
+        Eldjarn Hjorleifsson and\\n                  Grethe Hyldig and\\n                  S{\\\\o}ren
+        Hauberg and\\n                  Serge J. Belongie and\\n                  Frederik
+        Warburg},\\n  editor       = {Alice\u2026 See the full description on the
+        dataset page: https://huggingface.co/datasets/christopher/winesensed.\",\"downloads\":132,\"tags\":[\"license:cc-by-nc-nd-4.0\",\"size_categories:1M<n<10M\",\"format:parquet\",\"format:optimized-parquet\",\"modality:image\",\"modality:tabular\",\"modality:text\",\"library:datasets\",\"library:dask\",\"library:polars\",\"library:mlcroissant\",\"region:us\",\"wine\"],\"createdAt\":\"2025-09-21T12:08:59.000Z\",\"key\":\"\"},{\"_id\":\"6a77addddf78dde12646ec20\",\"id\":\"iantc104/hsl_leap_grasp_wineglass_rrt_filtered_v1\",\"author\":\"iantc104\",\"disabled\":false,\"gated\":false,\"lastModified\":\"2026-08-09T01:23:26.000Z\",\"likes\":0,\"private\":false,\"sha\":\"c15400b329da5567f5987aedf62c77130dc0ce47\",\"downloads\":127,\"tags\":[\"size_categories:100K<n<1M\",\"format:parquet\",\"format:optimized-parquet\",\"modality:timeseries\",\"library:datasets\",\"library:pandas\",\"library:polars\",\"library:mlcroissant\",\"region:us\"],\"createdAt\":\"2026-08-08T22:29:49.000Z\",\"key\":\"\"},{\"_id\":\"696ba445ca5779cca92f3802\",\"id\":\"WWZzz/rlbench_open_wine_bottle\",\"author\":\"WWZzz\",\"disabled\":false,\"gated\":false,\"lastModified\":\"2026-01-17T15:05:57.000Z\",\"likes\":0,\"private\":false,\"sha\":\"b2647fdec3cd101ce7412b5deaeb7e97bbe7bc07\",\"downloads\":115,\"tags\":[\"size_categories:1K<n<10K\",\"format:parquet\",\"modality:image\",\"modality:timeseries\",\"library:datasets\",\"library:dask\",\"library:polars\",\"library:mlcroissant\",\"region:us\"],\"createdAt\":\"2026-01-17T15:01:25.000Z\",\"key\":\"\"},{\"_id\":\"663d8ca275dc22df1e6e7c61\",\"id\":\"cadene/aloha_mobile_wipe_wine_raw\",\"author\":\"cadene\",\"disabled\":false,\"gated\":false,\"lastModified\":\"2024-05-10T03:20:43.000Z\",\"likes\":0,\"private\":false,\"sha\":\"e84416a4861f05e6abb017eaf5625cd59f90a6d4\",\"downloads\":112,\"tags\":[\"size_categories:n<1K\",\"format:imagefolder\",\"modality:image\",\"modality:video\",\"library:datasets\",\"library:mlcroissant\",\"region:us\"],\"createdAt\":\"2024-05-10T02:55:30.000Z\",\"key\":\"\"}]"
+    headers:
+      access-control-allow-origin:
+      - https://huggingface.co
+      access-control-expose-headers:
+      - X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash
+      access-control-max-age:
+      - '86400'
+      alt-svc:
+      - h3=":443"; ma=86400
+      connection:
+      - keep-alive
+      content-length:
+      - '14844'
+      content-type:
+      - application/json; charset=utf-8
+      cross-origin-opener-policy:
+      - same-origin
+      date:
+      - Fri, 04 Sep 2026 03:53:12 GMT
+      etag:
+      - W/"39fc-gX1LNf7w4Qr6AuM3atkBFkbSDsA"
+      link:
+      - <https://huggingface.co/api/datasets?search=wine&limit=20&sort=downloads&direction=-1&cursor=eyIkb3IiOlt7ImRvd25sb2FkcyI6MTEyLCJfaWQiOnsiJGd0IjoiNjYzZDhjYTI3NWRjMjJkZjFlNmU3YzYxIn19LHsiZG93bmxvYWRzIjp7IiRsdCI6MTEyfX0seyJkb3dubG9hZHMiOm51bGx9XX0%3D>;
+        rel="next"
+      ratelimit:
+      - '"api";r=486;t=36'
+      ratelimit-policy:
+      - '"fixed window";"api";q=500;w=300'
+      referrer-policy:
+      - strict-origin-when-cross-origin
+      server-timing:
+      - mongo1-0;dur=3.4437079951167107
+      strict-transport-security:
+      - max-age=31536000
+      transfer-encoding:
+      - chunked
+      vary:
+      - Origin
+      - Accept-Encoding
+      via:
+      - 1.1 a77d03a5ac5c10371179d15c7ac8ad24.cloudfront.net (CloudFront)
+      x-amz-cf-id:
+      - 0OEcqAEPkmSLjtrdxtu5Y2Z1MY5BDG-MabM-DYOgt105r2MlD1QgtQ==
+      x-amz-cf-pop:
+      - MCI50-P1
+      x-cache:
+      - Miss from cloudfront
+      x-powered-by:
+      - huggingface-moon
+      x-request-id:
+      - Root=1-6a9a40a8-224dfa4d79bc905b6179e715
     status:
       code: 200
       message: OK

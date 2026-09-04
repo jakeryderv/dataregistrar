@@ -2,7 +2,7 @@
 
 Provider-agnostic catalog and access layer for public data. One interface to discover, evaluate, retrieve, and load data from many sources, with licensing, provenance, and source metadata preserved and inspectable.
 
-**Status: pre-alpha.** One adapter (UCI), a licensing policy engine, a verified overlay layer, and checksum-verified retrieval into pandas, Arrow, or NumPy. See [docs/vision.md](docs/vision.md) for where this is going.
+**Status: pre-alpha.** Two adapters (UCI and Hugging Face), a licensing policy engine, a verified overlay layer, and checksum-verified retrieval into pandas, Arrow, or NumPy. See [docs/vision.md](docs/vision.md) for where this is going.
 
 ## Install
 
@@ -36,7 +36,9 @@ print(wine.attribution)
 
 Retrieval is source-native: files come from the provider, land in your user cache, and are verified against the checksum an overlay recorded. Nothing is mirrored.
 
-Rights that a source does not state are `unknown`, and unknown never satisfies a policy. A record only becomes `verified` through an overlay a person wrote with evidence. UCI's API, for example, exposes no license at all; the shipped overlay for Wine Quality is what makes it pass `--policy commercial`.
+Rights that a source does not state are `unknown`, and unknown never satisfies a policy. Rights a source does declare, like a Hugging Face license tag, are derived at `imported` confidence. A record only becomes `verified` through an overlay a person wrote with evidence. UCI's API, for example, exposes no license at all; the shipped overlay for Wine Quality is what makes it pass `--policy commercial`. Use `--min-status verified` when self-declared tags are not enough.
+
+Gated Hugging Face datasets import as `restricted` and are not downloaded without `HF_TOKEN` set.
 
 ## Develop
 

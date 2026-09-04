@@ -2,6 +2,7 @@ from pathlib import Path
 
 import pytest
 
+from dataregistrar.adapters.huggingface import HuggingFaceAdapter
 from dataregistrar.adapters.uci import UCIAdapter
 from dataregistrar.registry import Layer, Registry
 from dataregistrar.registry.layers import builtin_layer
@@ -22,7 +23,9 @@ def vcr_config() -> dict[str, object]:
 @pytest.fixture
 def builtin_registry() -> Registry:
     """Built-in layer only, so tests are not affected by user or project layers."""
-    return Registry([builtin_layer()], factories={"uci": UCIAdapter})
+    return Registry(
+        [builtin_layer()], factories={"uci": UCIAdapter, "huggingface": HuggingFaceAdapter}
+    )
 
 
 @pytest.fixture

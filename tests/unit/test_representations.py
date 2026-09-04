@@ -7,13 +7,16 @@ from dataregistrar.model import AccessPlan, Kind, License, PlannedFile, Record, 
 from dataregistrar.representations import LocalDataset
 
 CSV = "x,y,label\n1,2.5,red\n3,4.5,white\n"
+SEMICOLON = "x;y;label\n1;2.5;red\n3;4.5;white\n"
 
 
-def _local(tmp_path: Path, names: list[str], **record_fields: object) -> LocalDataset:
+def _local(
+    tmp_path: Path, names: list[str], text: str = CSV, **record_fields: object
+) -> LocalDataset:
     paths: list[Path] = []
     for name in names:
         path = tmp_path / name
-        path.write_text(CSV)
+        path.write_text(text)
         paths.append(path)
     record = Record.model_validate(
         {"id": "x:1", "kind": Kind.DATASET, "source": "x", "name": "n", **record_fields}
@@ -35,11 +38,18 @@ def test_pandas_arrow_numpy_agree_on_shape(tmp_path: Path) -> None:
     assert local.as_numpy().shape == (2, 3)
 
 
+def test_semicolon_csv_is_not_read_as_one_column(tmp_path: Path) -> None:
+    local = _local(tmp_path, ["d.csv"], text=SEMICOLON)
+    assert local.as_pandas().shape == (2, 3)
+    assert local.as_arrow().num_columns == 3
+
+
 def test_several_tabular_files_require_a_filename(tmp_path: Path) -> None:
     local = _local(tmp_path, ["a.csv", "b.csv"])
     with pytest.raises(ValueError, match="several tabular files"):
         local.as_pandas()
     assert local.as_pandas(filename="b.csv").shape == (2, 3)
+    assert local.as_pandas(filename=str(tmp_path.name) + "/b.csv").shape == (2, 3)
     with pytest.raises(FileNotFoundError):
         local.as_pandas(filename="zzz.csv")
 

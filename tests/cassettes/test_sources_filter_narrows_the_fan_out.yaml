@@ -9,39 +9,6 @@ interactions:
       connection:
       - keep-alive
       host:
-      - archive.ics.uci.edu
-      user-agent:
-      - python-httpx/0.28.1
-    method: GET
-    uri: https://archive.ics.uci.edu/api/datasets/list?search=wine
-  response:
-    body:
-      string: '{"status":200,"statusText":"OK","data":[{"id":109,"name":"Wine"},{"id":186,"name":"Wine
-        Quality"}]}'
-    headers:
-      connection:
-      - keep-alive
-      content-type:
-      - text/plain;charset=UTF-8
-      date:
-      - Fri, 04 Sep 2026 03:53:13 GMT
-      server:
-      - nginx/1.31.4
-      transfer-encoding:
-      - chunked
-    status:
-      code: 200
-      message: OK
-- request:
-    body: ''
-    headers:
-      accept:
-      - '*/*'
-      accept-encoding:
-      - gzip, deflate
-      connection:
-      - keep-alive
-      host:
       - huggingface.co
       user-agent:
       - python-httpx/0.28.1
@@ -120,20 +87,20 @@ interactions:
       cross-origin-opener-policy:
       - same-origin
       date:
-      - Fri, 04 Sep 2026 03:53:13 GMT
+      - Fri, 04 Sep 2026 03:53:10 GMT
       etag:
       - W/"39fc-gX1LNf7w4Qr6AuM3atkBFkbSDsA"
       link:
       - <https://huggingface.co/api/datasets?search=wine&limit=20&sort=downloads&direction=-1&cursor=eyIkb3IiOlt7ImRvd25sb2FkcyI6MTEyLCJfaWQiOnsiJGd0IjoiNjYzZDhjYTI3NWRjMjJkZjFlNmU3YzYxIn19LHsiZG93bmxvYWRzIjp7IiRsdCI6MTEyfX0seyJkb3dubG9hZHMiOm51bGx9XX0%3D>;
         rel="next"
       ratelimit:
-      - '"api";r=485;t=35'
+      - '"api";r=489;t=38'
       ratelimit-policy:
       - '"fixed window";"api";q=500;w=300'
       referrer-policy:
       - strict-origin-when-cross-origin
       server-timing:
-      - mongo1-0;dur=3.2643470019102097
+      - mongo1-0;dur=4.5523200035095215
       strict-transport-security:
       - max-age=31536000
       transfer-encoding:
@@ -142,9 +109,9 @@ interactions:
       - Origin
       - Accept-Encoding
       via:
-      - 1.1 8812178a174bf0625299e1bd0e9ac280.cloudfront.net (CloudFront)
+      - 1.1 1e7f02f0b292bb186451d56bbc482d9c.cloudfront.net (CloudFront)
       x-amz-cf-id:
-      - SJE8EQhI7Y49XtBROhvsWY-LgToZWbbmKBMvGqsD8ST1Ag9vge7yrg==
+      - PZmsXCzC1GGbfPat6L11sU5tE32H8Q0DlkSeBXKNhqKha1Ky4zed4A==
       x-amz-cf-pop:
       - MCI50-P1
       x-cache:
@@ -152,119 +119,7 @@ interactions:
       x-powered-by:
       - huggingface-moon
       x-request-id:
-      - Root=1-6a9a40a9-6dadb0ad0fdcd64d55c2d9e2
-    status:
-      code: 200
-      message: OK
-- request:
-    body: ''
-    headers:
-      accept:
-      - '*/*'
-      accept-encoding:
-      - gzip, deflate
-      connection:
-      - keep-alive
-      host:
-      - archive.ics.uci.edu
-      user-agent:
-      - python-httpx/0.28.1
-    method: GET
-    uri: https://archive.ics.uci.edu/api/dataset?id=186
-  response:
-    body:
-      string: '{"status":200,"statusText":"OK","data":{"uci_id":186,"name":"Wine Quality","repository_url":"https://archive.ics.uci.edu/dataset/186/wine+quality","data_url":"https://archive.ics.uci.edu/static/public/186/data.csv","abstract":"Two
-        datasets are included, related to red and white vinho verde wine samples,
-        from the north of Portugal. The goal is to model wine quality based on physicochemical
-        tests (see [Cortez et al., 2009], http://www3.dsi.uminho.pt/pcortez/wine/).","area":"Business","tasks":["Classification","Regression"],"characteristics":["Multivariate"],"num_instances":4898,"num_features":11,"feature_types":["Real"],"demographics":[],"target_col":["quality"],"index_col":null,"has_missing_values":"no","missing_values_symbol":null,"year_of_dataset_creation":2009,"last_updated":"Wed
-        Nov 15 2023","dataset_doi":"10.24432/C56S3T","creators":["Paulo Cortez","A.
-        Cerdeira","F. Almeida","T. Matos","J. Reis"],"intro_paper":{"ID":252,"type":"NATIVE","title":"Modeling
-        wine preferences by data mining from physicochemical properties","authors":"P.
-        Cortez, A. Cerdeira, Fernando Almeida, Telmo Matos, J. Reis","venue":"Decision
-        Support Systems","year":2009,"journal":null,"DOI":null,"URL":"https://www.semanticscholar.org/paper/Modeling-wine-preferences-by-data-mining-from-Cortez-Cerdeira/bf15a0ccc14ac1deb5cea570c870389c16be019c","sha":null,"corpus":null,"arxiv":null,"mag":null,"acl":null,"pmid":null,"pmcid":null},"variables":[{"name":"fixed_acidity","role":"Feature","type":"Continuous","demographic":null,"description":null,"units":null,"missing_values":"no"},{"name":"volatile_acidity","role":"Feature","type":"Continuous","demographic":null,"description":null,"units":null,"missing_values":"no"},{"name":"citric_acid","role":"Feature","type":"Continuous","demographic":null,"description":null,"units":null,"missing_values":"no"},{"name":"residual_sugar","role":"Feature","type":"Continuous","demographic":null,"description":null,"units":null,"missing_values":"no"},{"name":"chlorides","role":"Feature","type":"Continuous","demographic":null,"description":null,"units":null,"missing_values":"no"},{"name":"free_sulfur_dioxide","role":"Feature","type":"Continuous","demographic":null,"description":null,"units":null,"missing_values":"no"},{"name":"total_sulfur_dioxide","role":"Feature","type":"Continuous","demographic":null,"description":null,"units":null,"missing_values":"no"},{"name":"density","role":"Feature","type":"Continuous","demographic":null,"description":null,"units":null,"missing_values":"no"},{"name":"pH","role":"Feature","type":"Continuous","demographic":null,"description":null,"units":null,"missing_values":"no"},{"name":"sulphates","role":"Feature","type":"Continuous","demographic":null,"description":null,"units":null,"missing_values":"no"},{"name":"alcohol","role":"Feature","type":"Continuous","demographic":null,"description":null,"units":null,"missing_values":"no"},{"name":"quality","role":"Target","type":"Integer","demographic":null,"description":"score
-        between 0 and 10","units":null,"missing_values":"no"},{"name":"color","role":"Other","type":"Categorical","demographic":null,"description":"red
-        or white","units":null,"missing_values":"no"}],"additional_info":{"summary":"The
-        two datasets are related to red and white variants of the Portuguese \"Vinho
-        Verde\" wine. For more details, consult: http://www.vinhoverde.pt/en/ or the
-        reference [Cortez et al., 2009].  Due to privacy and logistic issues, only
-        physicochemical (inputs) and sensory (the output) variables are available
-        (e.g. there is no data about grape types, wine brand, wine selling price,
-        etc.).\n\nThese datasets can be viewed as classification or regression tasks.  The
-        classes are ordered and not balanced (e.g. there are many more normal wines
-        than excellent or poor ones). Outlier detection algorithms could be used to
-        detect the few excellent or poor wines. Also, we are not sure if all input
-        variables are relevant. So it could be interesting to test feature selection
-        methods.\n","purpose":null,"funded_by":null,"instances_represent":null,"recommended_data_splits":null,"sensitive_data":null,"preprocessing_description":null,"variable_info":"For
-        more information, read [Cortez et al., 2009].\r\nInput variables (based on
-        physicochemical tests):\r\n   1 - fixed acidity\r\n   2 - volatile acidity\r\n   3
-        - citric acid\r\n   4 - residual sugar\r\n   5 - chlorides\r\n   6 - free
-        sulfur dioxide\r\n   7 - total sulfur dioxide\r\n   8 - density\r\n   9 -
-        pH\r\n   10 - sulphates\r\n   11 - alcohol\r\nOutput variable (based on sensory
-        data): \r\n   12 - quality (score between 0 and 10)","citation":null}}}'
-    headers:
-      connection:
-      - keep-alive
-      content-type:
-      - text/plain;charset=UTF-8
-      date:
-      - Fri, 04 Sep 2026 03:53:13 GMT
-      server:
-      - nginx/1.31.4
-      transfer-encoding:
-      - chunked
-    status:
-      code: 200
-      message: OK
-- request:
-    body: ''
-    headers:
-      accept:
-      - '*/*'
-      accept-encoding:
-      - gzip, deflate
-      connection:
-      - keep-alive
-      host:
-      - archive.ics.uci.edu
-      user-agent:
-      - python-httpx/0.28.1
-    method: GET
-    uri: https://archive.ics.uci.edu/api/dataset?id=109
-  response:
-    body:
-      string: '{"status":200,"statusText":"OK","data":{"uci_id":109,"name":"Wine","repository_url":"https://archive.ics.uci.edu/dataset/109/wine","data_url":"https://archive.ics.uci.edu/static/public/109/data.csv","abstract":"Using
-        chemical analysis to determine the origin of wines","area":"Physics and Chemistry","tasks":["Classification"],"characteristics":["Tabular"],"num_instances":178,"num_features":13,"feature_types":["Integer","Real"],"demographics":[],"target_col":["class"],"index_col":null,"has_missing_values":"no","missing_values_symbol":null,"year_of_dataset_creation":1992,"last_updated":"Mon
-        Aug 28 2023","dataset_doi":"10.24432/C5PC7J","creators":["Stefan Aeberhard","M.
-        Forina"],"intro_paper":{"ID":246,"type":"NATIVE","title":"Comparative analysis
-        of statistical pattern recognition methods in high dimensional settings","authors":"S.
-        Aeberhard, D. Coomans, O. Vel","venue":"Pattern Recognition","year":1994,"journal":null,"DOI":"10.1016/0031-3203(94)90145-7","URL":"https://www.semanticscholar.org/paper/83dc3e4030d7b9fbdbb4bde03ce12ab70ca10528","sha":null,"corpus":null,"arxiv":null,"mag":null,"acl":null,"pmid":null,"pmcid":null},"variables":[{"name":"class","role":"Target","type":"Categorical","demographic":null,"description":null,"units":null,"missing_values":"no"},{"name":"Alcohol","role":"Feature","type":"Continuous","demographic":null,"description":null,"units":null,"missing_values":"no"},{"name":"Malicacid","role":"Feature","type":"Continuous","demographic":null,"description":null,"units":null,"missing_values":"no"},{"name":"Ash","role":"Feature","type":"Continuous","demographic":null,"description":null,"units":null,"missing_values":"no"},{"name":"Alcalinity_of_ash","role":"Feature","type":"Continuous","demographic":null,"description":null,"units":null,"missing_values":"no"},{"name":"Magnesium","role":"Feature","type":"Integer","demographic":null,"description":null,"units":null,"missing_values":"no"},{"name":"Total_phenols","role":"Feature","type":"Continuous","demographic":null,"description":null,"units":null,"missing_values":"no"},{"name":"Flavanoids","role":"Feature","type":"Continuous","demographic":null,"description":null,"units":null,"missing_values":"no"},{"name":"Nonflavanoid_phenols","role":"Feature","type":"Continuous","demographic":null,"description":null,"units":null,"missing_values":"no"},{"name":"Proanthocyanins","role":"Feature","type":"Continuous","demographic":null,"description":null,"units":null,"missing_values":"no"},{"name":"Color_intensity","role":"Feature","type":"Continuous","demographic":null,"description":null,"units":null,"missing_values":"no"},{"name":"Hue","role":"Feature","type":"Continuous","demographic":null,"description":null,"units":null,"missing_values":"no"},{"name":"0D280_0D315_of_diluted_wines","role":"Feature","type":"Continuous","demographic":null,"description":null,"units":null,"missing_values":"no"},{"name":"Proline","role":"Feature","type":"Integer","demographic":null,"description":null,"units":null,"missing_values":"no"}],"additional_info":{"summary":"These
-        data are the results of a chemical analysis of wines grown in the same region
-        in Italy but derived from three different cultivars. The analysis determined
-        the quantities of 13 constituents found in each of the three types of wines.
-        \r\n\r\nI think that the initial data set had around 30 variables, but for
-        some reason I only have the 13 dimensional version. I had a list of what the
-        30 or so variables were, but a.)  I lost it, and b.), I would not know which
-        13 variables are included in the set.\r\n\r\nThe attributes are (dontated
-        by Riccardo Leardi, riclea@anchem.unige.it )\r\n1) Alcohol\r\n2) Malic acid\r\n3)
-        Ash\r\n4) Alcalinity of ash  \r\n5) Magnesium\r\n6) Total phenols\r\n7) Flavanoids\r\n8)
-        Nonflavanoid phenols\r\n9) Proanthocyanins\r\n10)Color intensity\r\n11)Hue\r\n12)OD280/OD315
-        of diluted wines\r\n13)Proline \r\n\r\nIn a classification context, this is
-        a well posed problem with \"well behaved\" class structures. A good data set
-        for first testing of a new classifier, but not very challenging.           ","purpose":"test","funded_by":null,"instances_represent":null,"recommended_data_splits":null,"sensitive_data":null,"preprocessing_description":null,"variable_info":"All
-        attributes are continuous\r\n\t\r\nNo statistics available, but suggest to
-        standardise variables for certain uses (e.g. for us with classifiers which
-        are NOT scale invariant)\r\n\r\nNOTE: 1st attribute is class identifier (1-3)","citation":null}}}'
-    headers:
-      connection:
-      - keep-alive
-      content-type:
-      - text/plain;charset=UTF-8
-      date:
-      - Fri, 04 Sep 2026 03:53:13 GMT
-      server:
-      - nginx/1.31.4
-      transfer-encoding:
-      - chunked
+      - Root=1-6a9a40a6-612bf355752fecf36cfcc92d
     status:
       code: 200
       message: OK

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import csv as _csv
 from dataclasses import dataclass
 from pathlib import Path
 from typing import TYPE_CHECKING
@@ -13,7 +14,18 @@ if TYPE_CHECKING:
     import pandas as pd
     import pyarrow as pa
 
-TABULAR_SUFFIXES = {".csv"}
+TABULAR_SUFFIXES = {".csv", ".parquet"}
+SNIFF_BYTES = 8192
+
+
+def sniff_delimiter(path: Path) -> str:
+    """Detect the delimiter from the file head. Providers ship ';' and '\t' as '.csv' routinely."""
+    with path.open("r", encoding="utf-8", errors="replace", newline="") as handle:
+        sample = handle.read(SNIFF_BYTES)
+    try:
+        return _csv.Sniffer().sniff(sample, delimiters=",;\t|").delimiter
+    except _csv.Error:
+        return ","
 
 
 class MissingExtra(ImportError):
@@ -53,7 +65,7 @@ class LocalDataset:
         candidates = [p for p in self.paths if p.suffix.lower() in TABULAR_SUFFIXES]
         if filename is not None:
             for path in candidates:
-                if path.name == filename:
+                if path.name == filename or path.as_posix().endswith("/" + filename):
                     return path
             raise FileNotFoundError(f"{filename!r} is not a tabular file of {self.record.id}")
         if not candidates:
@@ -70,14 +82,25 @@ class LocalDataset:
             import pandas as pd
         except ImportError:
             raise MissingExtra("pandas", "pandas") from None
-        return pd.read_csv(self._tabular_file(filename))
+        path = self._tabular_file(filename)
+        if path.suffix.lower() == ".parquet":
+            try:
+                return pd.read_parquet(path)
+            except ImportError:
+                raise MissingExtra("pyarrow", "arrow") from None
+        return pd.read_csv(path, sep=sniff_delimiter(path))
 
     def as_arrow(self, filename: str | None = None) -> pa.Table:
         try:
-            from pyarrow import csv
+            from pyarrow import csv, parquet
         except ImportError:
             raise MissingExtra("pyarrow", "arrow") from None
-        return csv.read_csv(str(self._tabular_file(filename)))
+        path = self._tabular_file(filename)
+        if path.suffix.lower() == ".parquet":
+            return parquet.read_table(str(path))  # pyright: ignore[reportUnknownMemberType]
+        return csv.read_csv(
+            str(path), parse_options=csv.ParseOptions(delimiter=sniff_delimiter(path))
+        )
 
     def as_numpy(
         self, filename: str | None = None

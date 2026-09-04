@@ -55,6 +55,13 @@ licenses:
     model_training: unknown
     attribution_required: true
     share_alike: false
+  CC-BY-NC-ND-4.0:
+    commercial_use: false
+    redistribution: true
+    derivatives: false
+    model_training: unknown
+    attribution_required: true
+    share_alike: false
   ODC-By-1.0:
     commercial_use: true
     redistribution: true

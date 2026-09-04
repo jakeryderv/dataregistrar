@@ -11,6 +11,10 @@ from dataregistrar.model import AccessPlan, Kind, Record
 ENTRY_POINT_GROUP = "dataregistrar.adapters"
 
 
+class AccessRequired(Exception):
+    """The source will not hand over the bytes without credentials or approval."""
+
+
 @runtime_checkable
 class Adapter(Protocol):
     """One source. Returns normalized records and plans, never raw provider shapes."""
@@ -43,4 +47,4 @@ def discover_adapters() -> dict[str, AdapterFactory]:
     return found
 
 
-__all__ = ["ENTRY_POINT_GROUP", "Adapter", "AdapterFactory", "discover_adapters"]
+__all__ = ["ENTRY_POINT_GROUP", "AccessRequired", "Adapter", "AdapterFactory", "discover_adapters"]

@@ -76,6 +76,15 @@ class Rights(BaseModel):
         return getattr(self, right)
 
 
+class Access(BaseModel):
+    """What standing between a user and the bytes. Gated means the source must approve."""
+
+    model_config = ConfigDict(frozen=True, extra="forbid")
+
+    authentication: bool = False
+    gated: bool = False
+
+
 class Record(BaseModel):
     """Common core of every record. Kind-specific access blocks are added later."""
 
@@ -92,6 +101,7 @@ class Record(BaseModel):
     canonical: str | None = None
     license: License = Field(default_factory=License)
     rights: Rights = Field(default_factory=Rights)
+    access: Access = Field(default_factory=Access)
     modality: str | None = None
     tasks: list[str] = Field(default_factory=list)
     status: Status = Status.IMPORTED

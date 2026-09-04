@@ -4,6 +4,7 @@ from dataregistrar.model.access import AccessPlan, PlannedFile
 from dataregistrar.model.overlay import Distribution, Overlay
 from dataregistrar.model.records import (
     RIGHT_NAMES,
+    Access,
     Confidence,
     Kind,
     License,
@@ -15,6 +16,7 @@ from dataregistrar.model.records import (
 
 __all__ = [
     "RIGHT_NAMES",
+    "Access",
     "AccessPlan",
     "Confidence",
     "Distribution",

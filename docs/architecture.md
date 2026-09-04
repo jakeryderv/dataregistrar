@@ -2,7 +2,7 @@
 
 Current state of the design. For why, see [`adr/`](adr/). For the product vision, see [`vision.md`](vision.md).
 
-**Status:** UCI adapter, overlays, policy engine, federated search, checksum-verified retrieval, and tabular representations are implemented. No response cache yet. Tooling choices are in [ADR 0002](adr/0002-tooling-and-packaging-baseline.md). Project license is Apache-2.0.
+**Status:** UCI and Hugging Face adapters, overlays, policy engine, federated search, checksum-verified retrieval, and CSV/parquet representations are implemented. No response cache yet. Tooling choices are in [ADR 0002](adr/0002-tooling-and-packaging-baseline.md). Project license is Apache-2.0.
 
 ## Modules
 
@@ -46,9 +46,9 @@ dataregistrar/
 │   ├── model/
 │   ├── adapters/
 │   │   ├── __init__.py          protocol + registration
-│   │   ├── huggingface.py
-│   │   ├── uci.py
-│   │   └── release_series.py
+│   │   ├── huggingface.py       Hub HTTP API, no SDK; license tags → imported rights
+│   │   ├── uci.py               API has no license field; rights stay unknown
+│   │   └── release_series.py    (planned)
 │   ├── registry/
 │   │   ├── layers.py
 │   │   ├── sources.py
@@ -107,6 +107,6 @@ Every overlay records which layer it came from, so `verified` means verified by 
 
 ## Next steps
 
-1. Hugging Face adapter, which exercises gating and license tags.
-2. Response cache with per-source TTL.
-3. Overlay CLI: create from a record, run the verification checklist, mark verified.
+1. Response cache with per-source TTL. Two sources now fan out on every search.
+2. Overlay CLI: create from a record, run the verification checklist, mark verified.
+3. `release-series` adapter and one government source.
