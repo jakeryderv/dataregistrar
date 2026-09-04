@@ -1,0 +1,364 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - www.ncei.noaa.gov
+      user-agent:
+      - python-httpx/0.28.1
+    method: GET
+    uri: https://www.ncei.noaa.gov/access/services/search/v1/datasets?limit=20&text=storm
+  response:
+    body:
+      string: '{"formats":{"docCountError":0,"buckets":[{"docCount":1,"key":"native"},{"docCount":2,"key":"netcdf"},{"docCount":1,"key":"pub"}],"sumOfOtherDocCounts":0},"observationTypes":{"docCountError":0,"buckets":[{"docCount":1,"key":"Land
+        Surface"},{"docCount":1,"key":"Radar"}],"sumOfOtherDocCounts":0},"keywords":{"docCountError":0,"buckets":[],"sumOfOtherDocCounts":0},"endDate":"2026-09-03T00:00:00.000Z","count":4,"bounds":{"bottomRight":null,"topLeft":null},"datasets":{"docCountError":0,"buckets":[{"docCount":1,"key":"northeast-snowfall-impact-scale"},{"docCount":1,"key":"regional-snowfall-index"},{"docCount":1,"key":"storm-data-publication"},{"docCount":1,"key":"weather-radar-level-iii"}],"sumOfOtherDocCounts":0},"totalCount":100,"results":[{"featured":false,"formats":[{"name":"pub","id":"pub"}],"observationTypes":[],"keywords":["ANTICYCLONES/CYCLONES","PRESSURE
+        ANOMALIES","HAIL","PRECIPITATION AMOUNT","PRECIPITATION ANOMALIES","PRECIPITATION
+        RATE","RAIN","SLEET","SNOW","AIR TEMPERATURE","MAXIMUM/MINIMUM TEMPERATURE","SURFACE
+        TEMPERATURE","TEMPERATURE ANOMALIES","SURFACE WINDS","FREEZING RAIN","SNOW
+        WATER EQUIVALENT","SNOW","ICE PELLETS","DROUGHTS","FREEZE/FROST","LIGHTNING","TORNADOES","WIND
+        STORMS","HYDROLOGICAL HAZARDS MAPPING","METEOROLOGICAL HAZARDS MAPPING","VITAL
+        STATISTICS","HURRICANES","FLOODS"],"contactInfo":"Email ncei.info@noaa.gov151
+        Patton AvenueVeach-Baley Federal Building, Room 468AshevilleNC28801-5001ncei.orders@noaa.gov
+        Online Resource NCEI Contact InformationNOAA National Centers for Environmental
+        Information (NCEI) https://www.ncei.noaa.gov/contacthttps://www.ncei.noaa.gov","endDate":"2018-11-30","topics":["Publication"],"orderable":true,"description":"''Storm
+        Data and Unusual Weather Phenomena'' is a monthly publication containing a
+        chronological listing, by state, of hurricanes, tornadoes, thunderstorms,
+        hail, floods, drought conditions, lightning, high winds, snow, temperature
+        extremes and other weather phenomena. The reports are provided by the National
+        Weather Service and contain statistics on personal injuries and damage estimates.  You
+        may also search the NCEI Storm Events database to find various types of storms
+        recorded in your county.","people":[],"searchable":true,"frequency":"asNeeded","dataTypes":[{"dateRange":{},"searchWeight":1,"name":"Batch
+        Name","id":"BatchName"},{"dateRange":{},"searchWeight":1,"name":"Page Count","id":"PageCount"},{"dateRange":{},"searchWeight":1,"name":"Date","id":"Date"},{"dateRange":{},"searchWeight":1,"name":"Document
+        Period","id":"DocumentPeriod"}],"organization":{"name":"NOAA National Centers
+        for Environmental Information"},"name":"Storm Data Publication","parsedKeywords":["EARTH
+        SCIENCE > ATMOSPHERE > ATMOSPHERIC PRESSURE > ANTICYCLONES/CYCLONES","EARTH
+        SCIENCE > ATMOSPHERE > ATMOSPHERIC PRESSURE > PRESSURE ANOMALIES","EARTH SCIENCE
+        > ATMOSPHERE > PRECIPITATION > SOLID PRECIPITATION > HAIL","EARTH SCIENCE
+        > ATMOSPHERE > PRECIPITATION > PRECIPITATION AMOUNT","EARTH SCIENCE > ATMOSPHERE
+        > PRECIPITATION > PRECIPITATION ANOMALIES","EARTH SCIENCE > ATMOSPHERE > PRECIPITATION
+        > PRECIPITATION RATE","EARTH SCIENCE > ATMOSPHERE > PRECIPITATION > LIQUID
+        PRECIPITATION > RAIN","EARTH SCIENCE > ATMOSPHERE > PRECIPITATION > SOLID
+        PRECIPITATION > ICE PELLETS > SLEET","EARTH SCIENCE > OCEANS > PRECIPITATION
+        > SOLID PRECIPITATION > SNOW","EARTH SCIENCE > ATMOSPHERE > ATMOSPHERIC TEMPERATURE
+        > SURFACE TEMPERATURE > AIR TEMPERATURE","EARTH SCIENCE > ATMOSPHERE > ATMOSPHERIC
+        TEMPERATURE > SURFACE TEMPERATURE > MAXIMUM/MINIMUM TEMPERATURE","EARTH SCIENCE
+        > ATMOSPHERE > ATMOSPHERIC TEMPERATURE > SURFACE TEMPERATURE","EARTH SCIENCE
+        > ATMOSPHERE > ATMOSPHERIC TEMPERATURE > TEMPERATURE ANOMALIES","EARTH SCIENCE
+        > ATMOSPHERE > ATMOSPHERIC WINDS > SURFACE WINDS","EARTH SCIENCE > ATMOSPHERE
+        > PRECIPITATION > LIQUID PRECIPITATION > RAIN > FREEZING RAIN","EARTH SCIENCE
+        > CRYOSPHERE > SNOW/ICE > SNOW WATER EQUIVALENT","EARTH SCIENCE > ATMOSPHERE
+        > PRECIPITATION > SOLID PRECIPITATION > SNOW","EARTH SCIENCE > ATMOSPHERE
+        > PRECIPITATION > SOLID PRECIPITATION > ICE PELLETS","EARTH SCIENCE > ATMOSPHERE
+        > WEATHER EVENTS > DROUGHTS","EARTH SCIENCE > ATMOSPHERE > WEATHER EVENTS
+        > FREEZE/FROST","EARTH SCIENCE > ATMOSPHERE > WEATHER EVENTS > LIGHTNING","EARTH
+        SCIENCE > ATMOSPHERE > WEATHER EVENTS > TORNADOES","EARTH SCIENCE > ATMOSPHERE
+        > WEATHER EVENTS > WIND STORMS","EARTH SCIENCE > HAZARDS MANAGEMENT > HAZARD
+        MAPPING > HYDROLOGICAL HAZARDS MAPPING","EARTH SCIENCE > HAZARDS MANAGEMENT
+        > HAZARD MAPPING > METEOROLOGICAL HAZARDS MAPPING","EARTH SCIENCE > HUMAN
+        DIMENSIONS > HUMAN HEALTH > VITAL STATISTICS","EARTH SCIENCE > HUMAN DIMENSIONS
+        > NATURAL HAZARDS > TROPICAL CYCLONES > HURRICANES","EARTH SCIENCE > TERRESTRIAL
+        HYDROSPHERE > SURFACE WATER > SURFACE WATER PROCESSES/MEASUREMENTS > FLOODS"],"location":{"coordinates":[[[172.0,72.0],[172.0,18.0],[-65.0,18.0],[-65.0,72.0],[172.0,72.0]]],"type":"polygon"},"links":{"other":[{"name":"ncei
+        dataset landing page","type":"information","url":"https://www.ncei.noaa.gov/access/metadata/landing-page/bin/iso?id=gov.noaa.ncdc:C01036"},{"name":"contact
+        ncei","type":"offlineaccess","url":"https://www.ncei.noaa.gov/contact"},{"name":"storm
+        data landing page","type":"information","url":"https://data.nodc.noaa.gov/cgi-bin/iso?id=gov.noaa.ncdc:C00139"}],"access":[{"name":"ncei
+        environmental records management system","type":"search","url":"https://www.ncei.noaa.gov/nerms/Collections"},{"name":"ncei
+        dataset search - storm data publication","type":"search","url":"https://www.ncei.noaa.gov/access/search/data-search/storm-data-publication"}]},"id":"storm-data-publication","doiLink":"https://www.ncei.noaa.gov/access/metadata/landing-page/bin/iso?id=gov.noaa.ncdc:C01036","certifiable":false,"startDate":"1950-01-01","fileId":"gov.noaa.ncdc:C01036"},{"featured":false,"formats":[{"name":"native","id":"native"}],"observationTypes":[{"name":"Radar","id":"Radar"}],"keywords":["DOPPLER
+        VELOCITY","RADAR CROSS-SECTION","RADAR REFLECTIVITY","SPECTRUM WIDTH","VIEWING
+        GEOMETRY","TYPHOONS","TROPICAL CYCLONES","HURRICANES","RAIN STORMS","TORNADOS","BOUNDARY
+        LAYER WINDS","WIND SPEED","WIND DIRECTION","WIND PROFILES","VERTICAL WIND
+        VELOCITY/SPEED","WIND SHEAR","CONVECTION","CLOUD LIQUID WATER/ICE","MESOSCALE
+        CONVECTIVE COMPLEX","PRECIPITATION AMOUNT","PRECIPITATION RATE","RAIN","SNOW","HAIL","FLOODS","SEVERE
+        WEATHER"],"contactInfo":"Email ncei.info@noaa.gov Online Resource NCEI Contact
+        Information https://www.ncei.noaa.gov/contact","endDate":"2026-09-03","topics":[],"orderable":true,"description":"This
+        dataset consists of Level 3 weather radar products collected from Next-Generation
+        Radar (NEXRAD) stations located in the contiguous United States, Alaska, Hawaii,
+        U.S. territories and at military base sites. NEXRAD is a network of 160 high-resolution
+        Doppler weather radars operated by the NOAA National Weather Service (NWS),
+        the Federal Aviation Administration (FAA), and the U.S. Air Force (USAF).
+        Doppler radars detect atmospheric precipitation and winds, which allow scientists
+        to track and anticipate weather events, such as rain, ice pellets, snow, hail,
+        and tornadoes, as well as some non-weather objects like birds and insects.
+        NEXRAD stations use the Weather Surveillance Radar - 1988, Doppler (WSR-88D)
+        system. This is a 10 cm wavelength (S-Band) radar that operates at a frequency
+        between 2,700 and 3,000 MHz. The radar system operates in two basic modes:
+        a slow-scanning Clear Air Mode (Mode B) for analyzing air movements when there
+        is little or no precipitation activity in the area, and a Precipitation Mode
+        (Mode A) with a faster scan for tracking active weather. The two modes employ
+        nine Volume Coverage Patterns (VCPs) to adequately sample the atmosphere based
+        on weather conditions. A VCP is a series of 360 degree sweeps of the antenna
+        at pre-determined elevation angles and pulse repetition frequencies completed
+        in a specified period of time. The radar scan times 4.5, 5, 6 or 10 minutes
+        depending on the selected VCP. During 2008, the WSR-88D radars were upgraded
+        to produce increased spatial resolution data, called Super Resolution. The
+        earlier Legacy Resolution data provides radar reflectivity at 1.0 degree azimuthal
+        by 1 km range gate resolution to a range of 460 km, and Doppler velocity and
+        spectrum width at 1.0 degree azimuthal by 250 m range gate resolution to a
+        range of 230 km. The upgraded Super Resolution data provides radar reflectivity
+        at 0.5 degree azimuthal by 250 m range gate resolution to a range of 460 km,
+        and Doppler velocity and spectrum width at 0.5 degree azimuthal by 250 m range
+        gate resolution to a range of 300 km. Super resolution makes a compromise
+        of slightly decreased noise reduction for a large gain in resolution. In 2010,
+        the deployment of the Dual Polarization (Dual Pol) capability to NEXRAD sites
+        began with the first operational Dual Pol radar in May 2011. Dual Pol radar
+        capability adds vertical polarization to the previous horizontal radar waves,
+        in order to more accurately discern the return signal. This allows the radar
+        to better distinguish between types of precipitation (e.g., rain, hail and
+        snow), improves rainfall estimates, improves data retrieval in mountainous
+        terrain, and aids in removal of non-weather artifacts. The NEXRAD products
+        are divided in two data processing levels. The lower Level 2 data are base
+        products at original resolution. Level 2 data are recorded at all NWS and
+        most USAF and FAA WSR-88D sites. From the Level 2 quantities, computer processing
+        generates numerous meteorological analysis Level 3 products. The Level 3 data
+        consists of reduced resolution, low-bandwidth, base products as well as many
+        derived, post-processed products. Level 3 products are recorded at most U.S.
+        sites, though non-US sites do not have Level 3 products. There are over 40
+        Level 3 products available from the NCEI. General products for Level 3 include
+        the base and composite reflectivity, storm relative velocity, vertical integrated
+        liquid, echo tops and VAD wind profile. Precipitation products for Level 3
+        include estimated ground accumulated rainfall amounts for one and three hour
+        periods, storm totals, and digital arrays. Estimates are based on reflectivity
+        to rainfall rate (Z-R) relationships. Overlay products for Level 3 are alphanumeric
+        data that give detailed information on certain parameters for an identified
+        storm cell. These include storm structure, hail index, mesocyclone identification,
+        tornadic vortex signature, and storm tracking information. Radar messages
+        for Level 3 are sent by the radar site to users in order to know more about
+        the radar status and special product data. NEXRAD data are provided to the
+        NOAA National Centers for Environmental Information (NCEI) for archiving and
+        dissemination to users. Data coverage varies by station and ranges from May
+        1992 to 1 day from present. Most stations began observing in the mid-1990s,
+        and most period of records are continuous.","people":[],"searchable":true,"frequency":"continual","dataTypes":[{"dateRange":{},"searchWeight":1,"name":"Correlation
+        Coefficient (approx. elev. angle: 1.5 deg)","id":"N1C"},{"dateRange":{},"searchWeight":1,"name":"NAU","id":"NAU"},{"dateRange":{},"searchWeight":1,"name":"Hydrometeor
+        Classification (approx. elev.: 1.5 deg)","id":"N1H"},{"dateRange":{},"searchWeight":1,"name":"Differential
+        Reflectivity (approx. elev. angle: 0.9 deg)","id":"NAX"},{"dateRange":{},"searchWeight":1,"name":"Specific
+        Differential Phase (approx. elev.: 1.5 deg)","id":"N1K"},{"dateRange":{},"searchWeight":1,"name":"Melting
+        Layer (approx. elev. angle: 1.5 deg)","id":"N1M"},{"dateRange":{},"searchWeight":1,"name":"One
+        Hour Precipitation Total","id":"N1P"},{"dateRange":{},"searchWeight":1,"name":"Base
+        Reflectivity (approx. elev. angle: 1.5 deg)","id":"N1R"},{"dateRange":{},"searchWeight":1,"name":"Correlation
+        Coefficient (approx. elev. angle: 1.8 deg)","id":"NBC"},{"dateRange":{},"searchWeight":1,"name":"Digital
+        Base Reflectivity (approx. elev. angle: 1.5 deg)","id":"N1Q"},{"dateRange":{},"searchWeight":1,"name":"Storm
+        Relative Velocity (approx. elev. angle: 1.5 deg)","id":"N1S"},{"dateRange":{},"searchWeight":1,"name":"Base
+        Velocity (approx. elev. angle: 1.5 deg)","id":"N1V"},{"dateRange":{},"searchWeight":1,"name":"N1U","id":"N1U"},{"dateRange":{},"searchWeight":1,"name":"Differential
+        Reflectivity (approx. elev. angle: 1.5 deg)","id":"N1X"},{"dateRange":{},"searchWeight":1,"name":"Hydrometeor
+        Classification (approx. elev.: 1.8 deg)","id":"NBH"},{"dateRange":{},"searchWeight":1,"name":"Specific
+        Differential Phase (approx. elev.: 1.8 deg)","id":"NBK"},{"dateRange":{},"searchWeight":1,"name":"One
+        Hour Precipitation Difference = DAA-N1P","id":"DOD"},{"dateRange":{},"searchWeight":1,"name":"Melting
+        Layer (approx. elev. angle: 1.8 deg)","id":"NBM"},{"dateRange":{},"searchWeight":1,"name":"Digital
+        Base Reflectivity (approx. elev. angle: 1.8 deg)","id":"NBQ"},{"dateRange":{},"searchWeight":1,"name":"NC2","id":"NC2"},{"dateRange":{},"searchWeight":1,"name":"NC1","id":"NC1"},{"dateRange":{},"searchWeight":1,"name":"Correlation
+        Coefficient (approx. elev. angle: 2.4 deg)","id":"N2C"},{"dateRange":{},"searchWeight":1,"name":"NC4","id":"NC4"},{"dateRange":{},"searchWeight":1,"name":"NC3","id":"NC3"},{"dateRange":{},"searchWeight":1,"name":"NBU","id":"NBU"},{"dateRange":{},"searchWeight":1,"name":"NC5","id":"NC5"},{"dateRange":{},"searchWeight":1,"name":"Hydrometeor
+        Classification (approx. elev.: 2.4 deg)","id":"N2H"},{"dateRange":{},"searchWeight":1,"name":"Differential
+        Reflectivity (approx. elev. angle: 1.8 deg)","id":"NBX"},{"dateRange":{},"searchWeight":1,"name":"Specific
+        Differential Phase (approx. elev.: 2.4 deg)","id":"N2K"},{"dateRange":{},"searchWeight":1,"name":"Melting
+        Layer (approx. elev. angle: 2.4 deg)","id":"N2M"},{"dateRange":{},"searchWeight":1,"name":"Base
+        Spectrum Width (60 km. range)","id":"NSP"},{"dateRange":{},"searchWeight":1,"name":"WSR-88D
+        Radar Status Log","id":"RSL"},{"dateRange":{},"searchWeight":1,"name":"Digital
+        Base Reflectivity (approx. elev. angle: 2.4 deg)","id":"N2Q"},{"dateRange":{},"searchWeight":1,"name":"Storm
+        Relative Velocity (approx. elev. angle: 2.4 deg)","id":"N2S"},{"dateRange":{},"searchWeight":1,"name":"Storm
+        Tracking Information","id":"NST"},{"dateRange":{},"searchWeight":1,"name":"Base
+        Reflectivity (approx. elev. angle: 2.4 deg)","id":"N2R"},{"dateRange":{},"searchWeight":1,"name":"Storm
+        Structure","id":"NSS"},{"dateRange":{},"searchWeight":1,"name":"N2U","id":"N2U"},{"dateRange":{},"searchWeight":1,"name":"Clutter
+        Filter Control","id":"NCF"},{"dateRange":{},"searchWeight":1,"name":"Base
+        Velocity (approx. elev. angle: 2.4 deg)","id":"N2V"},{"dateRange":{},"searchWeight":1,"name":"Base
+        Spectrum Width (230 km. range)","id":"NSW"},{"dateRange":{},"searchWeight":1,"name":"Digital
+        Precipitation Array","id":"DPA"},{"dateRange":{},"searchWeight":1,"name":"Differential
+        Reflectivity (approx. elev. angle: 2.4 deg)","id":"N2X"},{"dateRange":{},"searchWeight":1,"name":"6
+        Composite Reflectivity (8 Levels)","id":"NCO"},{"dateRange":{},"searchWeight":1,"name":"Composite
+        Reflectivity (4x4 km. grid)","id":"NCR"},{"dateRange":{},"searchWeight":1,"name":"Radar
+        Coded Message","id":"RCM"},{"dateRange":{},"searchWeight":1,"name":"Free Text
+        Message","id":"FTM"},{"dateRange":{},"searchWeight":1,"name":"Correlation
+        Coefficient (approx. elev. angle: 3.4 deg)","id":"N3C"},{"dateRange":{},"searchWeight":1,"name":"FORMATTED_DATE","id":"FORMATTED_DATE"},{"dateRange":{},"searchWeight":1,"name":"Hybrid
+        Hydrometeor Classification","id":"HHC"},{"dateRange":{},"searchWeight":1,"name":"Hydrometeor
+        Classification (approx. elev.: 3.4 deg)","id":"N3H"},{"dateRange":{},"searchWeight":1,"name":"NLA","id":"NLA"},{"dateRange":{},"searchWeight":1,"name":"Composite
+        Reflectivity (2x2 km. grid)","id":"NCZ"},{"dateRange":{},"searchWeight":1,"name":"Instantaneous
+        Precipitation Rate","id":"DPR"},{"dateRange":{},"searchWeight":1,"name":"Specific
+        Differential Phase (approx. elev.: 3.4 deg)","id":"N3K"},{"dateRange":{},"searchWeight":1,"name":"Melting
+        Layer (approx. elev. angle: 3.4 deg)","id":"N3M"},{"dateRange":{},"searchWeight":1,"name":"Three
+        Hour Precipitation Total","id":"N3P"},{"dateRange":{},"searchWeight":1,"name":"Storm
+        Total Precipitation","id":"NTP"},{"dateRange":{},"searchWeight":1,"name":"Base
+        Reflectivity (approx. elev. angle: 3.4 deg)","id":"N3R"},{"dateRange":{},"searchWeight":1,"name":"Digital
+        Base Reflectivity (approx. elev. angle: 3.4 deg)","id":"N3Q"},{"dateRange":{},"searchWeight":1,"name":"Digital
+        Hybrid Scan Reflectivity","id":"DHR"},{"dateRange":{},"searchWeight":1,"name":"Storm
+        Relative Velocity (approx. elev. angle: 3.4 deg)","id":"N3S"},{"dateRange":{},"searchWeight":1,"name":"Low
+        Layer Composite Reflectivity","id":"NLL"},{"dateRange":{},"searchWeight":1,"name":"Base
+        Velocity (approx. elev. angle: 3.4 deg)","id":"N3V"},{"dateRange":{},"searchWeight":1,"name":"N3U","id":"N3U"},{"dateRange":{},"searchWeight":1,"name":"Tornadic
+        Vortex Signature","id":"NTV"},{"dateRange":{},"searchWeight":1,"name":"Differential
+        Reflectivity (approx. elev. angle: 3.4 deg)","id":"N3X"},{"dateRange":{},"searchWeight":1,"name":"Digital
+        Mesocyclone Detection Algorithm","id":"NMD"},{"dateRange":{},"searchWeight":1,"name":"Digital
+        Accumulation Array(One Hour Precipitation total (256 levels) with Dual","id":"DAA"},{"dateRange":{},"searchWeight":1,"name":"Mesocyclone","id":"NME"},{"dateRange":{},"searchWeight":1,"name":"Mid
+        Layer Composite Reflectivity","id":"NML"},{"dateRange":{},"searchWeight":1,"name":"TDWR
+        Base Reflectivity","id":"TR1"},{"dateRange":{},"searchWeight":1,"name":"TDWR
+        Base Reflectivity","id":"TR0"},{"dateRange":{},"searchWeight":1,"name":"TDWR
+        Base Reflectivity","id":"TR2"},{"dateRange":{},"searchWeight":1,"name":"Echo
+        Tops","id":"NET"},{"dateRange":{},"searchWeight":1,"name":"Vertical Integrated
+        Liquid","id":"NVL"},{"dateRange":{},"searchWeight":1,"name":"Supplemental
+        Precipitation Data","id":"SPD"},{"dateRange":{},"searchWeight":1,"name":"TDWR
+        Long Range Base Reflectivity (0.6 elev angle)","id":"TZL"},{"dateRange":{},"searchWeight":1,"name":"One
+        Hour Accumulation(One Hour Precipitation total (16 levels) with Dual Pol.
+        a","id":"OHA"},{"dateRange":{},"searchWeight":1,"name":"VAD Wind Profile","id":"NVW"},{"dateRange":{},"searchWeight":1,"name":"Storm
+        Total Precipitation Difference = DTA-DSP","id":"DSD"},{"dateRange":{},"searchWeight":1,"name":"Digital
+        Storm Total Precipitation","id":"DSP"},{"dateRange":{},"searchWeight":1,"name":"Severe
+        Weather Probability","id":"NWP"},{"dateRange":{},"searchWeight":1,"name":"Digital
+        Storm Total Accumulation(Storm Total Precipitation total (256 levels) w","id":"DTA"},{"dateRange":{},"searchWeight":1,"name":"Enhanced
+        Echo Tops","id":"EET"},{"dateRange":{},"searchWeight":1,"name":"Storm Total
+        Accumulation(Storm Total Precipitation total (16 levels) with Dual","id":"PTA"},{"dateRange":{},"searchWeight":1,"name":"DU3","id":"DU3"},{"dateRange":{},"searchWeight":1,"name":"DU6","id":"DU6"},{"dateRange":{},"searchWeight":1,"name":"Hail
+        Index","id":"NHI"},{"dateRange":{},"searchWeight":1,"name":"High Layer Composite
+        Reflectivity","id":"NHL"},{"dateRange":{},"searchWeight":1,"name":"General
+        Status Message","id":"GSM"},{"dateRange":{},"searchWeight":1,"name":"Correlation
+        Coefficient (approx. elev. angle: 0.5 deg)","id":"N0C"},{"dateRange":{},"searchWeight":1,"name":"Hydrometeor
+        Classification (approx. elev.: 0.5 deg)","id":"N0H"},{"dateRange":{},"searchWeight":1,"name":"Specific
+        Differential Phase (approx. elev.: 0.5 deg)","id":"N0K"},{"dateRange":{},"searchWeight":1,"name":"Melting
+        Layer (approx. elev. angle: 0.5 deg)","id":"N0M"},{"dateRange":{},"searchWeight":1,"name":"Digital
+        Base Reflectivity (approx. elev. angle: 0.5 deg)","id":"N0Q"},{"dateRange":{},"searchWeight":1,"name":"TDWR
+        Base Velocity (second elevation angle)","id":"TV1"},{"dateRange":{},"searchWeight":1,"name":"TDWR
+        Base Velocity (first elevation angle)","id":"TV0"},{"dateRange":{},"searchWeight":1,"name":"Storm
+        Relative Velocity (approx. elev. angle: 0.5 deg)","id":"N0S"},{"dateRange":{},"searchWeight":1,"name":"Base
+        Reflectivity (approx. elev. angle: 0.5 deg)","id":"N0R"},{"dateRange":{},"searchWeight":1,"name":"Correlation
+        Coefficient (approx. elev. angle: 0.8 deg)","id":"NAC"},{"dateRange":{},"searchWeight":1,"name":"TDWR
+        Base Velocity (third elevation angle)","id":"TV2"},{"dateRange":{},"searchWeight":1,"name":"N0U","id":"N0U"},{"dateRange":{},"searchWeight":1,"name":"Base
+        Velocity","id":"N0W"},{"dateRange":{},"searchWeight":1,"name":"Hydrometeor
+        Classification (approx. elev.: 0.8 deg)","id":"NAH"},{"dateRange":{},"searchWeight":1,"name":"Base
+        Velocity (approx. elev. angle: 0.5 deg)","id":"N0V"},{"dateRange":{},"searchWeight":1,"name":"Differential
+        Reflectivity (approx. elev. angle: 0.5 deg)","id":"N0X"},{"dateRange":{},"searchWeight":1,"name":"Long
+        Range Base Reflectivity (460 km.)","id":"N0Z"},{"dateRange":{},"searchWeight":1,"name":"Specific
+        Differential Phase (approx. elev.: 0.8 deg)","id":"NAK"},{"dateRange":{},"searchWeight":1,"name":"Digital
+        Vertical Integrated Liquid","id":"DVL"},{"dateRange":{},"searchWeight":1,"name":"Melting
+        Layer (approx. elev. angle: 0.8 deg)","id":"NAM"},{"dateRange":{},"searchWeight":1,"name":"Digital
+        Base Reflectivity (approx. elev. angle: 0.8 deg)","id":"NAQ"}],"organization":{"name":"NOAA
+        National Centers for Environmental Information"},"name":"NOAA Next Generation
+        Radar (NEXRAD) Level 3 Products","parsedKeywords":["EARTH SCIENCE > SPECTRAL/ENGINEERING
+        > RADAR > DOPPLER VELOCITY","EARTH SCIENCE > SPECTRAL/ENGINEERING > RADAR
+        > RADAR CROSS-SECTION","EARTH SCIENCE > SPECTRAL/ENGINEERING > RADAR > RADAR
+        REFLECTIVITY","EARTH SCIENCE > SPECTRAL/ENGINEERING > RADAR > SPECTRUM WIDTH","EARTH
+        SCIENCE > SPECTRAL/ENGINEERING > SENSOR CHARACTERISTICS > VIEWING GEOMETRY","EARTH
+        SCIENCE > HUMAN DIMENSIONS > NATURAL HAZARDS > TROPICAL CYCLONES > TYPHOONS","EARTH
+        SCIENCE > ATMOSPHERE > WEATHER EVENTS > TROPICAL CYCLONES","EARTH SCIENCE
+        > ATMOSPHERE > WEATHER EVENTS > HURRICANES","EARTH SCIENCE > ATMOSPHERE >
+        WEATHER EVENTS > RAIN STORMS","EARTH SCIENCE > ATMOSPHERE > WEATHER EVENTS
+        > TORNADOS","EARTH SCIENCE > ATMOSPHERE > ATMOSPHERIC WINDS > UPPER LEVEL
+        WINDS > BOUNDARY LAYER WINDS","EARTH SCIENCE > ATMOSPHERE > ATMOSPHERIC WINDS
+        > UPPER LEVEL WINDS > WIND SPEED","EARTH SCIENCE > ATMOSPHERE > ATMOSPHERIC
+        WINDS > UPPER LEVEL WINDS > WIND DIRECTION","EARTH SCIENCE > ATMOSPHERE >
+        ATMOSPHERIC WINDS > WIND PROFILES","EARTH SCIENCE > ATMOSPHERE > ATMOSPHERIC
+        WINDS > WIND DYNAMICS > VERTICAL WIND VELOCITY/SPEED","EARTH SCIENCE > ATMOSPHERE
+        > ATMOSPHERIC WINDS > WIND DYNAMICS > WIND SHEAR","EARTH SCIENCE > ATMOSPHERE
+        > ATMOSPHERIC WINDS > WIND DYNAMICS > CONVECTION","EARTH SCIENCE > ATMOSPHERE
+        > CLOUDS > CLOUD MICROPHYSICS > CLOUD LIQUID WATER/ICE","EARTH SCIENCE > ATMOSPHERE
+        > CLOUDS > CONVECTIVE CLOUDS/SYSTEMS (OBSERVED/ANALYZED) > MESOSCALE CONVECTIVE
+        COMPLEX","EARTH SCIENCE > ATMOSPHERE > PRECIPITATION > PRECIPITATION AMOUNT","EARTH
+        SCIENCE > ATMOSPHERE > PRECIPITATION > PRECIPITATION RATE","EARTH SCIENCE
+        > ATMOSPHERE > PRECIPITATION > LIQUID PRECIPITATION > RAIN","EARTH SCIENCE
+        > ATMOSPHERE > PRECIPITATION > SOLID PRECIPITATION > SNOW","EARTH SCIENCE
+        > ATMOSPHERE > PRECIPITATION > SOLID PRECIPITATION > HAIL","EARTH SCIENCE
+        SERVICES > ENVIRONMENTAL ADVISORIES > HYDROLOGICAL ADVISORIES > FLOODS","EARTH
+        SCIENCE SERVICES > ENVIRONMENTAL ADVISORIES > WEATHER/CLIMATE ADVISORIES >
+        SEVERE WEATHER"],"location":{"coordinates":[[[124.0,68.0],[124.0,11.0],[-64.0,11.0],[-64.0,68.0],[124.0,68.0]]],"type":"polygon"},"links":{"other":[{"name":"ncei
+        dataset landing page","type":"information","url":"https://doi.org/10.25921/ncz0-wn95"},{"name":"ncei
+        arcgis rest services directory","type":"download","url":"https://gis.ncdc.noaa.gov/arcgis/rest/services/cdo/nexrad/MapServer"},{"name":"kmz
+        file for dataset","type":"download","url":"https://gis.ncdc.noaa.gov/kml/nexrad.kmz"}],"access":[{"name":"ncei
+        data search","type":"search","url":"https://www.ncei.noaa.gov/access/search/data-search/weather-radar-level-iii"},{"name":"ncei
+        gis map viewer","type":"search","url":"https://www.ncei.noaa.gov/maps/radar/"},{"name":"ncei
+        nexrad data inventory search","type":"search","url":"https://www.ncdc.noaa.gov/nexradinv/"},{"name":"registry
+        of open data on aws (region: us-east-1)","type":"download","url":"https://registry.opendata.aws/noaa-nexrad/"},{"name":"ncei
+        direct download (dataset files)","type":"download","url":"https://www.ncei.noaa.gov/data/nexrad-level-3-products/archive/"}],"documentation":[{"name":"ncei
+        nexrad page","type":"information","url":"https://www.ncei.noaa.gov/products/radar/next-generation-weather-radar"},{"name":"nexrad
+        display and conversion tools","type":"information","url":"https://www.ncei.noaa.gov/products/radar/radar-display-conversion-tools"}]},"id":"weather-radar-level-iii","doiLink":"https://doi.org/10.25921/ncz0-wn95","certifiable":false,"startDate":"1992-05-07","fileId":"gov.noaa.ncdc:C00708"},{"featured":false,"formats":[{"name":"netcdf","id":"netcdf"}],"observationTypes":[],"keywords":["SNOW","SNOW
+        DEPTH","METEOROLOGICAL HAZARDS"],"contactInfo":"Email ncei.info@noaa.gov Online
+        Resource NCEI Contact Information https://www.ncei.noaa.gov/contact","endDate":"2026-09-03","topics":[],"orderable":false,"description":"While
+        the Fujita and Saffir-Simpson Scales characterize tornadoes and hurricanes
+        respectively, there is no widely used scale to classify snowstorms. The Northeast
+        Snowfall Impact Scale (NESIS) developed by Paul Kocin of The Weather Channel
+        and Louis Uccellini of the National Weather Service characterizes and ranks
+        high-impact Northeast snowstorms. These storms have large areas of 10 inch
+        snowfall accumulations and greater. NESIS has five categories: Extreme, Crippling,
+        Major, Significant, and Notable. The index differs from other meteorological
+        indices in that it uses population information in addition to meteorological
+        measurements. Thus NESIS gives an indication of a storm''s societal impacts.
+        NESIS scores are a function of the area affected by the snowstorm, the amount
+        of snow, and the number of people living in the path of the storm. The aerial
+        distribution of snowfall and population information are combined in an equation
+        that calculates a NESIS score which varies from around one for smaller storms
+        to over ten for extreme storms. The raw score is then converted into one of
+        the five NESIS categories. The largest NESIS values result from storms producing
+        heavy snowfall over large areas that include major metropolitan centers. For
+        details on how NESIS scores are calculated at the National Climatic Data Center,
+        see Squires and Lawrimore (2006).","people":[],"searchable":false,"frequency":"notPlanned","dataTypes":[],"organization":{"name":"NOAA
+        National Centers for Environmental Information"},"name":"Northeast Snowfall
+        Impact Scale (NESIS)","parsedKeywords":["EARTH SCIENCE > ATMOSPHERE > PRECIPITATION
+        > SOLID PRECIPITATION > SNOW","EARTH SCIENCE > HYDROSPHERE > SNOW/ICE > SNOW
+        DEPTH","EARTH SCIENCE > HUMAN DIMENSIONS > NATURAL HAZARDS > METEOROLOGICAL
+        HAZARDS"],"location":{"coordinates":[[[-100.0,50.0],[-100.0,30.0],[-65.0,30.0],[-65.0,50.0],[-100.0,50.0]]],"type":"polygon"},"links":{"other":[{"name":"ncei
+        dataset landing page","type":"information","url":"https://www.ncei.noaa.gov/metadata/geoportal/rest/metadata/item/gov.noaa.ncdc:C00453/html"}],"access":[{"name":"the
+        northeast snowfall impact scale (nesis)","type":"search","url":"https://www.ncdc.noaa.gov/snow-and-ice/rsi/nesis"},{"name":"ftp
+        directory for surface snow products","type":"download","url":"https://www.ncei.noaa.gov/pub/data/surface-snow-products/"}]},"id":"northeast-snowfall-impact-scale","doiLink":"https://www.ncei.noaa.gov/metadata/geoportal/rest/metadata/item/gov.noaa.ncdc:C00453/html","certifiable":false,"startDate":"1956-03-18","fileId":"gov.noaa.ncdc:C00453"},{"featured":false,"formats":[{"name":"netcdf","id":"netcdf"}],"observationTypes":[{"name":"Land
+        Surface","id":"Land Surface"}],"keywords":["SNOW","SNOW DEPTH","METEOROLOGICAL
+        HAZARDS"],"contactInfo":"Email ncei.info@noaa.gov Online Resource NCEI Contact
+        Information https://www.ncei.noaa.gov/contact","endDate":"2026-09-03","topics":[],"orderable":false,"description":"The
+        Regional Snowfall Index (RSI) is an index of significant snowstorms that impact
+        the eastern two thirds of the U.S. The RSI ranks snowstorm impacts on a scale
+        from 1 to 5, similar to the Fujita scale for tornadoes or the Saffir-Simpson
+        scale for hurricanes. NCEI has analyzed and assigned RSI values to over 500
+        storms going as far back as 1900. New storms are added operationally. As such,
+        RSI puts the regional impacts of snowstorms into a century-scale historical
+        perspective. The RSI differs from other indices because it includes population.
+        RSI is based on the spatial extent of the storm, the amount of snowfall, and
+        the juxtaposition of these elements with population. The area and population
+        are cumulative values above regional specific thresholds. For example, the
+        thresholds for the Southeast are 2\", 5\", 10\", and 15\" of snowfall while
+        the thresholds for the Northeast are 4\", 10\", 20\", and 30\" of snowfall.
+        Population information ties the index to societal impacts. Currently, the
+        index uses population based on the 2000 Census. The RSI is an evolution of
+        the Northeast Snowfall Impact Scale (NESIS) which NCDC (the precursor to NCEI)
+        began producing operationally in 2005. While NESIS was developed for storms
+        that had a major impact in the Northeast, it includes the impact of snow on
+        other regions as well. It can be thought of as a quasi-national index that
+        is calibrated to Northeast snowstorms. By contrast, the RSI is a regional
+        index; a separate index is produced for each of the six NCDC climate regions
+        in the eastern two-thirds of the nation. The indices are calculated in a similar
+        fashion to NESIS, but our experience has led us to propose a change in the
+        methodology. The new indices require region-specific parameters and thresholds
+        for the calculations. For details on how RSI is calculated, see Squires et
+        al. 2011.","people":[{"role":"author","organization":{"name":"DOC/NOAA/NESDIS/NCEI
+        > National Centers for Environmental Information, NESDIS, NOAA, U.S. Department
+        of Commerce"},"name":"Squires, Michael F.","position":"","url":""},{"role":"author","organization":{"name":"DOC/NOAA/NESDIS/NCEI
+        > National Centers for Environmental Information, NESDIS, NOAA, U.S. Department
+        of Commerce"},"name":"Lawrimore, Jay H.","position":"","url":""}],"searchable":false,"frequency":"asNeeded","dataTypes":[],"organization":{"name":"NOAA
+        National Centers for Environmental Information"},"name":"Regional Snowfall
+        Index (RSI)","parsedKeywords":["EARTH SCIENCE > ATMOSPHERE > PRECIPITATION
+        > SOLID PRECIPITATION > SNOW","EARTH SCIENCE > TERRESTRIAL HYDROSPHERE > SNOW/ICE
+        > SNOW DEPTH","EARTH SCIENCE > HUMAN DIMENSIONS > NATURAL HAZARDS > METEOROLOGICAL
+        HAZARDS"],"location":{"coordinates":[[[-100.0,50.0],[-100.0,30.0],[-65.0,30.0],[-65.0,50.0],[-100.0,50.0]]],"type":"polygon"},"links":{"other":[{"name":"ncei
+        dataset landing page","type":"information","url":"https://doi.org/10.25921/r2cd-th81"},{"name":"ncei
+        arcgis rest services directory","type":"download","url":"https://gis.ncdc.noaa.gov/arcgis/rest/services/snowfall/rsi/MapServer"}],"access":[{"name":"ncei
+        climate data online map server","type":"search","url":"https://gis.ncdc.noaa.gov/maps/ncei/rsi"},{"name":"direct
+        download for surface snow products","type":"download","url":"https://www.ncei.noaa.gov/data/snowstorm/"}],"documentation":[{"name":"the
+        regional snowfall index (rsi) web page.","type":"information","url":"https://www.ncdc.noaa.gov/snow-and-ice/rsi/"}]},"id":"regional-snowfall-index","doiLink":"https://doi.org/10.25921/r2cd-th81","certifiable":false,"startDate":"1900-01-01","fileId":"gov.noaa.ncdc:C00465"}],"startDate":"1900-01-01T00:00:00.000Z"}'
+    headers:
+      access-control-allow-headers:
+      - X-Requested-With, Content-Type
+      access-control-allow-origin:
+      - '*'
+      connection:
+      - Keep-Alive
+      content-type:
+      - application/json
+      date:
+      - Fri, 04 Sep 2026 05:12:22 GMT
+      keep-alive:
+      - timeout=3, max=100
+      server:
+      - Apache
+      strict-transport-security:
+      - max-age=31536000
+      transfer-encoding:
+      - chunked
+      vary:
+      - Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+    status:
+      code: 200
+      message: ''
+version: 1

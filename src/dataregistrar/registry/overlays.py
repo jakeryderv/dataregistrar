@@ -6,7 +6,7 @@ from collections.abc import Iterator
 from typing import Any
 
 from dataregistrar._yaml import load_yaml
-from dataregistrar.model import Overlay, Record
+from dataregistrar.model import Overlay, Record, Release, Status
 from dataregistrar.registry.layers import Layer
 
 
@@ -54,4 +54,33 @@ def apply_overlay(record: Record, overlay: Overlay) -> Record:
         value = getattr(overlay, field)
         if value is not None:
             updates[field] = value
+    if record.series is not None:
+        releases, reissued = _link_reissues(record.series.releases, overlay, record.id)
+        updates["series"] = record.series.model_copy(update={"releases": releases})
+        if reissued and updates.get("status") == Status.VERIFIED:
+            updates["status"] = Status.STALE
     return record.model_copy(update=updates)
+
+
+def _link_reissues(
+    releases: list[Release], overlay: Overlay, record_id: str
+) -> tuple[list[Release], bool]:
+    """Mark releases whose period an overlay recorded under a different filename.
+
+    Planned filenames are `<period>/<name>`, so a recorded key with the same period prefix
+    but a different name is an earlier issue the upstream has since replaced.
+    """
+    dist = next((d for d in overlay.distributions if d.id == record_id), None)
+    if dist is None or not dist.checksums:
+        return releases, False
+    recorded = set(dist.checksums)
+    linked: list[Release] = []
+    reissued = False
+    for release in releases:
+        if release.filename not in recorded:
+            earlier = next((k for k in recorded if k.startswith(release.id + "/")), None)
+            if earlier is not None:
+                release = release.model_copy(update={"supersedes": earlier})
+                reissued = True
+        linked.append(release)
+    return linked, reissued

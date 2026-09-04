@@ -56,8 +56,8 @@ def get(
     )
 
 
-def resolve(record_id: str) -> AccessPlan:
-    return _federated.resolve(default_registry(), record_id)
+def resolve(record_id: str, *, release: str | None = None) -> AccessPlan:
+    return _federated.resolve(default_registry(), record_id, release=release)
 
 
 def retrieve(
@@ -66,9 +66,15 @@ def retrieve(
     destination: Path | None = None,
     policy: str | None = None,
     require: Requirement | None = None,
+    release: str | None = None,
 ) -> LocalDataset:
     return _federated.retrieve(
-        default_registry(), record_id, destination=destination, policy=policy, require=require
+        default_registry(),
+        record_id,
+        destination=destination,
+        policy=policy,
+        require=require,
+        release=release,
     )
 
 

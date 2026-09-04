@@ -113,8 +113,8 @@ class CachingAdapter:
         self.cache.put(key, source=self.id, op="get", arg=source_id, value=value, ttl=self.ttl)
         return record
 
-    def resolve(self, record: Record) -> AccessPlan:
-        return self.inner.resolve(record)
+    def resolve(self, record: Record, selector: str | None = None) -> AccessPlan:
+        return self.inner.resolve(record, selector)
 
     def retrieve(self, plan: AccessPlan, destination: Path) -> list[Path]:
         return self.inner.retrieve(plan, destination)

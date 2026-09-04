@@ -2,7 +2,7 @@
 
 Current state of the design. For why, see [`adr/`](adr/). For the product vision, see [`vision.md`](vision.md).
 
-**Status:** UCI and Hugging Face adapters, overlays, policy engine, federated search, checksum-verified retrieval, CSV/parquet representations, a per-source response cache, and the overlay create/verify workflow are implemented. Tooling choices are in [ADR 0002](adr/0002-tooling-and-packaging-baseline.md). Project license is Apache-2.0.
+**Status:** UCI and Hugging Face adapters, overlays, policy engine, federated search, checksum-verified retrieval, CSV/parquet representations, a per-source response cache, the overlay create/verify workflow, and the NOAA publisher adapter with its Storm Events release series are implemented. Tooling choices are in [ADR 0002](adr/0002-tooling-and-packaging-baseline.md). Project license is Apache-2.0.
 
 ## Modules
 
@@ -50,7 +50,10 @@ dataregistrar/
 │   │   ├── __init__.py          protocol + registration
 │   │   ├── huggingface.py       Hub HTTP API, no SDK; license tags → imported rights
 │   │   ├── uci.py               API has no license field; rights stay unknown
-│   │   └── release_series.py    (planned)
+│   │   └── noaa/                publisher adapter: NCEI catalog + collections
+│   │       ├── catalog.py       NCEI search service, metadata-only records
+│   │       ├── series.py        directory-listing → releases helper
+│   │       └── collections/     one delivery mechanism each; storm_events.py first
 │   ├── registry/
 │   │   ├── layers.py
 │   │   ├── sources.py
@@ -108,7 +111,18 @@ Sources and overlays resolve in order; later wins.
 
 Every overlay records which layer it came from, so `verified` means verified by a named reviewer in a named layer.
 
+## Publisher adapters
+
+A hub adapter wraps one API. A publisher like NOAA has one identity and a dozen delivery mechanisms, so its adapter is a composite:
+
+- **Catalog** for `search` and `get`: NCEI's search service today; OneStop and data.gov can feed the same adapter later. Catalog records are `imported`, rights unknown, and `access.retrievable = False`.
+- **Collections** for retrieval: each knows one delivery mechanism, contributes its own catalog entry so it is searchable even when the publisher's catalog omits it, and implements `resolve` for its kind. Storm Events is a `release-series` over a file directory: filenames encode period and revision, planned filenames are `<period>/<name>` so re-issues never overwrite, and `resolve(record, selector)` picks a release, default latest.
+- **Re-issue detection** happens where overlays meet series: a recorded checksum key with the same period but a different filename marks the release `supersedes` and a verified record `stale`.
+
+The public adapter protocol does not change; collections are internal to the adapter.
+
 ## Next steps
 
-1. `release-series` adapter and one government source.
-2. Overlay `link`: add a distribution to an existing canonical, for mirrors and conversions.
+1. Overlay `link`: add a distribution to an existing canonical, for mirrors and conversions.
+2. Second NOAA collection, to prove the one-file claim.
+3. `verify` for series: retrieve latest only, and a `--release` to record more.

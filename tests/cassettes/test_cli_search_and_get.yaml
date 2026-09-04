@@ -24,7 +24,7 @@ interactions:
       content-type:
       - text/plain;charset=UTF-8
       date:
-      - Fri, 04 Sep 2026 03:53:13 GMT
+      - Fri, 04 Sep 2026 05:12:26 GMT
       server:
       - nginx/1.31.4
       transfer-encoding:
@@ -120,20 +120,20 @@ interactions:
       cross-origin-opener-policy:
       - same-origin
       date:
-      - Fri, 04 Sep 2026 03:53:13 GMT
+      - Fri, 04 Sep 2026 05:12:26 GMT
       etag:
       - W/"39fc-gX1LNf7w4Qr6AuM3atkBFkbSDsA"
       link:
       - <https://huggingface.co/api/datasets?search=wine&limit=20&sort=downloads&direction=-1&cursor=eyIkb3IiOlt7ImRvd25sb2FkcyI6MTEyLCJfaWQiOnsiJGd0IjoiNjYzZDhjYTI3NWRjMjJkZjFlNmU3YzYxIn19LHsiZG93bmxvYWRzIjp7IiRsdCI6MTEyfX0seyJkb3dubG9hZHMiOm51bGx9XX0%3D>;
         rel="next"
       ratelimit:
-      - '"api";r=485;t=35'
+      - '"api";r=493;t=82'
       ratelimit-policy:
       - '"fixed window";"api";q=500;w=300'
       referrer-policy:
       - strict-origin-when-cross-origin
       server-timing:
-      - mongo1-0;dur=3.2643470019102097
+      - mongo1-0;dur=5.3317559994757175
       strict-transport-security:
       - max-age=31536000
       transfer-encoding:
@@ -142,9 +142,9 @@ interactions:
       - Origin
       - Accept-Encoding
       via:
-      - 1.1 8812178a174bf0625299e1bd0e9ac280.cloudfront.net (CloudFront)
+      - 1.1 55935195324044c1c5c95bf8d477e9d4.cloudfront.net (CloudFront)
       x-amz-cf-id:
-      - SJE8EQhI7Y49XtBROhvsWY-LgToZWbbmKBMvGqsD8ST1Ag9vge7yrg==
+      - Y2aoJ_RvxM88AMthAXhBnFmIUuY9z5JzNTQMsn9TvHP24W70sb8Kqw==
       x-amz-cf-pop:
       - MCI50-P1
       x-cache:
@@ -152,10 +152,52 @@ interactions:
       x-powered-by:
       - huggingface-moon
       x-request-id:
-      - Root=1-6a9a40a9-6dadb0ad0fdcd64d55c2d9e2
+      - Root=1-6a9a533a-5a4841e41a4b8b226315887a
     status:
       code: 200
       message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - www.ncei.noaa.gov
+      user-agent:
+      - python-httpx/0.28.1
+    method: GET
+    uri: https://www.ncei.noaa.gov/access/services/search/v1/datasets?limit=20&text=wine
+  response:
+    body:
+      string: '{"formats":{"docCountError":0,"buckets":[],"sumOfOtherDocCounts":0},"observationTypes":{"docCountError":0,"buckets":[],"sumOfOtherDocCounts":0},"keywords":{"docCountError":0,"buckets":[],"sumOfOtherDocCounts":0},"count":0,"bounds":{"bottomRight":null,"topLeft":null},"datasets":{"docCountError":0,"buckets":[],"sumOfOtherDocCounts":0},"totalCount":100,"results":[]}'
+    headers:
+      access-control-allow-headers:
+      - X-Requested-With, Content-Type
+      access-control-allow-origin:
+      - '*'
+      connection:
+      - Keep-Alive
+      content-type:
+      - application/json
+      date:
+      - Fri, 04 Sep 2026 05:12:27 GMT
+      keep-alive:
+      - timeout=3, max=100
+      server:
+      - Apache
+      strict-transport-security:
+      - max-age=31536000
+      transfer-encoding:
+      - chunked
+      vary:
+      - Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+    status:
+      code: 200
+      message: ''
 - request:
     body: ''
     headers:
@@ -207,7 +249,7 @@ interactions:
       content-type:
       - text/plain;charset=UTF-8
       date:
-      - Fri, 04 Sep 2026 03:53:13 GMT
+      - Fri, 04 Sep 2026 05:12:27 GMT
       server:
       - nginx/1.31.4
       transfer-encoding:
@@ -260,7 +302,7 @@ interactions:
       content-type:
       - text/plain;charset=UTF-8
       date:
-      - Fri, 04 Sep 2026 03:53:13 GMT
+      - Fri, 04 Sep 2026 05:12:27 GMT
       server:
       - nginx/1.31.4
       transfer-encoding:

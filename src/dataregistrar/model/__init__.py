@@ -9,8 +9,10 @@ from dataregistrar.model.records import (
     Kind,
     License,
     Record,
+    Release,
     Rights,
     RightValue,
+    Series,
     Status,
 )
 
@@ -25,7 +27,9 @@ __all__ = [
     "Overlay",
     "PlannedFile",
     "Record",
+    "Release",
     "RightValue",
     "Rights",
+    "Series",
     "Status",
 ]

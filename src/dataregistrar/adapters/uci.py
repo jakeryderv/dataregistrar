@@ -76,7 +76,7 @@ class UCIAdapter:
             source_metadata=d,
         )
 
-    def resolve(self, record: Record) -> AccessPlan:
+    def resolve(self, record: Record, selector: str | None = None) -> AccessPlan:
         """One file: the `data_url` the API reports. Shallow records are fetched first."""
         if "data_url" not in record.source_metadata:
             record = self.get(record.id.partition(":")[2])

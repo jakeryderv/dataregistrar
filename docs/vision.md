@@ -115,13 +115,9 @@ sources:
     adapter: dataregistrar.adapters.uci
     kinds: [dataset]
 
-  - id: noaa-storm-events
-    adapter: dataregistrar.adapters.release_series
-    kinds: [release-series]
-    config:
-      url_pattern: "https://www.ncei.noaa.gov/.../StormEvents_details-ftp_v1.0_d{year}_c{revision}.csv.gz"
-      cadence: monthly
-      revision_policy: "prior years may be re-issued"
+  - id: noaa                          # one publisher, many delivery mechanisms
+    adapter: dataregistrar.adapters.noaa
+    kinds: [dataset, release-series]
 
   - id: yfinance                      # later; shown to prove the model does not block it
     adapter: dataregistrar.adapters.yfinance
@@ -142,7 +138,7 @@ class Adapter(Protocol):
 
 `search` and `get` return normalized records with status `imported`. Responses are cached with a per-source TTL so repeat searches do not fan out. Native libraries and HTTP APIs are replaceable details behind the contract, and provider-native access stays available for advanced use.
 
-**v1 adapters: Hugging Face and UCI as hubs, plus one `release-series` source** to prove the non-hub path. Hugging Face because it is the largest general catalog and its gating and license tags exercise the rights model. UCI because it is tabular-heavy, mostly CC-BY-4.0, and cheap to verify. OpenML is the first phase-2 hub; Kaggle follows.
+**v1 adapters: Hugging Face and UCI as hubs, plus NOAA as a publisher adapter** to prove the non-hub path. A publisher adapter is a composite: an organization-level catalog for discovery, plus *collections*, each of which knows one delivery mechanism and is the only way to retrieve. Catalog entries with no collection are metadata-only, and `resolve` says so. Storm Events is NOAA's first collection, a `release-series` over a plain file directory. Adding the next NOAA collection is one file; the same shape will fit BLS, Census, and NASA. Hugging Face because it is the largest general catalog and its gating and license tags exercise the rights model. UCI because it is tabular-heavy, mostly CC-BY-4.0, and cheap to verify. OpenML is the first phase-2 hub; Kaggle follows.
 
 ### 5.2 Record model
 

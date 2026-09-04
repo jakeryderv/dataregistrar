@@ -15,6 +15,15 @@ class AccessRequired(Exception):
     """The source will not hand over the bytes without credentials or approval."""
 
 
+class NoRetrievalPath(Exception):
+    """The adapter can describe this record but has no way to fetch it yet."""
+
+    def __init__(self, record_id: str, url: str | None) -> None:
+        self.record_id, self.url = record_id, url
+        hint = f" See {url}" if url else ""
+        super().__init__(f"{record_id} has no retrieval path in this adapter yet.{hint}")
+
+
 @runtime_checkable
 class Adapter(Protocol):
     """One source. Returns normalized records and plans, never raw provider shapes."""
@@ -26,8 +35,8 @@ class Adapter(Protocol):
 
     def get(self, source_id: str) -> Record: ...
 
-    def resolve(self, record: Record) -> AccessPlan:
-        """What retrieving this record would fetch. No network side effects beyond metadata."""
+    def resolve(self, record: Record, selector: str | None = None) -> AccessPlan:
+        """What retrieving this record would fetch. `selector` picks a release for series."""
         ...
 
     def retrieve(self, plan: AccessPlan, destination: Path) -> list[Path]:
@@ -47,4 +56,11 @@ def discover_adapters() -> dict[str, AdapterFactory]:
     return found
 
 
-__all__ = ["ENTRY_POINT_GROUP", "AccessRequired", "Adapter", "AdapterFactory", "discover_adapters"]
+__all__ = [
+    "ENTRY_POINT_GROUP",
+    "AccessRequired",
+    "Adapter",
+    "AdapterFactory",
+    "NoRetrievalPath",
+    "discover_adapters",
+]

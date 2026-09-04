@@ -6,6 +6,17 @@
 version: 1
 
 licenses:
+  # SPDX has no id for US federal government works. SPDX's LicenseRef- convention marks a
+  # non-SPDX license; this one means "public domain under 17 U.S.C. 105 in the United States".
+  # Attribution is left unknown here because agencies often request citation in their terms;
+  # an overlay states it per dataset from the evidence.
+  LicenseRef-US-Government-Work:
+    commercial_use: true
+    redistribution: true
+    derivatives: true
+    model_training: true
+    attribution_required: unknown
+    share_alike: false
   CC0-1.0:
     commercial_use: true
     redistribution: true

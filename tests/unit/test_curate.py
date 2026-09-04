@@ -35,7 +35,7 @@ class FakeAdapter:
             cite_as="Fake Org (2026). Some Data Set." if self.cite else None,
         )
 
-    def resolve(self, record: Record) -> AccessPlan:
+    def resolve(self, record: Record, selector: str | None = None) -> AccessPlan:
         return AccessPlan(
             record_id=record.id,
             kind=Kind.DATASET,

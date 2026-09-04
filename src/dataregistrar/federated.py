@@ -92,10 +92,10 @@ def _attach_expected_checksum(registry: Registry, record: Record, plan: AccessPl
     return plan.model_copy(update={"files": files})
 
 
-def resolve(registry: Registry, record_id: str) -> AccessPlan:
+def resolve(registry: Registry, record_id: str, *, release: str | None = None) -> AccessPlan:
     """What retrieving this record would fetch, with any overlay-recorded checksum attached."""
     record = get(registry, record_id)
-    plan = registry.adapter(record.source).resolve(record)
+    plan = registry.adapter(record.source).resolve(record, release)
     return _attach_expected_checksum(registry, record, plan)
 
 
@@ -111,11 +111,12 @@ def retrieve(
     destination: Path | None = None,
     policy: str | None = None,
     require: Requirement | None = None,
+    release: str | None = None,
 ) -> LocalDataset:
     """Enforce policy, resolve, download, verify checksums, and hand back local files."""
     record = get(registry, record_id, policy=policy, require=require)
     plan = _attach_expected_checksum(
-        registry, record, registry.adapter(record.source).resolve(record)
+        registry, record, registry.adapter(record.source).resolve(record, release)
     )
     paths = registry.adapter(record.source).retrieve(
         plan, destination or default_destination(record)

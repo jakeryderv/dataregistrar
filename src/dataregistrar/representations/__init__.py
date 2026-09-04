@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import csv as _csv
+import gzip
 from dataclasses import dataclass
 from pathlib import Path
 from typing import TYPE_CHECKING
@@ -14,13 +15,23 @@ if TYPE_CHECKING:
     import pandas as pd
     import pyarrow as pa
 
-TABULAR_SUFFIXES = {".csv", ".parquet"}
+TABULAR_SUFFIXES = {".csv", ".parquet", ".csv.gz"}
+
+
+def _tabular_suffix(path: Path) -> str | None:
+    name = path.name.lower()
+    return next(
+        (s for s in sorted(TABULAR_SUFFIXES, key=len, reverse=True) if name.endswith(s)), None
+    )
+
+
 SNIFF_BYTES = 8192
 
 
 def sniff_delimiter(path: Path) -> str:
     """Detect the delimiter from the file head. Providers ship ';' and '\t' as '.csv' routinely."""
-    with path.open("r", encoding="utf-8", errors="replace", newline="") as handle:
+    opener = gzip.open if path.name.lower().endswith(".gz") else open
+    with opener(path, "rt", encoding="utf-8", errors="replace", newline="") as handle:
         sample = handle.read(SNIFF_BYTES)
     try:
         return _csv.Sniffer().sniff(sample, delimiters=",;\t|").delimiter
@@ -62,7 +73,7 @@ class LocalDataset:
         return "\n".join(lines)
 
     def _tabular_file(self, filename: str | None) -> Path:
-        candidates = [p for p in self.paths if p.suffix.lower() in TABULAR_SUFFIXES]
+        candidates = [p for p in self.paths if _tabular_suffix(p) is not None]
         if filename is not None:
             for path in candidates:
                 if path.name == filename or path.as_posix().endswith("/" + filename):
@@ -83,7 +94,7 @@ class LocalDataset:
         except ImportError:
             raise MissingExtra("pandas", "pandas") from None
         path = self._tabular_file(filename)
-        if path.suffix.lower() == ".parquet":
+        if _tabular_suffix(path) == ".parquet":
             try:
                 return pd.read_parquet(path)
             except ImportError:
@@ -96,7 +107,7 @@ class LocalDataset:
         except ImportError:
             raise MissingExtra("pyarrow", "arrow") from None
         path = self._tabular_file(filename)
-        if path.suffix.lower() == ".parquet":
+        if _tabular_suffix(path) == ".parquet":
             return parquet.read_table(str(path))  # pyright: ignore[reportUnknownMemberType]
         return csv.read_csv(
             str(path), parse_options=csv.ParseOptions(delimiter=sniff_delimiter(path))

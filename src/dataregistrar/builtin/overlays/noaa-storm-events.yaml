@@ -1,0 +1,27 @@
+# Storm Events Database, NCEI. US federal government work, so public domain in the US;
+# NCEI's ISO metadata (the evidence URL) states the use constraint "Cite dataset when used as
+# a source", hence attribution_required: true. Not yet verified: run
+#   dreg overlay verify noaa-storm-events --by <you> --dir src/dataregistrar/builtin
+# which retrieves the latest release through the adapter and records its checksum.
+canonical: noaa-storm-events
+distributions:
+- id: noaa:ncei/storm-events
+  role: official
+kind: release-series
+name: Storm Events Database
+publisher: NOAA National Centers for Environmental Information
+cite_as: NOAA National Centers for Environmental Information. Storm Events Database. 
+  https://www.ncei.noaa.gov/access/storm-events-database/
+license:
+  spdx: LicenseRef-US-Government-Work
+  evidence_url: 
+    https://www.ncei.noaa.gov/access/metadata/landing-page/bin/iso?id=gov.noaa.ncdc:C00510
+rights:
+  commercial_use: true
+  redistribution: true
+  derivatives: true
+  model_training: true
+  attribution_required: true
+  share_alike: false
+  confidence: imported
+status: imported

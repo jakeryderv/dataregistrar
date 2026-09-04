@@ -2,7 +2,7 @@
 
 Provider-agnostic catalog and access layer for public data. One interface to discover, evaluate, retrieve, and load data from many sources, with licensing, provenance, and source metadata preserved and inspectable.
 
-**Status: pre-alpha.** Two adapters (UCI and Hugging Face), a licensing policy engine, a verified overlay layer, and checksum-verified retrieval into pandas, Arrow, or NumPy. See [docs/vision.md](docs/vision.md) for where this is going.
+**Status: pre-alpha.** Three adapters (UCI, Hugging Face, NOAA), a licensing policy engine, a verified overlay layer, and checksum-verified retrieval into pandas, Arrow, or NumPy. See [docs/vision.md](docs/vision.md) for where this is going.
 
 ## Install
 
@@ -21,6 +21,8 @@ dreg search wine --policy commercial    # only records whose rights are known to
 dreg get uci:186                        # one record with license evidence
 dreg get uci:109 --policy commercial    # exits 2 and explains why it does not qualify
 dreg fetch uci:186 --policy commercial  # downloads, verifies the checksum, prints what you owe
+dreg get noaa:ncei/storm-events         # a release series: cadence, releases, latest
+dreg fetch noaa:ncei/storm-events --release 2024
 dreg search wine --fresh                # bypass the response cache
 dreg cache info                         # where it lives, entries per source, TTLs
 
@@ -45,6 +47,8 @@ Retrieval is source-native: files come from the provider, land in your user cach
 Rights that a source does not state are `unknown`, and unknown never satisfies a policy. Rights a source does declare, like a Hugging Face license tag, are derived at `imported` confidence. A record only becomes `verified` through an overlay a person reviewed with evidence. `dreg overlay create` pre-fills one from the live record into your project layer (`./dataregistrar/overlays/`), and `dreg overlay verify` runs the checklist: license evidence resolves, source URL resolves, files retrieve through the adapter, checksums recorded, citation present, reviewer named. Any failure leaves the file untouched and says what is missing. UCI's API, for example, exposes no license at all; the shipped overlay for Wine Quality is what makes it pass `--policy commercial`. Use `--min-status verified` when self-declared tags are not enough.
 
 Gated Hugging Face datasets import as `restricted` and are not downloaded without `HF_TOKEN` set.
+
+NOAA is a publisher adapter: NCEI's catalog is searchable in full, and datasets with a collection behind them, Storm Events first, can be fetched. Others show `no retrieval path yet` with their landing page.
 
 Search and get responses are cached in your user cache directory with a per-source TTL set in `sources.yaml`. Downloads are verified against recorded checksums and reused when they match.
 

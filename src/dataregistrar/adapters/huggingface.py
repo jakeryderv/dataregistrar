@@ -81,7 +81,7 @@ class HuggingFaceAdapter:
         detail: dict[str, Any] = self._get_json(f"/api/datasets/{source_id}", params={})
         return self.to_record(detail)
 
-    def resolve(self, record: Record) -> AccessPlan:
+    def resolve(self, record: Record, selector: str | None = None) -> AccessPlan:
         """Every data file in the repo, pinned to the commit sha the record was read at."""
         if "siblings" not in record.source_metadata:
             record = self.get(record.id.partition(":")[2])

@@ -83,6 +83,45 @@ class Access(BaseModel):
 
     authentication: bool = False
     gated: bool = False
+    retrievable: bool = True
+    """False for catalog entries the adapter can describe but has no retrieval path for."""
+
+
+class Release(BaseModel):
+    """One release of a `release-series` record."""
+
+    model_config = ConfigDict(frozen=True, extra="forbid")
+
+    id: str
+    """The period this release covers, e.g. a year. Stable across re-issues."""
+    revision: str | None = None
+    """Provider's revision marker for this issue of the period, e.g. a creation date."""
+    published: date | None = None
+    url: HttpUrl
+    filename: str
+    """Planned filename, `<period>/<original name>`, so re-issues never overwrite each other."""
+    supersedes: str | None = None
+    """Filename of an earlier issue of the same period that an overlay had recorded."""
+
+
+class Series(BaseModel):
+    model_config = ConfigDict(frozen=True, extra="forbid")
+
+    cadence: str | None = None
+    revision_policy: str | None = None
+    releases: list[Release] = Field(default_factory=list[Release])
+
+    def latest(self) -> Release:
+        if not self.releases:
+            raise ValueError("series has no releases")
+        return max(self.releases, key=lambda r: r.id)
+
+    def release(self, release_id: str) -> Release:
+        for r in self.releases:
+            if r.id == release_id:
+                return r
+        ids = sorted(r.id for r in self.releases)
+        raise KeyError(f"no release {release_id!r}; available: {ids[0]}..{ids[-1]}")
 
 
 class Record(BaseModel):
@@ -102,6 +141,8 @@ class Record(BaseModel):
     license: License = Field(default_factory=License)
     rights: Rights = Field(default_factory=Rights)
     access: Access = Field(default_factory=Access)
+    series: Series | None = None
+    """Present on `release-series` records once releases have been listed."""
     modality: str | None = None
     tasks: list[str] = Field(default_factory=list)
     status: Status = Status.IMPORTED

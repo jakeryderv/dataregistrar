@@ -38,6 +38,7 @@ dreg = "dataregistrar.cli:app"
 [project.entry-points."dataregistrar.adapters"]
 uci = "dataregistrar.adapters.uci:UCIAdapter"
 huggingface = "dataregistrar.adapters.huggingface:HuggingFaceAdapter"
+noaa = "dataregistrar.adapters.noaa:NOAAAdapter"
 
 [project.urls]
 Homepage = "https://github.com/jakeryderv/dataregistrar"

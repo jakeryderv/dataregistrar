@@ -10,3 +10,7 @@ sources:
     cache_ttl: 3600
     config:
       limit: 20
+  - id: noaa
+    adapter: noaa
+    kinds: [dataset, release-series]
+    cache_ttl: 86400

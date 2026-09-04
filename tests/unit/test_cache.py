@@ -29,7 +29,7 @@ class CountingAdapter:
         self.calls.append(f"get:{source_id}")
         return Record(id=f"fake:{source_id}", kind=Kind.DATASET, source="fake", name=source_id)
 
-    def resolve(self, record: Record) -> AccessPlan:
+    def resolve(self, record: Record, selector: str | None = None) -> AccessPlan:
         raise NotImplementedError
 
     def retrieve(self, plan: AccessPlan, destination: Path) -> list[Path]:

@@ -38,6 +38,23 @@ def test_pandas_arrow_numpy_agree_on_shape(tmp_path: Path) -> None:
     assert local.as_numpy().shape == (2, 3)
 
 
+def test_gzipped_csv_loads(tmp_path: Path) -> None:
+    import gzip
+
+    path = tmp_path / "2024" / "d.csv.gz"
+    path.parent.mkdir()
+    path.write_bytes(gzip.compress(SEMICOLON.encode()))
+    record = Record(id="x:1", kind=Kind.RELEASE_SERIES, source="x", name="n")
+    plan = AccessPlan(
+        record_id="x:1",
+        kind=Kind.RELEASE_SERIES,
+        files=[PlannedFile(url=HttpUrl("https://x.test/d.csv.gz"), filename="2024/d.csv.gz")],
+    )
+    local = LocalDataset(record=record, plan=plan, paths=[path])
+    assert local.as_pandas().shape == (2, 3)
+    assert local.as_arrow().num_rows == 2
+
+
 def test_semicolon_csv_is_not_read_as_one_column(tmp_path: Path) -> None:
     local = _local(tmp_path, ["d.csv"], text=SEMICOLON)
     assert local.as_pandas().shape == (2, 3)

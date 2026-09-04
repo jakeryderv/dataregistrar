@@ -4,6 +4,7 @@ import pytest
 
 from dataregistrar.adapters import Adapter
 from dataregistrar.adapters.huggingface import HuggingFaceAdapter
+from dataregistrar.adapters.noaa import NOAAAdapter
 from dataregistrar.adapters.uci import UCIAdapter
 from dataregistrar.model import Confidence, Record, Rights, Status
 
@@ -11,6 +12,7 @@ CASES: list[tuple[Adapter, str, str, str]] = [
     # adapter, search query, expected id in results, native id for get
     (UCIAdapter(), "wine", "uci:186", "186"),
     (HuggingFaceAdapter(), "mnist", "hf:ylecun/mnist", "ylecun/mnist"),
+    (NOAAAdapter(), "storm", "noaa:ncei/storm-events", "ncei/storm-events"),
 ]
 
 

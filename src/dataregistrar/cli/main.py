@@ -9,7 +9,7 @@ from rich.table import Table
 
 import dataregistrar
 from dataregistrar import curate
-from dataregistrar.adapters import AccessRequired
+from dataregistrar.adapters import AccessRequired, NoRetrievalPath
 from dataregistrar.download import ChecksumMismatch
 from dataregistrar.model import Record, Status
 from dataregistrar.policy import DatasetPolicyError
@@ -104,6 +104,28 @@ def _print_record(r: Record) -> None:
     console.print(f"rights ({r.rights.confidence}):")
     for right in ("commercial_use", "redistribution", "derivatives", "model_training"):
         console.print(f"  {right:<20} {_fmt_right(r.rights.value(right))}")
+    if not r.access.retrievable:
+        console.print("retrieval:   [yellow]no retrieval path in this adapter yet[/yellow]")
+    if r.series is not None:
+        s = r.series
+        console.print("series:")
+        if s.cadence:
+            console.print(f"  cadence:   {s.cadence}")
+        if s.revision_policy:
+            console.print(f"  revisions: {s.revision_policy}")
+        if s.releases:
+            latest = s.latest()
+            first = min(x.id for x in s.releases)
+            console.print(f"  releases:  {len(s.releases)} ({first}..{latest.id})")
+            console.print(
+                f"  latest:    {latest.id}, revision {latest.revision}, {latest.filename}"
+            )
+            for x in s.releases:
+                if x.supersedes:
+                    console.print(
+                        f"  [yellow]re-issued[/yellow] {x.id}: {x.filename} "
+                        f"supersedes {x.supersedes}"
+                    )
     if r.description:
         console.print(f"\n{r.description}")
 
@@ -134,10 +156,14 @@ def fetch(
     policy: Annotated[
         str | None, typer.Option("--policy", "-p", help="Refuse unless this preset is satisfied.")
     ] = None,
+    release: Annotated[
+        str | None,
+        typer.Option("--release", "-r", help="Series only: a release id, default latest."),
+    ] = None,
 ) -> None:
     """Download a record's files, verify checksums where known, and print what you owe."""
     try:
-        local = dataregistrar.retrieve(record_id, destination=dest, policy=policy)
+        local = dataregistrar.retrieve(record_id, destination=dest, policy=policy, release=release)
     except DatasetPolicyError as err:
         console.print("[red]DatasetPolicyError[/red]\n")
         console.print(str(err), highlight=False)
@@ -150,6 +176,10 @@ def fetch(
         console.print("[red]AccessRequired[/red]\n")
         console.print(str(err), highlight=False)
         raise typer.Exit(code=4) from None
+    except (NoRetrievalPath, KeyError) as err:
+        console.print("[red]NoRetrievalPath[/red]\n")
+        console.print(str(err).strip("'"), highlight=False)
+        raise typer.Exit(code=5) from None
     for planned, path in zip(local.plan.files, local.paths, strict=True):
         verified = "checksum verified" if planned.sha256 else "no recorded checksum"
         console.print(f"{path}  [dim]({verified})[/dim]")
