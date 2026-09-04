@@ -28,7 +28,9 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-all = []
+pandas = ["pandas>=2.1"]
+arrow = ["pyarrow>=15"]
+all = ["dataregistrar[pandas,arrow]"]
 
 [project.scripts]
 dreg = "dataregistrar.cli:app"
@@ -44,9 +46,13 @@ Issues = "https://github.com/jakeryderv/dataregistrar/issues"
 [dependency-groups]
 dev = [
   "pytest>=8",
+  "pandas>=2.1",
+  "pandas-stubs>=2.1",
+  "pyarrow>=15",
   "ruff>=0.15",
   "pyright>=1.1.400",
   "pytest-recording>=0.13.4",
+  "pyarrow-stubs>=20.0.0.20260819",
 ]
 
 [build-system]
@@ -56,7 +62,7 @@ build-backend = "uv_build"
 [tool.ruff]
 line-length = 100
 target-version = "py311"
-extend-exclude = ["docs"]
+extend-exclude = ["docs", "*.md"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]

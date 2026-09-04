@@ -2,7 +2,7 @@
 
 Current state of the design. For why, see [`adr/`](adr/). For the product vision, see [`vision.md`](vision.md).
 
-**Status:** walking skeleton implemented (UCI adapter, overlays, policy engine, federated search, CLI). No retrieval, cache, or `resolve` yet. Tooling choices are in [ADR 0002](adr/0002-tooling-and-packaging-baseline.md). Project license is Apache-2.0.
+**Status:** UCI adapter, overlays, policy engine, federated search, checksum-verified retrieval, and tabular representations are implemented. No response cache yet. Tooling choices are in [ADR 0002](adr/0002-tooling-and-packaging-baseline.md). Project license is Apache-2.0.
 
 ## Modules
 
@@ -15,14 +15,15 @@ One responsibility each, matching the three layers in the vision.
 | `registry` | Layer resolution (built-in → user/org → project), sources loader, overlay loader and merge. |
 | `federated` | Fan-out to adapters, cache, normalize, merge overlays, rank. Named `federated` because `dataregistrar.search()` is the SDK function. |
 | `policy` | SPDX license-to-rights table, rights derivation, presets, `DatasetPolicyError`. |
-| `representations` | `as_pandas`, `as_arrow`, `as_numpy` behind lazy imports. |
+| `representations` | `LocalDataset`: retrieved files plus `as_pandas`, `as_arrow`, `as_numpy` behind lazy imports, and the attribution owed. |
+| `download` | HTTP download with checksum verification. Leaf utility used by adapters. |
 | `cli` | Typer app over all of the above, including the overlay create/verify workflow. |
 
 Dependency direction is strictly downward:
 
 ```text
 cli → federated → registry → adapters → model
-              ↘ policy ↗
+              ↘ policy ↗        ↘ download ↗
 ```
 
 Nothing imports upward. Adapters are testable without the registry; models without anything.
@@ -84,7 +85,12 @@ search(query, policy=…, min_status=…)
   → policy engine derives rights from license table, applies preset
   → results with status, rights confidence, and evidence
 
-get(id) → resolve(record, selector) → AccessPlan → adapter.retrieve → representation
+retrieve(id, policy=…)
+  → get, with policy enforced before any download
+  → adapter.resolve → AccessPlan (one or more files)
+  → overlay checksum attached to the plan, if one was recorded
+  → adapter.retrieve into the user cache, verifying checksums, reusing verified files
+  → LocalDataset: paths, attribution, as_pandas / as_arrow / as_numpy
 ```
 
 ## Layers
@@ -101,7 +107,6 @@ Every overlay records which layer it came from, so `verified` means verified by 
 
 ## Next steps
 
-1. `resolve` and `retrieve` on the adapter protocol, with tabular representations.
+1. Hugging Face adapter, which exercises gating and license tags.
 2. Response cache with per-source TTL.
-3. Hugging Face adapter, which exercises gating and license tags.
-4. Overlay CLI: create from a record, run the verification checklist, mark verified.
+3. Overlay CLI: create from a record, run the verification checklist, mark verified.

@@ -3,10 +3,16 @@
 from __future__ import annotations
 
 from collections.abc import Iterable
+from pathlib import Path
 
-from dataregistrar.model import Record, Status
+from platformdirs import user_cache_path
+
+from dataregistrar.model import AccessPlan, Record, Status
 from dataregistrar.policy import Requirement, check, preset, satisfies
 from dataregistrar.registry import Registry
+from dataregistrar.representations import LocalDataset
+
+APP_NAME = "dataregistrar"
 
 _STATUS_RANK: dict[Status, int] = {
     Status.DISCOVERED: 0,
@@ -63,3 +69,46 @@ def get(
     record = registry.annotate(registry.adapter(source_id).get(native_id))
     check(record, _requirement(policy, require))
     return record
+
+
+def _attach_expected_checksum(registry: Registry, record: Record, plan: AccessPlan) -> AccessPlan:
+    """Expect the overlay's checksum for this distribution when the plan is a single file."""
+    overlay = registry.overlays.for_record(record.id)
+    if overlay is None or len(plan.files) != 1 or plan.files[0].sha256 is not None:
+        return plan
+    dist = next((d for d in overlay.distributions if d.id == record.id), None)
+    if dist is None or dist.sha256 is None:
+        return plan
+    planned = plan.files[0].model_copy(update={"sha256": dist.sha256})
+    return plan.model_copy(update={"files": [planned]})
+
+
+def resolve(registry: Registry, record_id: str) -> AccessPlan:
+    """What retrieving this record would fetch, with any overlay-recorded checksum attached."""
+    record = get(registry, record_id)
+    plan = registry.adapter(record.source).resolve(record)
+    return _attach_expected_checksum(registry, record, plan)
+
+
+def default_destination(record: Record) -> Path:
+    source, _, native_id = record.id.partition(":")
+    return user_cache_path(APP_NAME) / "data" / source / native_id
+
+
+def retrieve(
+    registry: Registry,
+    record_id: str,
+    *,
+    destination: Path | None = None,
+    policy: str | None = None,
+    require: Requirement | None = None,
+) -> LocalDataset:
+    """Enforce policy, resolve, download, verify checksums, and hand back local files."""
+    record = get(registry, record_id, policy=policy, require=require)
+    plan = _attach_expected_checksum(
+        registry, record, registry.adapter(record.source).resolve(record)
+    )
+    paths = registry.adapter(record.source).retrieve(
+        plan, destination or default_destination(record)
+    )
+    return LocalDataset(record=record, plan=plan, paths=paths)

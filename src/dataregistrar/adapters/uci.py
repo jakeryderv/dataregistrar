@@ -7,12 +7,15 @@ records import with rights unknown, and an overlay supplies the verified license
 
 from __future__ import annotations
 
+from pathlib import Path
 from typing import Any
+from urllib.parse import urlsplit
 
 import httpx
 from pydantic import HttpUrl
 
-from dataregistrar.model import Kind, Record, Status
+from dataregistrar.download import download_all
+from dataregistrar.model import AccessPlan, Kind, PlannedFile, Record, Status
 
 BASE_URL = "https://archive.ics.uci.edu"
 
@@ -72,6 +75,21 @@ class UCIAdapter:
             status=Status.IMPORTED,
             source_metadata=d,
         )
+
+    def resolve(self, record: Record) -> AccessPlan:
+        """One file: the `data_url` the API reports. Shallow records are fetched first."""
+        if "data_url" not in record.source_metadata:
+            record = self.get(record.id.partition(":")[2])
+        url: str = record.source_metadata["data_url"]
+        filename = Path(urlsplit(url).path).name or "data"
+        return AccessPlan(
+            record_id=record.id,
+            kind=Kind.DATASET,
+            files=[PlannedFile(url=HttpUrl(url), filename=filename)],
+        )
+
+    def retrieve(self, plan: AccessPlan, destination: Path) -> list[Path]:
+        return download_all(self._client, plan, destination)
 
     def _get_json(self, path: str, *, params: dict[str, Any]) -> dict[str, Any]:
         response = self._client.get(path, params=params)

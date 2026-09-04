@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from pathlib import Path
 from typing import Annotated
 
 import typer
@@ -7,6 +8,7 @@ from rich.console import Console
 from rich.table import Table
 
 import dataregistrar
+from dataregistrar.download import ChecksumMismatch
 from dataregistrar.model import Record, Status
 from dataregistrar.policy import DatasetPolicyError
 
@@ -114,3 +116,31 @@ def get(
         console.print("[red]DatasetPolicyError[/red]\n")
         console.print(str(err), highlight=False)
         raise typer.Exit(code=2) from None
+
+
+@app.command()
+def fetch(
+    record_id: Annotated[str, typer.Argument(help="Record id, e.g. uci:186.")],
+    dest: Annotated[
+        Path | None, typer.Option("--dest", "-d", help="Directory to download into.")
+    ] = None,
+    policy: Annotated[
+        str | None, typer.Option("--policy", "-p", help="Refuse unless this preset is satisfied.")
+    ] = None,
+) -> None:
+    """Download a record's files, verify checksums where known, and print what you owe."""
+    try:
+        local = dataregistrar.retrieve(record_id, destination=dest, policy=policy)
+    except DatasetPolicyError as err:
+        console.print("[red]DatasetPolicyError[/red]\n")
+        console.print(str(err), highlight=False)
+        raise typer.Exit(code=2) from None
+    except ChecksumMismatch as err:
+        console.print("[red]ChecksumMismatch[/red]\n")
+        console.print(str(err), highlight=False)
+        raise typer.Exit(code=3) from None
+    for planned, path in zip(local.plan.files, local.paths, strict=True):
+        verified = "checksum verified" if planned.sha256 else "no recorded checksum"
+        console.print(f"{path}  [dim]({verified})[/dim]")
+    console.print()
+    console.print(local.attribution, highlight=False)

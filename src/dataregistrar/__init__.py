@@ -3,11 +3,14 @@
 from __future__ import annotations
 
 from importlib.metadata import version
+from pathlib import Path
 
 from dataregistrar import federated as _federated
-from dataregistrar.model import Kind, License, Record, Rights, Status
+from dataregistrar.download import ChecksumMismatch
+from dataregistrar.model import AccessPlan, Kind, License, Record, Rights, Status
 from dataregistrar.policy import DatasetPolicyError, Requirement
 from dataregistrar.registry import Registry
+from dataregistrar.representations import LocalDataset
 
 __version__ = version("dataregistrar")
 
@@ -43,10 +46,29 @@ def get(record_id: str, *, policy: str | None = None, require: Requirement | Non
     return _federated.get(default_registry(), record_id, policy=policy, require=require)
 
 
+def resolve(record_id: str) -> AccessPlan:
+    return _federated.resolve(default_registry(), record_id)
+
+
+def retrieve(
+    record_id: str,
+    *,
+    destination: Path | None = None,
+    policy: str | None = None,
+    require: Requirement | None = None,
+) -> LocalDataset:
+    return _federated.retrieve(
+        default_registry(), record_id, destination=destination, policy=policy, require=require
+    )
+
+
 __all__ = [
+    "AccessPlan",
+    "ChecksumMismatch",
     "DatasetPolicyError",
     "Kind",
     "License",
+    "LocalDataset",
     "Record",
     "Registry",
     "Rights",
@@ -54,5 +76,7 @@ __all__ = [
     "__version__",
     "default_registry",
     "get",
+    "resolve",
+    "retrieve",
     "search",
 ]
