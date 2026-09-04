@@ -4,13 +4,19 @@ A provider-agnostic catalog and access layer for public data. One interface to d
 
 ## 1. Motivation
 
-Finding data is easy. Finding data you are actually allowed to use for a given purpose is not. Provider catalogs disagree about licensing, mirrors and conversions appear as unrelated datasets, and "publicly available" is routinely mistaken for "openly licensed." Engineers hand-check license pages, or don't.
+Finding data is easy. Finding data you are actually allowed to use for a given purpose, from a source you can cite, in a form you can load, is not. Provider catalogs disagree about licensing, mirrors and conversions appear as unrelated datasets, and "publicly available" is routinely mistaken for "openly licensed." Engineers hand-check license pages, or don't.
 
-The first user of this project is its author, and the first concrete need is:
+This is a general-purpose tool. It does not target one domain or one workflow. It gives one consistent way to find data of any kind, see what is known about its licensing and provenance and how confidently, and then download and load it, whatever you intend to do with it afterward.
 
-> TODO: replace with the real driving use case, e.g. "find commercially usable wearable timeseries datasets for project X, with citations and license evidence I can hand to a reviewer."
+Because it is general, scope is checked against representative questions rather than one project. The tool is doing its job when it answers these well:
 
-Every v1 decision below should be checked against that query.
+- "Tabular datasets about X that I can use commercially, with the license evidence and a citation."
+- "Load this dataset into a dataframe, and tell me what attribution I owe."
+- "Is this Kaggle dataset the same as the NOAA original, and which one should I cite?"
+- "What am I allowed to do with this specific dataset, and how sure is that answer?"
+- "The latest release of this government series, and whether last year's was re-issued."
+
+If a proposed feature does not make one of these answers better, it waits.
 
 ## 2. Concept
 
@@ -430,7 +436,6 @@ None of this shapes v1.
 
 ## Open decisions
 
-- **Driving use case.** Fill in section 1.
 - **Croissant alignment.** Confirm during v1 item 1 whether `dataset` records are Croissant JSON-LD with an extension, or a YAML schema that exports to Croissant.
 - **First `release-series` source.** Pick one real government dataset with an awkward cadence. NOAA Storm Events is the placeholder.
 - **Cache location and TTL policy.** Per-source TTL defaults, and whether the cache is SQLite or files.
