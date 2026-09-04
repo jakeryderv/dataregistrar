@@ -3,8 +3,10 @@ sources:
   - id: uci
     adapter: uci
     kinds: [dataset]
+    cache_ttl: 86400
   - id: hf
     adapter: huggingface
     kinds: [dataset]
+    cache_ttl: 3600
     config:
       limit: 20

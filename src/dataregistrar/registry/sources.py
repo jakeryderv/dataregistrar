@@ -18,6 +18,8 @@ class SourceConfig(BaseModel):
     adapter: str
     kinds: list[Kind] = Field(default_factory=list[Kind])
     enabled: bool = True
+    cache_ttl: float = 3600
+    """Seconds a search or get response stays fresh. 0 disables caching for this source."""
     config: dict[str, Any] = Field(default_factory=dict)
 
 

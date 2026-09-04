@@ -58,9 +58,12 @@ def search(
     min_status: Annotated[
         Status | None, typer.Option("--min-status", help="Drop records below this status.")
     ] = None,
+    fresh: Annotated[bool, typer.Option("--fresh", help="Bypass the response cache.")] = False,
 ) -> None:
     """Search every enabled source and show what came back, with confidence and rights."""
-    records = dataregistrar.search(query, sources=source, policy=policy, min_status=min_status)
+    records = dataregistrar.search(
+        query, sources=source, policy=policy, min_status=min_status, fresh=fresh
+    )
     if not records:
         console.print("[yellow]no results[/yellow]")
         raise typer.Exit(code=1)
@@ -108,10 +111,11 @@ def get(
     policy: Annotated[
         str | None, typer.Option("--policy", "-p", help="Fail unless this preset is satisfied.")
     ] = None,
+    fresh: Annotated[bool, typer.Option("--fresh", help="Bypass the response cache.")] = False,
 ) -> None:
     """Show one record. With --policy, exit non-zero and explain if it does not qualify."""
     try:
-        _print_record(dataregistrar.get(record_id, policy=policy))
+        _print_record(dataregistrar.get(record_id, policy=policy, fresh=fresh))
     except DatasetPolicyError as err:
         console.print("[red]DatasetPolicyError[/red]\n")
         console.print(str(err), highlight=False)
@@ -148,3 +152,38 @@ def fetch(
         console.print(f"{path}  [dim]({verified})[/dim]")
     console.print()
     console.print(local.attribution, highlight=False)
+
+
+cache_app = typer.Typer(help="Inspect or clear the response cache.", no_args_is_help=True)
+app.add_typer(cache_app, name="cache")
+
+
+@cache_app.command("info")
+def cache_info() -> None:
+    """Where the cache lives and how many responses it holds."""
+    registry = dataregistrar.default_registry()
+    if registry.cache is None:
+        console.print("no cache configured")
+        return
+    console.print(f"path:    {registry.cache.path}")
+    console.print(f"entries: {registry.cache.count()}")
+    for source_id in registry.source_ids:
+        ttl = registry.source_configs[source_id].cache_ttl
+        console.print(
+            f"  {source_id:<8} {registry.cache.count(source_id):>5} entries, ttl {ttl:g}s"
+        )
+
+
+@cache_app.command("clear")
+def cache_clear(
+    source: Annotated[
+        str | None, typer.Option("--source", "-s", help="Only this source id.")
+    ] = None,
+) -> None:
+    """Drop cached responses, for one source or all."""
+    registry = dataregistrar.default_registry()
+    if registry.cache is None:
+        console.print("no cache configured")
+        return
+    removed = registry.cache.clear(source)
+    console.print(f"removed {removed} cached response(s)")

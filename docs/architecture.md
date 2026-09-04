@@ -2,7 +2,7 @@
 
 Current state of the design. For why, see [`adr/`](adr/). For the product vision, see [`vision.md`](vision.md).
 
-**Status:** UCI and Hugging Face adapters, overlays, policy engine, federated search, checksum-verified retrieval, and CSV/parquet representations are implemented. No response cache yet. Tooling choices are in [ADR 0002](adr/0002-tooling-and-packaging-baseline.md). Project license is Apache-2.0.
+**Status:** UCI and Hugging Face adapters, overlays, policy engine, federated search, checksum-verified retrieval, CSV/parquet representations, and a per-source response cache are implemented. Tooling choices are in [ADR 0002](adr/0002-tooling-and-packaging-baseline.md). Project license is Apache-2.0.
 
 ## Modules
 
@@ -17,6 +17,7 @@ One responsibility each, matching the three layers in the vision.
 | `policy` | SPDX license-to-rights table, rights derivation, presets, `DatasetPolicyError`. |
 | `representations` | `LocalDataset`: retrieved files plus `as_pandas`, `as_arrow`, `as_numpy` behind lazy imports, and the attribution owed. |
 | `download` | HTTP download with checksum verification. Leaf utility used by adapters. |
+| `cache` | SQLite response cache and `CachingAdapter`, which wraps any adapter so search and get are served from the cache while fresh. TTL per source from `sources.yaml`; `fresh=True` bypasses. |
 | `cli` | Typer app over all of the above, including the overlay create/verify workflow. |
 
 Dependency direction is strictly downward:
@@ -57,7 +58,7 @@ dataregistrar/
 │   ├── policy/
 │   │   ├── engine.py
 │   │   └── licenses.yaml        SPDX id → rights table
-│   ├── cache.py
+│   ├── cache.py                 response cache + CachingAdapter
 │   ├── representations/
 │   ├── cli/
 │   └── builtin/                 the shipped layer
@@ -79,7 +80,7 @@ Placement decisions:
 ```text
 search(query, policy=…, min_status=…)
   → registry resolves enabled sources across layers
-  → fan out to each adapter (cache hit or live call)
+  → fan out to each adapter through CachingAdapter (cache hit or live call; --fresh bypasses)
   → adapters return normalized Records, status=imported
   → overlays merged: verified fields win, mirrors grouped under canonical id
   → policy engine derives rights from license table, applies preset
@@ -107,6 +108,5 @@ Every overlay records which layer it came from, so `verified` means verified by 
 
 ## Next steps
 
-1. Response cache with per-source TTL. Two sources now fan out on every search.
-2. Overlay CLI: create from a record, run the verification checklist, mark verified.
-3. `release-series` adapter and one government source.
+1. Overlay CLI: create from a record, run the verification checklist, mark verified.
+2. `release-series` adapter and one government source.

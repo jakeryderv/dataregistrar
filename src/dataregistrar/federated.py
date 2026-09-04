@@ -42,13 +42,14 @@ def search(
     policy: str | None = None,
     require: Requirement | None = None,
     min_status: Status | None = None,
+    fresh: bool = False,
 ) -> list[Record]:
     """Search every enabled source (or the given subset), annotate, then filter."""
     ids = list(sources) if sources is not None else registry.source_ids
     requirement = _requirement(policy, require)
     results: list[Record] = []
     for source_id in ids:
-        for record in registry.adapter(source_id).search(query):
+        for record in registry.adapter(source_id, fresh=fresh).search(query):
             annotated = registry.annotate(record)
             if _meets_status(annotated, min_status) and satisfies(annotated, requirement):
                 results.append(annotated)
@@ -61,12 +62,13 @@ def get(
     *,
     policy: str | None = None,
     require: Requirement | None = None,
+    fresh: bool = False,
 ) -> Record:
     """Fetch one record by `source:id`, annotate, and enforce any requirement."""
     source_id, _, native_id = record_id.partition(":")
     if not native_id:
         raise ValueError(f"record id must look like 'source:id', got {record_id!r}")
-    record = registry.annotate(registry.adapter(source_id).get(native_id))
+    record = registry.annotate(registry.adapter(source_id, fresh=fresh).get(native_id))
     check(record, _requirement(policy, require))
     return record
 

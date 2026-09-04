@@ -31,6 +31,7 @@ def search(
     policy: str | None = None,
     require: Requirement | None = None,
     min_status: Status | None = None,
+    fresh: bool = False,
 ) -> list[Record]:
     return _federated.search(
         default_registry(),
@@ -39,11 +40,20 @@ def search(
         policy=policy,
         require=require,
         min_status=min_status,
+        fresh=fresh,
     )
 
 
-def get(record_id: str, *, policy: str | None = None, require: Requirement | None = None) -> Record:
-    return _federated.get(default_registry(), record_id, policy=policy, require=require)
+def get(
+    record_id: str,
+    *,
+    policy: str | None = None,
+    require: Requirement | None = None,
+    fresh: bool = False,
+) -> Record:
+    return _federated.get(
+        default_registry(), record_id, policy=policy, require=require, fresh=fresh
+    )
 
 
 def resolve(record_id: str) -> AccessPlan:

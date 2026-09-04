@@ -21,6 +21,8 @@ dreg search wine --policy commercial    # only records whose rights are known to
 dreg get uci:186                        # one record with license evidence
 dreg get uci:109 --policy commercial    # exits 2 and explains why it does not qualify
 dreg fetch uci:186 --policy commercial  # downloads, verifies the checksum, prints what you owe
+dreg search wine --fresh                # bypass the response cache
+dreg cache info                         # where it lives, entries per source, TTLs
 ```
 
 ```python
@@ -39,6 +41,8 @@ Retrieval is source-native: files come from the provider, land in your user cach
 Rights that a source does not state are `unknown`, and unknown never satisfies a policy. Rights a source does declare, like a Hugging Face license tag, are derived at `imported` confidence. A record only becomes `verified` through an overlay a person wrote with evidence. UCI's API, for example, exposes no license at all; the shipped overlay for Wine Quality is what makes it pass `--policy commercial`. Use `--min-status verified` when self-declared tags are not enough.
 
 Gated Hugging Face datasets import as `restricted` and are not downloaded without `HF_TOKEN` set.
+
+Search and get responses are cached in your user cache directory with a per-source TTL set in `sources.yaml`. Downloads are verified against recorded checksums and reused when they match.
 
 ## Develop
 
