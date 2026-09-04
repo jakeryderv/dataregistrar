@@ -2,7 +2,7 @@
 
 Current state of the design. For why, see [`adr/`](adr/). For the product vision, see [`vision.md`](vision.md).
 
-**Status:** UCI and Hugging Face adapters, overlays, policy engine, federated search, checksum-verified retrieval, CSV/parquet representations, and a per-source response cache are implemented. Tooling choices are in [ADR 0002](adr/0002-tooling-and-packaging-baseline.md). Project license is Apache-2.0.
+**Status:** UCI and Hugging Face adapters, overlays, policy engine, federated search, checksum-verified retrieval, CSV/parquet representations, a per-source response cache, and the overlay create/verify workflow are implemented. Tooling choices are in [ADR 0002](adr/0002-tooling-and-packaging-baseline.md). Project license is Apache-2.0.
 
 ## Modules
 
@@ -18,7 +18,8 @@ One responsibility each, matching the three layers in the vision.
 | `representations` | `LocalDataset`: retrieved files plus `as_pandas`, `as_arrow`, `as_numpy` behind lazy imports, and the attribution owed. |
 | `download` | HTTP download with checksum verification. Leaf utility used by adapters. |
 | `cache` | SQLite response cache and `CachingAdapter`, which wraps any adapter so search and get are served from the cache while fresh. TTL per source from `sources.yaml`; `fresh=True` bypasses. |
-| `cli` | Typer app over all of the above, including the overlay create/verify workflow. |
+| `curate` | Create an overlay from a live record; run the verification checklist and write it back as verified only on a full pass. |
+| `cli` | Typer app over all of the above. |
 
 Dependency direction is strictly downward:
 
@@ -59,6 +60,7 @@ dataregistrar/
 │   │   ├── engine.py
 │   │   └── licenses.yaml        SPDX id → rights table
 │   ├── cache.py                 response cache + CachingAdapter
+│   ├── curate.py                overlay create / verify
 │   ├── representations/
 │   ├── cli/
 │   └── builtin/                 the shipped layer
@@ -108,5 +110,5 @@ Every overlay records which layer it came from, so `verified` means verified by 
 
 ## Next steps
 
-1. Overlay CLI: create from a record, run the verification checklist, mark verified.
-2. `release-series` adapter and one government source.
+1. `release-series` adapter and one government source.
+2. Overlay `link`: add a distribution to an existing canonical, for mirrors and conversions.

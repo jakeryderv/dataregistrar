@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from collections.abc import Iterator
 from typing import Any
 
 from dataregistrar._yaml import load_yaml
@@ -29,6 +30,9 @@ class OverlayIndex:
 
     def __len__(self) -> int:
         return len(self._by_canonical)
+
+    def __iter__(self) -> Iterator[Overlay]:
+        return iter(self._by_canonical.values())
 
 
 def load_overlays(layers: list[Layer]) -> OverlayIndex:

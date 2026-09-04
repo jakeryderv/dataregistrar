@@ -15,7 +15,7 @@ Setup, build, and test commands live in [README.md](README.md). Do not duplicate
 - Tests never hit live sources and never mirror data contents. pytest runs with `--block-network`; Metadata HTTP goes through cassettes in `tests/cassettes/`; file downloads in tests are served by a fixture transport with a tiny synthetic CSV, never a real file. Re-record with `just record` only when an adapter or a source changes.
 - The core package must not depend on pandas, pyarrow, or any provider SDK. Those are optional extras.
 - Rights that are missing or unclear are `unknown`, never inferred. `imported` must never look `verified`.
-- Nothing is written to git per hub dataset. Only sources and overlays are files.
+- Nothing is written to git per hub dataset. Only sources and overlays are files. Overlays are written by `dreg overlay create` and promoted by `dreg overlay verify`, never marked verified by hand.
 - `just check` must pass before a PR. It is what CI runs.
 
 ## Conventions

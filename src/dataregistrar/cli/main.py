@@ -8,10 +8,13 @@ from rich.console import Console
 from rich.table import Table
 
 import dataregistrar
+from dataregistrar import curate
 from dataregistrar.adapters import AccessRequired
 from dataregistrar.download import ChecksumMismatch
 from dataregistrar.model import Record, Status
 from dataregistrar.policy import DatasetPolicyError
+from dataregistrar.registry import Layer
+from dataregistrar.registry.layers import project_layer, user_layer
 
 app = typer.Typer(
     name="dreg",
@@ -187,3 +190,97 @@ def cache_clear(
         return
     removed = registry.cache.clear(source)
     console.print(f"removed {removed} cached response(s)")
+
+
+overlay_app = typer.Typer(help="Create, verify, and list overlays.", no_args_is_help=True)
+app.add_typer(overlay_app, name="overlay")
+
+
+def _target_layer(layer: str, directory: Path | None) -> Layer:
+    if directory is not None:
+        return Layer("custom", directory)
+    if layer == "user":
+        return user_layer()
+    if layer == "project":
+        return project_layer()
+    raise typer.BadParameter("layer must be 'project' or 'user', or pass --dir")
+
+
+@overlay_app.command("create")
+def overlay_create(
+    record_id: Annotated[str, typer.Argument(help="Record to overlay, e.g. uci:186.")],
+    canonical: Annotated[
+        str | None, typer.Option(help="Canonical id. Default: source-name.")
+    ] = None,
+    spdx: Annotated[str | None, typer.Option(help="License SPDX id, if you know it.")] = None,
+    evidence: Annotated[str | None, typer.Option(help="URL where the license is stated.")] = None,
+    cite: Annotated[str | None, typer.Option(help="Citation, if the source lacks one.")] = None,
+    layer: Annotated[str, typer.Option(help="project or user")] = "project",
+    directory: Annotated[
+        Path | None, typer.Option("--dir", help="Write into this layer dir.")
+    ] = None,
+    force: Annotated[bool, typer.Option(help="Overwrite an existing overlay.")] = False,
+) -> None:
+    """Write a new overlay pre-filled from the live record. It stays `imported` until verified."""
+    try:
+        path = curate.create_overlay(
+            dataregistrar.default_registry(),
+            record_id,
+            layer=_target_layer(layer, directory),
+            canonical=canonical,
+            spdx=spdx,
+            evidence_url=evidence,
+            cite_as=cite,
+            force=force,
+        )
+    except FileExistsError as err:
+        console.print(f"[red]{err}[/red]")
+        raise typer.Exit(code=1) from None
+    console.print(f"wrote {path}")
+    console.print(
+        "edit license.spdx and license.evidence_url if missing, then: dreg overlay verify"
+    )
+
+
+@overlay_app.command("verify")
+def overlay_verify(
+    canonical: Annotated[str, typer.Argument(help="Canonical id of the overlay.")],
+    by: Annotated[str, typer.Option(help="Who reviewed it. Recorded on the overlay.")],
+    layer: Annotated[str, typer.Option(help="project or user")] = "project",
+    directory: Annotated[
+        Path | None, typer.Option("--dir", help="Layer dir holding the overlay.")
+    ] = None,
+) -> None:
+    """Run the verification checklist. Marks the overlay verified only if every check passes."""
+    path = curate.overlay_path(_target_layer(layer, directory), canonical)
+    if not path.is_file():
+        console.print(f"[red]no overlay at {path}[/red]")
+        raise typer.Exit(code=1)
+    result = curate.verify_overlay(dataregistrar.default_registry(), path, by=by)
+    for check in result.checks:
+        mark = "[green]ok[/green]  " if check.ok else "[red]FAIL[/red]"
+        console.print(f"{mark} {check.name:<22} {check.detail}", highlight=False)
+    if result.passed:
+        console.print(f"\n[green]verified[/green] {canonical} → {path}")
+    else:
+        console.print(f"\n[yellow]not verified[/yellow]; {path} left unchanged")
+        raise typer.Exit(code=1)
+
+
+@overlay_app.command("list")
+def overlay_list() -> None:
+    """Every overlay visible from the current layers, with where it came from."""
+    registry = dataregistrar.default_registry()
+    table = Table(box=None, pad_edge=False)
+    for col in ("canonical", "status", "license", "layer", "distributions"):
+        table.add_column(col)
+    for o in sorted(registry.overlays, key=lambda o: o.canonical):
+        spdx = o.license.spdx if o.license and o.license.spdx else "unknown"
+        table.add_row(
+            o.canonical,
+            o.status or "-",
+            spdx,
+            o.layer or "-",
+            ", ".join(d.id for d in o.distributions),
+        )
+    console.print(table)

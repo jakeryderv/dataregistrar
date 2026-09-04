@@ -14,6 +14,9 @@ class Distribution(BaseModel):
     role: Literal["official", "mirror", "conversion", "subset"] = "official"
     modifications: str | None = None
     sha256: str | None = None
+    """Checksum when the distribution is a single file."""
+    checksums: dict[str, str] = Field(default_factory=dict[str, str])
+    """Per-file checksums keyed by the planned filename, for multi-file distributions."""
 
 
 class Overlay(BaseModel):

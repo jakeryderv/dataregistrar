@@ -23,6 +23,10 @@ dreg get uci:109 --policy commercial    # exits 2 and explains why it does not q
 dreg fetch uci:186 --policy commercial  # downloads, verifies the checksum, prints what you owe
 dreg search wine --fresh                # bypass the response cache
 dreg cache info                         # where it lives, entries per source, TTLs
+
+dreg overlay create hf:org/name --spdx CC-BY-4.0 --evidence https://…   # pre-filled from the live record
+dreg overlay verify hf-name --by you    # runs the checklist; marks verified only if all pass
+dreg overlay list
 ```
 
 ```python
@@ -38,7 +42,7 @@ print(wine.attribution)
 
 Retrieval is source-native: files come from the provider, land in your user cache, and are verified against the checksum an overlay recorded. Nothing is mirrored.
 
-Rights that a source does not state are `unknown`, and unknown never satisfies a policy. Rights a source does declare, like a Hugging Face license tag, are derived at `imported` confidence. A record only becomes `verified` through an overlay a person wrote with evidence. UCI's API, for example, exposes no license at all; the shipped overlay for Wine Quality is what makes it pass `--policy commercial`. Use `--min-status verified` when self-declared tags are not enough.
+Rights that a source does not state are `unknown`, and unknown never satisfies a policy. Rights a source does declare, like a Hugging Face license tag, are derived at `imported` confidence. A record only becomes `verified` through an overlay a person reviewed with evidence. `dreg overlay create` pre-fills one from the live record into your project layer (`./dataregistrar/overlays/`), and `dreg overlay verify` runs the checklist: license evidence resolves, source URL resolves, files retrieve through the adapter, checksums recorded, citation present, reviewer named. Any failure leaves the file untouched and says what is missing. UCI's API, for example, exposes no license at all; the shipped overlay for Wine Quality is what makes it pass `--policy commercial`. Use `--min-status verified` when self-declared tags are not enough.
 
 Gated Hugging Face datasets import as `restricted` and are not downloaded without `HF_TOKEN` set.
 

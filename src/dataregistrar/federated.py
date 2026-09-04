@@ -7,7 +7,7 @@ from pathlib import Path
 
 from platformdirs import user_cache_path
 
-from dataregistrar.model import AccessPlan, Record, Status
+from dataregistrar.model import AccessPlan, PlannedFile, Record, Status
 from dataregistrar.policy import Requirement, check, preset, satisfies
 from dataregistrar.registry import Registry
 from dataregistrar.representations import LocalDataset
@@ -74,15 +74,22 @@ def get(
 
 
 def _attach_expected_checksum(registry: Registry, record: Record, plan: AccessPlan) -> AccessPlan:
-    """Expect the overlay's checksum for this distribution when the plan is a single file."""
+    """Expect the overlay's recorded checksums: per file by name, or the single-file sha256."""
     overlay = registry.overlays.for_record(record.id)
-    if overlay is None or len(plan.files) != 1 or plan.files[0].sha256 is not None:
+    if overlay is None:
         return plan
     dist = next((d for d in overlay.distributions if d.id == record.id), None)
-    if dist is None or dist.sha256 is None:
+    if dist is None:
         return plan
-    planned = plan.files[0].model_copy(update={"sha256": dist.sha256})
-    return plan.model_copy(update={"files": [planned]})
+    files: list[PlannedFile] = []
+    for planned in plan.files:
+        expected = dist.checksums.get(planned.filename)
+        if expected is None and len(plan.files) == 1:
+            expected = dist.sha256
+        if expected is not None and planned.sha256 is None:
+            planned = planned.model_copy(update={"sha256": expected})
+        files.append(planned)
+    return plan.model_copy(update={"files": files})
 
 
 def resolve(registry: Registry, record_id: str) -> AccessPlan:
