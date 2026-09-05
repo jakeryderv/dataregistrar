@@ -280,13 +280,17 @@ def overlay_verify(
     directory: Annotated[
         Path | None, typer.Option("--dir", help="Layer dir holding the overlay.")
     ] = None,
+    release: Annotated[
+        list[str] | None,
+        typer.Option("--release", "-r", help="Series only: releases to record. Default latest."),
+    ] = None,
 ) -> None:
     """Run the verification checklist. Marks the overlay verified only if every check passes."""
     path = curate.overlay_path(_target_layer(layer, directory), canonical)
     if not path.is_file():
         console.print(f"[red]no overlay at {path}[/red]")
         raise typer.Exit(code=1)
-    result = curate.verify_overlay(dataregistrar.default_registry(), path, by=by)
+    result = curate.verify_overlay(dataregistrar.default_registry(), path, by=by, releases=release)
     for check in result.checks:
         mark = "[green]ok[/green]  " if check.ok else "[red]FAIL[/red]"
         console.print(f"{mark} {check.name:<22} {check.detail}", highlight=False)
@@ -295,6 +299,41 @@ def overlay_verify(
     else:
         console.print(f"\n[yellow]not verified[/yellow]; {path} left unchanged")
         raise typer.Exit(code=1)
+
+
+@overlay_app.command("link")
+def overlay_link(
+    canonical: Annotated[str, typer.Argument(help="Canonical id of the existing overlay.")],
+    record_id: Annotated[str, typer.Argument(help="Record to add, e.g. hf:org/name.")],
+    role: Annotated[str, typer.Option(help="mirror, conversion, or subset")] = "mirror",
+    modifications: Annotated[
+        str | None, typer.Option(help="How it differs from the official distribution.")
+    ] = None,
+    layer: Annotated[str, typer.Option(help="project or user")] = "project",
+    directory: Annotated[
+        Path | None, typer.Option("--dir", help="Layer dir holding the overlay.")
+    ] = None,
+) -> None:
+    """Add a mirror, conversion, or subset to an existing overlay so it groups under one
+    canonical id. Run verify afterwards to record its checksums."""
+    path = curate.overlay_path(_target_layer(layer, directory), canonical)
+    if not path.is_file():
+        console.print(f"[red]no overlay at {path}[/red]")
+        raise typer.Exit(code=1)
+    try:
+        overlay = curate.link_distribution(
+            dataregistrar.default_registry(),
+            path,
+            record_id,
+            role=role,
+            modifications=modifications,
+        )
+    except Exception as err:
+        console.print(f"[red]{err}[/red]")
+        raise typer.Exit(code=1) from None
+    console.print(f"{canonical} now has {len(overlay.distributions)} distributions:")
+    for d in overlay.distributions:
+        console.print(f"  {d.role:<11} {d.id}")
 
 
 @overlay_app.command("list")

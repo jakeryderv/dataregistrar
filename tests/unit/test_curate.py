@@ -113,7 +113,7 @@ def test_verify_passes_and_writes_verified_overlay(tmp_path: Path) -> None:
         ({"evidence_url": None}, "license"),
         ({"bad_url": "https://fake.test/lic"}, "license"),
         ({"bad_url": "https://fake.test/ds/1"}, "source url"),
-        ({"adapter": FakeAdapter(fail_retrieve=True)}, "retrieval"),
+        ({"adapter": FakeAdapter(fail_retrieve=True)}, "retrieval official"),
         ({"adapter": FakeAdapter(cite=False)}, "citation"),
         ({"adapter": FakeAdapter(cite=False), "cite_as": "Given (2026)", "expect_pass": True}, "-"),
         ({"by": ""}, "reviewer"),
@@ -143,6 +143,92 @@ def test_verify_fails_one_check_and_leaves_file_untouched(
     assert next(c.name for c in result.checks if not c.ok) == failing
     assert path.read_text() == before
     assert curate.load_overlay(path).status is Status.IMPORTED
+
+
+class FakeSeriesAdapter(FakeAdapter):
+    """Two releases; each selector downloads a different body."""
+
+    def get(self, source_id: str) -> Record:
+        from dataregistrar.model import Release, Series
+
+        base = super().get(source_id)
+        releases = [
+            Release(id=y, url=HttpUrl(f"https://fake.test/{y}.csv"), filename=f"{y}/{y}.csv")
+            for y in ("2024", "2025")
+        ]
+        return base.model_copy(
+            update={"kind": Kind.RELEASE_SERIES, "series": Series(releases=releases)}
+        )
+
+    def resolve(self, record: Record, selector: str | None = None) -> AccessPlan:
+        assert record.series is not None
+        rel = (
+            record.series.latest()
+            if selector in (None, "latest")
+            else record.series.release(selector)
+        )
+        return AccessPlan(
+            record_id=record.id,
+            kind=Kind.RELEASE_SERIES,
+            files=[PlannedFile(url=rel.url, filename=rel.filename)],
+        )
+
+    def retrieve(self, plan: AccessPlan, destination: Path) -> list[Path]:
+        out: list[Path] = []
+        for planned in plan.files:
+            path = destination / planned.filename
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(planned.filename.encode())
+            out.append(path)
+        return out
+
+
+def _verify(registry: Registry, path: Path, **kw: Any) -> curate.Verification:
+    return curate.verify_overlay(
+        registry, path, by="tester", today=date(2026, 9, 4), url_ok=lambda _: True, **kw
+    )
+
+
+def test_series_verify_records_latest_then_merges_named_releases(tmp_path: Path) -> None:
+    registry, layer = _registry(tmp_path, FakeSeriesAdapter())
+    path = curate.create_overlay(
+        registry, "fake:1", layer=layer, spdx="CC0-1.0", evidence_url="https://fake.test/lic"
+    )
+    assert _verify(registry, path).passed
+    official = curate.load_overlay(path).distributions[0]
+    assert list(official.checksums) == ["2025/2025.csv"]
+    assert official.sha256 == official.checksums["2025/2025.csv"]
+
+    assert _verify(registry, path, releases=["2024"]).passed
+    official = curate.load_overlay(path).distributions[0]
+    assert sorted(official.checksums) == ["2024/2024.csv", "2025/2025.csv"], "merged"
+    assert official.sha256 is None, "no single checksum once there are several"
+
+
+def test_link_adds_a_mirror_and_verify_records_its_checksums(tmp_path: Path) -> None:
+    registry, layer = _registry(tmp_path)
+    path = curate.create_overlay(
+        registry, "fake:1", layer=layer, spdx="CC-BY-4.0", evidence_url="https://fake.test/lic"
+    )
+    overlay = curate.link_distribution(registry, path, "fake:2", role="mirror", modifications="zip")
+    assert [(d.id, d.role, d.modifications) for d in overlay.distributions] == [
+        ("fake:1", "official", None),
+        ("fake:2", "mirror", "zip"),
+    ]
+    with pytest.raises(ValueError, match="already a distribution"):
+        curate.link_distribution(registry, path, "fake:2", role="mirror")
+
+    result = _verify(registry, path)
+    assert result.passed, [c for c in result.checks if not c.ok]
+    names = [c.name for c in result.checks]
+    assert "retrieval official" in names and "retrieval mirror" in names
+    dists = {d.id: d for d in curate.load_overlay(path).distributions}
+    assert dists["fake:2"].checksums == {"d.csv": dists["fake:1"].checksums["d.csv"]}
+
+    fresh = Registry([layer], factories=registry.factories)
+    mirror = fresh.annotate(fresh.adapter("fake").get("2"))
+    assert mirror.canonical == "fake-some-data-set"
+    assert mirror.status is Status.VERIFIED, "retrieved and checksummed, so verified"
 
 
 def test_slug_and_default_canonical() -> None:

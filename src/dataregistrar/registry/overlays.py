@@ -50,10 +50,14 @@ def load_overlays(layers: list[Layer]) -> OverlayIndex:
 def apply_overlay(record: Record, overlay: Overlay) -> Record:
     """Overlay fields win. Fields the overlay leaves None keep the record's value."""
     updates: dict[str, Any] = {"canonical": overlay.canonical}
-    for field in ("kind", "name", "publisher", "cite_as", "license", "rights", "status"):
+    for field in ("kind", "name", "publisher", "cite_as", "license", "rights"):
         value = getattr(overlay, field)
         if value is not None:
             updates[field] = value
+    dist = next((d for d in overlay.distributions if d.id == record.id), None)
+    checked = dist is None or dist.role == "official" or bool(dist.checksums)
+    if overlay.status is not None and checked:
+        updates["status"] = overlay.status
     if record.series is not None:
         releases, reissued = _link_reissues(record.series.releases, overlay, record.id)
         updates["series"] = record.series.model_copy(update={"releases": releases})

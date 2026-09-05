@@ -98,6 +98,28 @@ def create_overlay(
     return path
 
 
+def link_distribution(
+    registry: Registry,
+    path: Path,
+    record_id: str,
+    *,
+    role: str,
+    modifications: str | None = None,
+) -> Overlay:
+    """Add a mirror, conversion, or subset to an existing overlay. The record must resolve."""
+    overlay = load_overlay(path)
+    if any(d.id == record_id for d in overlay.distributions):
+        raise ValueError(f"{record_id} is already a distribution of {overlay.canonical}")
+    source, _, native = record_id.partition(":")
+    registry.adapter(source, fresh=True).get(native)  # raises if it does not exist
+    dist = Distribution.model_validate(
+        {"id": record_id, "role": role, "modifications": modifications}
+    )
+    overlay = overlay.model_copy(update={"distributions": [*overlay.distributions, dist]})
+    write_overlay(overlay, path)
+    return overlay
+
+
 @dataclass(frozen=True)
 class Check:
     name: str
@@ -124,10 +146,13 @@ def verify_overlay(
     today: date | None = None,
     url_ok: UrlCheck = default_url_ok,
     workdir: Path | None = None,
+    releases: list[str] | None = None,
 ) -> Verification:
     """Run the checklist. On full pass, write the overlay back as `verified`.
 
-    On any failure the file is left untouched and the checks say what is missing.
+    On any failure the file is left untouched and the checks say what is missing. For a
+    series, the latest release is retrieved unless `releases` names specific ones. Checksums
+    are merged with those already recorded, never dropped, so earlier issues stay known.
     """
     overlay = load_overlay(path)
     result = Verification(path=path, overlay=overlay)
@@ -164,25 +189,34 @@ def verify_overlay(
     else:
         checks.append(Check("source url", True, str(record.url)))
 
-    # 3 + 4. retrieval through the adapter, checksums recorded
-    checksums: dict[str, str] = {}
+    # 3 + 4. retrieval through the adapter for every distribution, checksums recorded
+    new_checksums: dict[str, dict[str, str]] = {}
     if (overlay.kind or record.kind) in {Kind.DATASET, Kind.RELEASE_SERIES}:
-        try:
-            adapter = registry.adapter(source, fresh=True)
-            plan = adapter.resolve(record)
-            with tempfile.TemporaryDirectory() as tmp:
-                paths = adapter.retrieve(plan, workdir or Path(tmp))
-                checksums = {
-                    planned.filename: sha256_of(p)
-                    for planned, p in zip(plan.files, paths, strict=True)
-                }
-            checks.append(
-                Check("retrieval", True, f"{len(paths)} file(s) fetched through {source}")
-            )
-            checks.append(Check("checksums", True, f"{len(checksums)} recorded"))
-        except Exception as err:
-            checks.append(Check("retrieval", False, str(err)))
-            checks.append(Check("checksums", False, "retrieval failed"))
+        selectors: list[str | None] = list(releases) if releases else [None]
+        for dist in overlay.distributions:
+            d_source, _, d_native = dist.id.partition(":")
+            try:
+                adapter = registry.adapter(d_source, fresh=True)
+                d_record = record if dist is official else adapter.get(d_native)
+                got: dict[str, str] = {}
+                for selector in selectors if dist is official else [None]:
+                    plan = adapter.resolve(d_record, selector)
+                    with tempfile.TemporaryDirectory() as tmp:
+                        paths = adapter.retrieve(plan, workdir or Path(tmp))
+                        got.update(
+                            {
+                                planned.filename: sha256_of(p)
+                                for planned, p in zip(plan.files, paths, strict=True)
+                            }
+                        )
+                new_checksums[dist.id] = got
+                checks.append(
+                    Check(f"retrieval {dist.role}", True, f"{len(got)} file(s) via {dist.id}")
+                )
+            except Exception as err:
+                checks.append(Check(f"retrieval {dist.role}", False, f"{dist.id}: {err}"))
+        total = sum(len(v) for v in new_checksums.values())
+        checks.append(Check("checksums", total > 0, f"{total} recorded this run"))
     else:
         checks.append(Check("retrieval", True, "not applicable to this kind"))
         checks.append(Check("checksums", True, "not applicable to this kind"))
@@ -204,11 +238,11 @@ def verify_overlay(
     rights = (overlay.rights or derive_rights(verified_license)).model_copy(
         update={"confidence": Confidence.VERIFIED}
     )
-    single = checksums[next(iter(checksums))] if len(checksums) == 1 else official.sha256
-    distributions = [
-        d.model_copy(update={"sha256": single, "checksums": checksums}) if d is official else d
-        for d in overlay.distributions
-    ]
+    distributions: list[Distribution] = []
+    for d in overlay.distributions:
+        merged = {**d.checksums, **new_checksums.get(d.id, {})}
+        single = next(iter(merged.values())) if len(merged) == 1 else None
+        distributions.append(d.model_copy(update={"sha256": single, "checksums": merged}))
     result.overlay = overlay.model_copy(
         update={
             "license": verified_license,

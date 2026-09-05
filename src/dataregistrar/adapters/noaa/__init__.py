@@ -14,12 +14,13 @@ import httpx
 from dataregistrar.adapters import NoRetrievalPath
 from dataregistrar.adapters.noaa import catalog
 from dataregistrar.adapters.noaa.collections import Collection
+from dataregistrar.adapters.noaa.collections.ghcn_daily import GHCNDaily
 from dataregistrar.adapters.noaa.collections.storm_events import StormEvents
 from dataregistrar.download import download_all
 from dataregistrar.model import AccessPlan, Kind, Record
 
 BASE_URL = "https://www.ncei.noaa.gov"
-COLLECTIONS: tuple[Collection, ...] = (StormEvents(),)
+COLLECTIONS: tuple[Collection, ...] = (StormEvents(), GHCNDaily())
 CATALOG_PREFIX = "ncei/"
 
 
@@ -42,12 +43,17 @@ class NOAAAdapter:
         self._client = client or httpx.Client(base_url=BASE_URL, timeout=30, follow_redirects=True)
 
     def search(self, query: str) -> list[Record]:
-        """Collections that match come first, then NCEI catalog hits."""
-        own = [c.summary(self.id) for c in self.collections.values() if c.matches(query)]
-        hits = [
-            catalog.to_record(self.id, d) for d in catalog.search(self._client, query, self.limit)
-        ]
-        return own + hits
+        """Collections come first, then NCEI catalog hits. A catalog hit whose id a collection
+        claims is replaced by that collection, so one dataset never appears twice."""
+        matched = [c for c in self.collections.values() if c.matches(query)]
+        hits: list[Record] = []
+        for d in catalog.search(self._client, query, self.limit):
+            claimed = self.collections.get(f"{CATALOG_PREFIX}{d['id']}")
+            if claimed is None:
+                hits.append(catalog.to_record(self.id, d))
+            elif claimed not in matched:
+                matched.append(claimed)
+        return [c.summary(self.id) for c in matched] + hits
 
     def get(self, source_id: str) -> Record:
         if source_id in self.collections:

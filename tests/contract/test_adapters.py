@@ -13,6 +13,7 @@ CASES: list[tuple[Adapter, str, str, str]] = [
     (UCIAdapter(), "wine", "uci:186", "186"),
     (HuggingFaceAdapter(), "mnist", "hf:ylecun/mnist", "ylecun/mnist"),
     (NOAAAdapter(), "storm", "noaa:ncei/storm-events", "ncei/storm-events"),
+    (NOAAAdapter(), "ghcn", "noaa:ncei/daily-summaries", "ncei/daily-summaries"),
 ]
 
 

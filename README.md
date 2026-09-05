@@ -23,11 +23,14 @@ dreg get uci:109 --policy commercial    # exits 2 and explains why it does not q
 dreg fetch uci:186 --policy commercial  # downloads, verifies the checksum, prints what you owe
 dreg get noaa:ncei/storm-events         # a release series: cadence, releases, latest
 dreg fetch noaa:ncei/storm-events --release 2024
+dreg get noaa:ncei/daily-summaries      # GHCN-Daily, 264 yearly files rebuilt nightly
 dreg search wine --fresh                # bypass the response cache
 dreg cache info                         # where it lives, entries per source, TTLs
 
 dreg overlay create hf:org/name --spdx CC-BY-4.0 --evidence https://…   # pre-filled from the live record
 dreg overlay verify hf-name --by you    # runs the checklist; marks verified only if all pass
+dreg overlay link uci-wine-quality hf:codesignal/wine-quality --role mirror   # group a mirror under the original
+dreg overlay verify noaa-storm-events --by you --release 2024 --release 2025    # series: record specific releases
 dreg overlay list
 ```
 

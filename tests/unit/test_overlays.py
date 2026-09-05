@@ -37,6 +37,28 @@ status: verified
     assert registry.overlays.for_record("x:1").layer == "t"  # type: ignore[union-attr]
 
 
+def test_unchecked_mirror_keeps_its_own_status_but_gets_license(tmp_path: Path) -> None:
+    _write_overlay(
+        tmp_path,
+        """
+canonical: c
+distributions:
+  - {id: "x:1", role: official, sha256: aaaa}
+  - {id: "hf:m", role: mirror}
+  - {id: "hf:c", role: conversion, checksums: {"a.parquet": bbbb}}
+license: {spdx: CC-BY-4.0}
+status: verified
+""",
+    )
+    registry = Registry([Layer("t", tmp_path)], factories={})
+    mirror = registry.annotate(Record(id="hf:m", kind=Kind.DATASET, source="hf", name="m"))
+    assert mirror.canonical == "c"
+    assert mirror.license.spdx == "CC-BY-4.0"
+    assert mirror.status is Status.IMPORTED, "never retrieved, so not verified"
+    conversion = registry.annotate(Record(id="hf:c", kind=Kind.DATASET, source="hf", name="c"))
+    assert conversion.status is Status.VERIFIED
+
+
 def test_later_layer_overrides_earlier(tmp_path: Path) -> None:
     a, b = tmp_path / "a", tmp_path / "b"
     _write_overlay(a, 'canonical: c\ndistributions: [{id: "x:1"}]\nname: from-a\n')

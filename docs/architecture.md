@@ -116,13 +116,14 @@ Every overlay records which layer it came from, so `verified` means verified by 
 A hub adapter wraps one API. A publisher like NOAA has one identity and a dozen delivery mechanisms, so its adapter is a composite:
 
 - **Catalog** for `search` and `get`: NCEI's search service today; OneStop and data.gov can feed the same adapter later. Catalog records are `imported`, rights unknown, and `access.retrievable = False`.
-- **Collections** for retrieval: each knows one delivery mechanism, contributes its own catalog entry so it is searchable even when the publisher's catalog omits it, and implements `resolve` for its kind. Storm Events is a `release-series` over a file directory: filenames encode period and revision, planned filenames are `<period>/<name>` so re-issues never overwrite, and `resolve(record, selector)` picks a release, default latest.
+- **Collections** for retrieval: each knows one delivery mechanism, contributes its own catalog entry so it is searchable even when the publisher's catalog omits it, and implements `resolve` for its kind. `DirectorySeries` is a base for the common case, a file directory with one file per period; a new collection of that shape is a class with nine attributes (GHCN-Daily is the second). A collection that takes the catalog's id for the same dataset merges with the catalog hit. Storm Events is a `release-series` over a file directory: filenames encode period and revision, planned filenames are `<period>/<name>` so re-issues never overwrite, and `resolve(record, selector)` picks a release, default latest.
+- **Overlay status flows only to distributions that were checked.** The official distribution and any distribution with recorded checksums take the overlay's status; a linked mirror that has never been retrieved keeps its own status while still gaining the canonical id and license.
 - **Re-issue detection** happens where overlays meet series: a recorded checksum key with the same period but a different filename marks the release `supersedes` and a verified record `stale`.
 
 The public adapter protocol does not change; collections are internal to the adapter.
 
 ## Next steps
 
-1. Overlay `link`: add a distribution to an existing canonical, for mirrors and conversions.
-2. Second NOAA collection, to prove the one-file claim.
-3. `verify` for series: retrieve latest only, and a `--release` to record more.
+1. Scheduled refresh: re-run `get` for every overlaid record and report which went stale.
+2. OneStop and data.gov as additional NOAA catalogs.
+3. First `query-api` collection, probably NOAA CO-OPS tides, to exercise the third kind.

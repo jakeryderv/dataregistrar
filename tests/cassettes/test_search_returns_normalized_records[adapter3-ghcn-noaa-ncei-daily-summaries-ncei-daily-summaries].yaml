@@ -1,0 +1,955 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - www.ncei.noaa.gov
+      user-agent:
+      - python-httpx/0.28.1
+    method: GET
+    uri: https://www.ncei.noaa.gov/access/services/search/v1/datasets?limit=20&text=ghcn
+  response:
+    body:
+      string: "{\"formats\":{\"docCountError\":0,\"buckets\":[{\"docCount\":4,\"key\":\"csv\"},{\"docCount\":4,\"key\":\"json\"},{\"docCount\":2,\"key\":\"native\"},{\"docCount\":2,\"key\":\"netcdf\"},{\"docCount\":3,\"key\":\"pdf\"}],\"sumOfOtherDocCounts\":0},\"observationTypes\":{\"docCountError\":0,\"buckets\":[{\"docCount\":1,\"key\":\"Land
+        Surface\"}],\"sumOfOtherDocCounts\":0},\"keywords\":{\"docCountError\":0,\"buckets\":[],\"sumOfOtherDocCounts\":0},\"endDate\":\"2026-09-04T00:00:00.000Z\",\"count\":8,\"bounds\":{\"bottomRight\":null,\"topLeft\":null},\"datasets\":{\"docCountError\":0,\"buckets\":[{\"docCount\":1,\"key\":\"daily-summaries\"},{\"docCount\":1,\"key\":\"global-historical-climatology-network-hourly\"},{\"docCount\":1,\"key\":\"global-historical-climatology-network-monthly-v2\"},{\"docCount\":1,\"key\":\"global-historical-climatology-network-monthly-v4-precip\"},{\"docCount\":1,\"key\":\"global-summary-of-the-month\"},{\"docCount\":1,\"key\":\"global-summary-of-the-year\"},{\"docCount\":1,\"key\":\"gridded-5km-ghcn-daily-temperature-and-precipitation\"},{\"docCount\":1,\"key\":\"noaa-global-surface-temperature\"}],\"sumOfOtherDocCounts\":0},\"totalCount\":100,\"results\":[{\"featured\":true,\"formats\":[{\"name\":\"pdf\",\"id\":\"pdf\"},{\"name\":\"csv\",\"id\":\"csv\"},{\"name\":\"json\",\"id\":\"json\"}],\"observationTypes\":[],\"keywords\":[\"PRECIPITATION
+        AMOUNT\",\"RAIN\",\"SNOW\",\"SURFACE PRESSURE\",\"MAXIMUM/MINIMUM TEMPERATURE\",\"HEATING
+        DEGREE DAYS\",\"COOLING DEGREE DAYS\",\"SURFACE WINDS\",\"FOG\",\"RAIN STORMS\"],\"contactInfo\":\"Email
+        ncei.info@noaa.gov Online Resource NCEI Contact Information https://www.ncei.noaa.gov/contact\",\"endDate\":\"2026-09-04\",\"topics\":[],\"orderable\":true,\"description\":\"This
+        Global Summaries dataset, known as GSOM for Monthly, contains a monthly resolution
+        of meteorological elements from 1763 to present with updates applied weekly.
+        The major parameters are: monthly mean maximum, mean minimum and mean temperatures;
+        monthly total precipitation and snowfall; departure from normal of the mean
+        temperature and total precipitation; monthly heating and cooling degree days;
+        number of days that temperatures and precipitation are above or below certain
+        thresholds; extreme daily temperature and precipitation amounts; number of
+        days with fog; and number of days with thunderstorms. The primary input data
+        source is the Global Historical Climatology Network - Daily (GHCN-Daily) dataset.
+        The Global Summaries datasets also include a yearly resolution of meteorological
+        elements in the GSOY (for Yearly) dataset. See associated resources for more
+        information. These datasets are not to be confused with \\\"GHCN-Monthly\\\",
+        \\\"Annual Summaries\\\" or \\\"NCDC Summary of the Month\\\". There are unique
+        elements that are produced globally within the GSOM and GSOY data files. There
+        are also bias corrected temperature data in GHCN-Monthly, which are not available
+        in GSOM and GSOY. The GSOM and GSOY datasets replace the legacy U.S. COOP
+        Summaries (DSI-3220), and have been expanded to include non-U.S. (global)
+        stations. U.S. COOP Summaries (DSI-3220) only includes National Weather Service
+        (NWS) COOP Published, or \\\"Published in CD\\\", sites.\",\"people\":[{\"role\":\"principalInvestigator\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Lawrimore, Jay
+        H.\",\"position\":\"Dataset Section Chief\",\"url\":\"https://orcid.org/0000-0001-9778-0178\"},{\"role\":\"author\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Lawrimore, Jay
+        H.\",\"position\":\"Dataset Section Chief\",\"url\":\"https://orcid.org/0000-0001-9778-0178\"},{\"role\":\"principalInvestigator\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Ray, Ron\",\"position\":\"IT
+        Specialist\",\"url\":\"\"},{\"role\":\"author\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Ray, Ron\",\"position\":\"IT
+        Specialist\",\"url\":\"\"},{\"role\":\"principalInvestigator\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Applequist, Scott\",\"position\":\"Physical
+        Scientist\",\"url\":\"\"},{\"role\":\"author\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Applequist, Scott\",\"position\":\"Physical
+        Scientist\",\"url\":\"\"},{\"role\":\"collaborator\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Korzeniewski,
+        Bryant\",\"position\":\"Meteorologist/Datzilla Programmer/COOP Focal Point\",\"url\":\"\"},{\"role\":\"author\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Korzeniewski,
+        Bryant\",\"position\":\"Meteorologist/Datzilla Programmer/COOP Focal Point\",\"url\":\"\"},{\"role\":\"collaborator\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Menne, Matthew
+        J.\",\"position\":\"Physical Scientist\",\"url\":\"\"},{\"role\":\"author\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Menne, Matthew
+        J.\",\"position\":\"Physical Scientist\",\"url\":\"\"}],\"searchable\":true,\"frequency\":\"weekly\",\"dataTypes\":[{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        minimum soil temperature - 12\",\"id\":\"LN12\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        minimum soil temperature - 11\",\"id\":\"LN11\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        minimum soil temperature - 10\",\"id\":\"LN10\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        minimum soil temperature - 15\",\"id\":\"LN15\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        minimum soil temperature - 14\",\"id\":\"LN14\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        minimum soil temperature - 13\",\"id\":\"LN13\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        maximum soil temperature - 10\",\"id\":\"HX10\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        maximum soil temperature - 13\",\"id\":\"HX13\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Direction
+        of Maximum 1 Minute Wind Speed\",\"id\":\"WDF1\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        maximum soil temperature - 14\",\"id\":\"HX14\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Direction
+        of Maximum 2 Minute Wind Speed\",\"id\":\"WDF2\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        maximum soil temperature - 11\",\"id\":\"HX11\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        maximum soil temperature - 12\",\"id\":\"HX12\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Direction
+        of Maximum 5 Second Wind Speed\",\"id\":\"WDF5\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        Average Wet Bulb Temperature\",\"id\":\"AWBT\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        maximum soil temperature - 15\",\"id\":\"HX15\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        short duration precipitation (30 minute)\",\"id\":\"P030\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        short duration precipitation (150 minute)\",\"id\":\"P150\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Total
+        wind movement over evaporation pan\",\"id\":\"WDMV\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        minimum soil temperature - 01\",\"id\":\"LN01\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        short duration precipitation (15 minute)\",\"id\":\"P015\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Extreme
+        maximum snowfall\",\"id\":\"EMSN\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        minimum soil temperature - 05\",\"id\":\"LN05\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        minimum soil temperature - 04\",\"id\":\"LN04\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        minimum soil temperature - 03\",\"id\":\"LN03\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        minimum soil temperature - 02\",\"id\":\"LN02\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        Average Sea Level Pressure\",\"id\":\"ASLP\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        minimum soil temperature - 09\",\"id\":\"LN09\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean maximum soil temperature - 12\",\"id\":\"MX12\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        minimum soil temperature - 08\",\"id\":\"LN08\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean maximum soil temperature - 13\",\"id\":\"MX13\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        minimum soil temperature - 07\",\"id\":\"LN07\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean maximum soil temperature - 14\",\"id\":\"MX14\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        minimum soil temperature - 06\",\"id\":\"LN06\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean maximum soil temperature - 15\",\"id\":\"MX15\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean maximum soil temperature - 10\",\"id\":\"MX10\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean maximum soil temperature - 11\",\"id\":\"MX11\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        Average Station Level Pressure\",\"id\":\"ASTP\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        maximum soil temperature - 02\",\"id\":\"HX02\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        maximum soil temperature - 03\",\"id\":\"HX03\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        maximum soil temperature - 01\",\"id\":\"HX01\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        maximum soil temperature - 06\",\"id\":\"HX06\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        maximum soil temperature - 07\",\"id\":\"HX07\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Number
+        days with fog\",\"id\":\"DYFG\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        maximum soil temperature - 04\",\"id\":\"HX04\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        maximum soil temperature - 05\",\"id\":\"HX05\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        maximum soil temperature - 08\",\"id\":\"HX08\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Day
+        of month of extreme minimum temperature\",\"id\":\"DYNT\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        maximum soil temperature - 09\",\"id\":\"HX09\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        short duration precipitation (20 minute)\",\"id\":\"P020\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean minimum soil temperature - 03\",\"id\":\"MN03\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean minimum soil temperature - 04\",\"id\":\"MN04\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean minimum soil temperature - 05\",\"id\":\"MN05\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean minimum soil temperature - 06\",\"id\":\"MN06\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        short duration precipitation (45 minute)\",\"id\":\"P045\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean minimum soil temperature - 01\",\"id\":\"MN01\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean minimum soil temperature - 02\",\"id\":\"MN02\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        Average of Maximum Relative Humidity\",\"id\":\"RHMX\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean minimum soil temperature - 07\",\"id\":\"MN07\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Number
+        days with maximum temperature greater than 70F (21.1C)\",\"id\":\"DX70\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean minimum soil temperature - 08\",\"id\":\"MN08\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Extreme
+        minimum temperature\",\"id\":\"EMNT\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean minimum soil temperature - 09\",\"id\":\"MN09\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Average
+        Maximum Temperature\",\"id\":\"TMAX\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Direction
+        of Peak Gust Wind Speed\",\"id\":\"WDFG\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Heating
+        Degree Days Season to TIME\",\"id\":\"HDSD\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        maximum sea level pressure\",\"id\":\"MXSP\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Cooling
+        Degree Days Season to Date\",\"id\":\"CDSD\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Day
+        of month of highest daily total of precipitation\",\"id\":\"DYXP\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Day
+        of month with extreme maximum temperature\",\"id\":\"DYXT\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        Average of Minimum Relative Humidity\",\"id\":\"RHMN\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Average
+        Wind Speed for the month\",\"id\":\"AWND\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Number
+        days with heavy fog\",\"id\":\"DYHF\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        Average Dew Point Temperature\",\"id\":\"ADPT\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Average
+        Minimum Temperature\",\"id\":\"TMIN\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean minimum evaporation pan water temperature\",\"id\":\"MNPN\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Direction
+        of Maximum Fastest Mile Wind Speed\",\"id\":\"WDFM\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Total
+        sunshine\",\"id\":\"TSUN\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Extreme
+        maximum precipitation\",\"id\":\"EMXP\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Total
+        Evaporation\",\"id\":\"EVAP\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Extreme
+        maximum temperature\",\"id\":\"EMXT\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        minimum soil temperature - 10\",\"id\":\"HN10\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        short duration precipitation (100 minute)\",\"id\":\"P100\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Day
+        of month of highest daily snow depth\",\"id\":\"DYSD\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        minimum soil temperature - 12\",\"id\":\"HN12\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        minimum soil temperature - 11\",\"id\":\"HN11\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        minimum soil temperature - 14\",\"id\":\"HN14\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        maximum soil temperature - 10\",\"id\":\"LX10\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        minimum soil temperature - 13\",\"id\":\"HN13\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Number
+        days with greater than 0.10 inch (2.54mm) of precipitation\",\"id\":\"DP10\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Number
+        days with maximum temperature greater than 90F (32.2C)\",\"id\":\"DX90\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        minimum soil temperature - 15\",\"id\":\"HN15\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        Fastest Mile Wind Speed\",\"id\":\"WSFM\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        maximum soil temperature - 14\",\"id\":\"LX14\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        maximum soil temperature - 13\",\"id\":\"LX13\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        maximum soil temperature - 12\",\"id\":\"LX12\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        maximum soil temperature - 11\",\"id\":\"LX11\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Day
+        of month of highest daily snowfall\",\"id\":\"DYSN\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        maximum soil temperature - 15\",\"id\":\"LX15\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        minimum sea level pressure\",\"id\":\"MNSP\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean minimum soil temperature - 14\",\"id\":\"MN14\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        2 Minute Wind Speed\",\"id\":\"WSF2\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean minimum soil temperature - 15\",\"id\":\"MN15\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        5 Second Wind Speed\",\"id\":\"WSF5\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean minimum soil temperature - 10\",\"id\":\"MN10\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Number
+        days with greater than 1.0 inch (25.4mm) of snow depth\",\"id\":\"DSND\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean minimum soil temperature - 11\",\"id\":\"MN11\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Total
+        Monthly Snowfall\",\"id\":\"SNOW\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        minimum soil temperature - 01\",\"id\":\"HN01\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean minimum soil temperature - 12\",\"id\":\"MN12\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean minimum soil temperature - 13\",\"id\":\"MN13\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        minimum soil temperature - 03\",\"id\":\"HN03\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        minimum soil temperature - 02\",\"id\":\"HN02\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        minimum soil temperature - 05\",\"id\":\"HN05\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        minimum soil temperature - 04\",\"id\":\"HN04\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        minimum soil temperature - 07\",\"id\":\"HN07\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        maximum soil temperature - 03\",\"id\":\"LX03\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Number
+        days with greater than 0.01 inch (0.25mm) of precipitation\",\"id\":\"DP01\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        minimum soil temperature - 06\",\"id\":\"HN06\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Heating
+        Degree Days\",\"id\":\"HTDD\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        maximum soil temperature - 02\",\"id\":\"LX02\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        minimum soil temperature - 09\",\"id\":\"HN09\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        maximum soil temperature - 01\",\"id\":\"LX01\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        minimum soil temperature - 08\",\"id\":\"HN08\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        1 Minute Wind Speed\",\"id\":\"WSF1\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Number
+        days with minimum temperature less than 0F (-17.6C)\",\"id\":\"DT00\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        maximum soil temperature - 07\",\"id\":\"LX07\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Number
+        of days with greater than 0.5 inch (12.7mm) of precipitation\",\"id\":\"DP05\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        maximum soil temperature - 06\",\"id\":\"LX06\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        maximum soil temperature - 05\",\"id\":\"LX05\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        maximum soil temperature - 04\",\"id\":\"LX04\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Peak
+        Gust Wind Speed\",\"id\":\"WSFG\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Cooling
+        Degree Days\",\"id\":\"CLDD\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        maximum soil temperature - 09\",\"id\":\"LX09\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        maximum soil temperature - 08\",\"id\":\"LX08\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Number
+        of days with greater than or equal to 1.0 inch (25.4mm) of snowfall\",\"id\":\"DSNW\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        short duration precipitation (180 minute)\",\"id\":\"P180\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        short duration precipitation (60 minute)\",\"id\":\"P060\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        short duration precipitation (5 minute)\",\"id\":\"P005\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean maximum soil temperature - 01\",\"id\":\"MX01\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean maximum soil temperature - 02\",\"id\":\"MX02\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean maximum soil temperature - 03\",\"id\":\"MX03\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Precipitation\",\"id\":\"PRCP\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean maximum soil temperature - 04\",\"id\":\"MX04\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean maximum evaporation pan water temperature\",\"id\":\"MXPN\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        Average Relative Humidity\",\"id\":\"RHAV\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Number
+        days with minimum temperature less than 32F (0C)\",\"id\":\"DT32\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean maximum soil temperature - 09\",\"id\":\"MX09\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Number
+        days with maximum temperature less than 32F (0C)\",\"id\":\"DX32\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean maximum soil temperature - 05\",\"id\":\"MX05\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean maximum soil temperature - 06\",\"id\":\"MX06\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean maximum soil temperature - 07\",\"id\":\"MX07\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean maximum soil temperature - 08\",\"id\":\"MX08\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Extreme
+        maximum snow depth\",\"id\":\"EMSD\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        short duration precipitation (10 minute)\",\"id\":\"P010\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"time
+        of observation\",\"id\":\"TIME\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Number
+        days with greater than 1.00 inch (25.4mm) of precipitation\",\"id\":\"DP1X\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Number
+        days with thunderstorms\",\"id\":\"DYTS\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Percent
+        of possible sunshine\",\"id\":\"PSUN\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Average
+        Average Temperature\",\"id\":\"TAVG\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        short duration precipitation (120 minute)\",\"id\":\"P120\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        short duration precipitation (80 minute)\",\"id\":\"P080\"}],\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Global Summary
+        of the Month (GSOM), Version 1\",\"parsedKeywords\":[\"EARTH SCIENCE > ATMOSPHERE
+        > PRECIPITATION > PRECIPITATION AMOUNT\",\"EARTH SCIENCE > ATMOSPHERE > PRECIPITATION
+        > LIQUID PRECIPITATION > RAIN\",\"EARTH SCIENCE > ATMOSPHERE > PRECIPITATION
+        > SOLID PRECIPITATION > SNOW\",\"EARTH SCIENCE > ATMOSPHERE > ATMOSPHERIC
+        PRESSURE > SURFACE PRESSURE\",\"EARTH SCIENCE > ATMOSPHERE > ATMOSPHERIC TEMPERATURE
+        > SURFACE TEMPERATURE > MAXIMUM/MINIMUM TEMPERATURE\",\"EARTH SCIENCE > ATMOSPHERE
+        > ATMOSPHERIC TEMPERATURE > ATMOSPHERIC TEMPERATURE INDICES > HEATING DEGREE
+        DAYS\",\"EARTH SCIENCE > ATMOSPHERE > ATMOSPHERIC TEMPERATURE > ATMOSPHERIC
+        TEMPERATURE INDICES > COOLING DEGREE DAYS\",\"EARTH SCIENCE > ATMOSPHERE >
+        ATMOSPHERIC WINDS > SURFACE WINDS\",\"EARTH SCIENCE > ATMOSPHERE > TROPOSPHERIC/LOW
+        LEVEL CLOUDS (OBSERVED/ANALYZED) > FOG\",\"EARTH SCIENCE > ATMOSPHERE > WEATHER
+        EVENTS > RAIN STORMS\"],\"location\":{\"coordinates\":[[[-180.0,90.0],[-180.0,-90.0],[180.0,-90.0],[180.0,90.0],[-180.0,90.0]]],\"type\":\"polygon\"},\"links\":{\"other\":[{\"name\":\"ncei
+        dataset landing page\",\"type\":\"information\",\"url\":\"https://doi.org/10.7289/V5QV3JJ5\"},{\"name\":\"kml
+        file\",\"type\":\"download\",\"url\":\"https://gis.ncdc.noaa.gov/kml/gsom.kmz\"}],\"access\":[{\"name\":\"ncei
+        data search\",\"type\":\"search\",\"url\":\"https://www.ncei.noaa.gov/access/search/data-search/global-summary-of-the-month\"},{\"name\":\"ncei
+        map server\",\"type\":\"search\",\"url\":\"https://www.ncei.noaa.gov/maps/monthly/\"},{\"name\":\"ncei
+        direct download\",\"type\":\"download\",\"url\":\"https://www.ncei.noaa.gov/data/global-summary-of-the-month/\"}],\"samples\":[{\"name\":\"global
+        summary of the month csv sample\",\"type\":\"download\",\"url\":\"https://www.ncei.noaa.gov/pub/data/cdo/samples/gsom_sample_csv.csv\"},{\"name\":\"global
+        summary of the month pdf sample\",\"type\":\"download\",\"url\":\"https://www.ncei.noaa.gov/pub/data/cdo/samples/gsom_sample_pdf.pdf\"}]},\"id\":\"global-summary-of-the-month\",\"doiLink\":\"https://doi.org/10.7289/V5QV3JJ5\",\"certifiable\":true,\"startDate\":\"1763-01-01\",\"fileId\":\"gov.noaa.ncdc:C00946\"},{\"featured\":true,\"formats\":[{\"name\":\"pdf\",\"id\":\"pdf\"},{\"name\":\"csv\",\"id\":\"csv\"},{\"name\":\"json\",\"id\":\"json\"}],\"observationTypes\":[],\"keywords\":[\"PRECIPITATION
+        AMOUNT\",\"RAIN\",\"SNOW\",\"SURFACE PRESSURE\",\"MAXIMUM/MINIMUM TEMPERATURE\",\"HEATING
+        DEGREE DAYS\",\"COOLING DEGREE DAYS\",\"FREEZING INDEX\",\"SURFACE WINDS\",\"FOG\",\"RAIN
+        STORMS\"],\"contactInfo\":\"Email ncei.info@noaa.gov Online Resource NCEI
+        Contact Information https://www.ncei.noaa.gov/contact\",\"endDate\":\"2026-09-04\",\"topics\":[],\"orderable\":true,\"description\":\"This
+        Global Summaries dataset, known as GSOY for Yearly, contains a yearly resolution
+        of meteorological elements from 1763 to present with updates applied weekly.
+        The major parameters are: \u2013 average annual temperature, average annual
+        minimum and maximum temperatures; total annual precipitation and snowfall;
+        departure from normal of the mean temperature and total precipitation; heating
+        and cooling degree days; number of days that temperatures and precipitation
+        are above or below certain thresholds; extreme annual minimum and maximum
+        temperatures; number of days with fog; and number of days with thunderstorms.
+        The primary input data source is the Global Historical Climatology Network
+        - Daily (GHCN-Daily) dataset. The Global Summaries datasets also include a
+        monthly resolution of meteorological elements in the GSOM (for Monthly) dataset.
+        See associated resources for more information. These datasets are not to be
+        confused with \\\"GHCN-Monthly\\\", \\\"Annual Summaries\\\" or \\\"NCDC Summary
+        of the Month\\\". There are unique elements that are produced globally within
+        the GSOM and GSOY data files. There are also bias corrected temperature data
+        in GHCN-Monthly, which are not available in GSOM and GSOY. The GSOM and GSOY
+        datasets replace the legacy U.S. COOP Summaries (DSI-3220), and have been
+        expanded to include non-U.S. (global) stations. U.S. COOP Summaries (DSI-3220)
+        only includes National Weather Service (NWS) COOP Published, or \\\"Published
+        in CD\\\", sites.\",\"people\":[{\"role\":\"principalInvestigator\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Lawrimore, Jay
+        H.\",\"position\":\"Dataset Section Chief\",\"url\":\"https://orcid.org/0000-0001-9778-0178\"},{\"role\":\"author\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Lawrimore, Jay
+        H.\",\"position\":\"Dataset Section Chief\",\"url\":\"https://orcid.org/0000-0001-9778-0178\"},{\"role\":\"principalInvestigator\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Ray, Ron\",\"position\":\"IT
+        Specialist\",\"url\":\"\"},{\"role\":\"author\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Ray, Ron\",\"position\":\"IT
+        Specialist\",\"url\":\"\"},{\"role\":\"principalInvestigator\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Applequist, Scott\",\"position\":\"Physical
+        Scientist\",\"url\":\"\"},{\"role\":\"author\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Applequist, Scott\",\"position\":\"Physical
+        Scientist\",\"url\":\"\"},{\"role\":\"collaborator\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Korzeniewski,
+        Bryant\",\"position\":\"Meteorologist/Datzilla Programmer/COOP Focal Point\",\"url\":\"\"},{\"role\":\"author\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Korzeniewski,
+        Bryant\",\"position\":\"Meteorologist/Datzilla Programmer/COOP Focal Point\",\"url\":\"\"},{\"role\":\"collaborator\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Menne, Matthew
+        J.\",\"position\":\"Physical Scientist\",\"url\":\"\"},{\"role\":\"author\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Menne, Matthew
+        J.\",\"position\":\"Physical Scientist\",\"url\":\"\"}],\"searchable\":true,\"frequency\":\"weekly\",\"dataTypes\":[{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        minimum soil temperature - 12\",\"id\":\"LN12\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        minimum soil temperature - 11\",\"id\":\"LN11\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        minimum soil temperature - 10\",\"id\":\"LN10\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        minimum soil temperature - 15\",\"id\":\"LN15\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        minimum soil temperature - 14\",\"id\":\"LN14\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        minimum soil temperature - 13\",\"id\":\"LN13\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        maximum soil temperature - 10\",\"id\":\"HX10\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        maximum soil temperature - 13\",\"id\":\"HX13\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Direction
+        of Maximum 1 Minute Wind Speed\",\"id\":\"WDF1\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        maximum soil temperature - 14\",\"id\":\"HX14\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Direction
+        of Maximum 2 Minute Wind Speed\",\"id\":\"WDF2\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        maximum soil temperature - 11\",\"id\":\"HX11\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        maximum soil temperature - 12\",\"id\":\"HX12\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Direction
+        of Maximum 5 Second Wind Speed\",\"id\":\"WDF5\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        maximum soil temperature - 15\",\"id\":\"HX15\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Total
+        wind movement over evaporation pan\",\"id\":\"WDMV\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        minimum soil temperature - 01\",\"id\":\"LN01\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Extreme
+        maximum snowfall\",\"id\":\"EMSN\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        minimum soil temperature - 05\",\"id\":\"LN05\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        minimum soil temperature - 04\",\"id\":\"LN04\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        minimum soil temperature - 03\",\"id\":\"LN03\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        minimum soil temperature - 02\",\"id\":\"LN02\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        minimum soil temperature - 09\",\"id\":\"LN09\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean maximum soil temperature - 12\",\"id\":\"MX12\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        minimum soil temperature - 08\",\"id\":\"LN08\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean maximum soil temperature - 13\",\"id\":\"MX13\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        minimum soil temperature - 07\",\"id\":\"LN07\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean maximum soil temperature - 14\",\"id\":\"MX14\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        minimum soil temperature - 06\",\"id\":\"LN06\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean maximum soil temperature - 15\",\"id\":\"MX15\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean maximum soil temperature - 10\",\"id\":\"MX10\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean maximum soil temperature - 11\",\"id\":\"MX11\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        maximum soil temperature - 02\",\"id\":\"HX02\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        maximum soil temperature - 03\",\"id\":\"HX03\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        maximum soil temperature - 01\",\"id\":\"HX01\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        maximum soil temperature - 06\",\"id\":\"HX06\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        maximum soil temperature - 07\",\"id\":\"HX07\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Number
+        days with fog\",\"id\":\"DYFG\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        maximum soil temperature - 04\",\"id\":\"HX04\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        maximum soil temperature - 05\",\"id\":\"HX05\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        maximum soil temperature - 08\",\"id\":\"HX08\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        maximum soil temperature - 09\",\"id\":\"HX09\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean minimum soil temperature - 03\",\"id\":\"MN03\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean minimum soil temperature - 04\",\"id\":\"MN04\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean minimum soil temperature - 05\",\"id\":\"MN05\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean minimum soil temperature - 06\",\"id\":\"MN06\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean minimum soil temperature - 01\",\"id\":\"MN01\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean minimum soil temperature - 02\",\"id\":\"MN02\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean minimum soil temperature - 07\",\"id\":\"MN07\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Number
+        days with maximum temperature greater than 70F (21.1C)\",\"id\":\"DX70\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean minimum soil temperature - 08\",\"id\":\"MN08\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Extreme
+        minimum temperature\",\"id\":\"EMNT\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean minimum soil temperature - 09\",\"id\":\"MN09\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Average
+        Maximum Temperature\",\"id\":\"TMAX\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"First
+        freeze less than or equal to 28F (-2.2C) of the year.\",\"id\":\"FZF1\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"First
+        freeze less than or equal to 32F (0C) of the year.\",\"id\":\"FZF0\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Direction
+        of Peak Gust Wind Speed\",\"id\":\"WDFG\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Heating
+        Degree Days Season to TIME\",\"id\":\"HDSD\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Cooling
+        Degree Days Season to Date\",\"id\":\"CDSD\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Average
+        Wind Speed for the month\",\"id\":\"AWND\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Number
+        days with heavy fog\",\"id\":\"DYHF\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Average
+        Minimum Temperature\",\"id\":\"TMIN\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean minimum evaporation pan water temperature\",\"id\":\"MNPN\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Direction
+        of Maximum Fastest Mile Wind Speed\",\"id\":\"WDFM\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Total
+        sunshine\",\"id\":\"TSUN\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Extreme
+        maximum precipitation\",\"id\":\"EMXP\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Total
+        Evaporation\",\"id\":\"EVAP\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Extreme
+        maximum temperature\",\"id\":\"EMXT\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        minimum soil temperature - 10\",\"id\":\"HN10\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        minimum soil temperature - 12\",\"id\":\"HN12\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        minimum soil temperature - 11\",\"id\":\"HN11\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        minimum soil temperature - 14\",\"id\":\"HN14\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        maximum soil temperature - 10\",\"id\":\"LX10\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        minimum soil temperature - 13\",\"id\":\"HN13\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Number
+        days with greater than 1.0 inch (25.4mm) of precipitation\",\"id\":\"DP10\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Number
+        days with maximum temperature greater than 90F (32.2C)\",\"id\":\"DX90\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        minimum soil temperature - 15\",\"id\":\"HN15\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        Fastest Mile Wind Speed\",\"id\":\"WSFM\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        maximum soil temperature - 14\",\"id\":\"LX14\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        maximum soil temperature - 13\",\"id\":\"LX13\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        maximum soil temperature - 12\",\"id\":\"LX12\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        maximum soil temperature - 11\",\"id\":\"LX11\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        maximum soil temperature - 15\",\"id\":\"LX15\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"First
+        freeze less than or equal to 20F (-6.7C) of the year.\",\"id\":\"FZF3\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean minimum soil temperature - 14\",\"id\":\"MN14\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        2 Minute Wind Speed\",\"id\":\"WSF2\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"First
+        freeze less than or equal to 24F (-4.4C) of the year.\",\"id\":\"FZF2\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean minimum soil temperature - 15\",\"id\":\"MN15\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Last
+        freeze less than or equal to 32F (0C) of the year.\",\"id\":\"FZF5\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"First
+        freeze less than or equal to 16F (-8.9C) of the year.\",\"id\":\"FZF4\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        5 Second Wind Speed\",\"id\":\"WSF5\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Last
+        freeze less than or equal to 24F (-4.4C) of the year.\",\"id\":\"FZF7\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean minimum soil temperature - 10\",\"id\":\"MN10\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Number
+        days with greater than 1.0 inch (25.4mm) of snow depth\",\"id\":\"DSND\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Last
+        freeze less than or equal to 28F (-2.2C) of the year.\",\"id\":\"FZF6\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean minimum soil temperature - 11\",\"id\":\"MN11\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Total
+        Monthly Snowfall\",\"id\":\"SNOW\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Last
+        freeze less than or equal to 16F (-8.9C) of the year.\",\"id\":\"FZF9\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        minimum soil temperature - 01\",\"id\":\"HN01\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean minimum soil temperature - 12\",\"id\":\"MN12\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Last
+        freeze less than or equal to 20F (-6.7C) of the year.\",\"id\":\"FZF8\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean minimum soil temperature - 13\",\"id\":\"MN13\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        minimum soil temperature - 03\",\"id\":\"HN03\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        minimum soil temperature - 02\",\"id\":\"HN02\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        minimum soil temperature - 05\",\"id\":\"HN05\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        minimum soil temperature - 04\",\"id\":\"HN04\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        minimum soil temperature - 07\",\"id\":\"HN07\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        maximum soil temperature - 03\",\"id\":\"LX03\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Number
+        days with greater than 0.1 inch (2.5mm) of precipitation\",\"id\":\"DP01\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        minimum soil temperature - 06\",\"id\":\"HN06\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Heating
+        Degree Days\",\"id\":\"HTDD\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        maximum soil temperature - 02\",\"id\":\"LX02\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        minimum soil temperature - 09\",\"id\":\"HN09\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        maximum soil temperature - 01\",\"id\":\"LX01\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        minimum soil temperature - 08\",\"id\":\"HN08\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        1 Minute Wind Speed\",\"id\":\"WSF1\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Number
+        days with minimum temperature less than 0F (-17.6C)\",\"id\":\"DT00\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        maximum soil temperature - 07\",\"id\":\"LX07\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Number
+        of days with greater than 0.5 inch (12.7mm) of precipitation\",\"id\":\"DP05\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        maximum soil temperature - 06\",\"id\":\"LX06\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        maximum soil temperature - 05\",\"id\":\"LX05\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        maximum soil temperature - 04\",\"id\":\"LX04\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Peak
+        Gust Wind Speed\",\"id\":\"WSFG\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Cooling
+        Degree Days\",\"id\":\"CLDD\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        maximum soil temperature - 09\",\"id\":\"LX09\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Lowest
+        maximum soil temperature - 08\",\"id\":\"LX08\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Number
+        of days with greater than or equal to 1.0 inch (25.4mm) of snowfall\",\"id\":\"DSNW\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean maximum soil temperature - 01\",\"id\":\"MX01\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean maximum soil temperature - 02\",\"id\":\"MX02\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean maximum soil temperature - 03\",\"id\":\"MX03\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Precipitation\",\"id\":\"PRCP\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean maximum soil temperature - 04\",\"id\":\"MX04\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean maximum evaporation pan water temperature\",\"id\":\"MXPN\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Number
+        days with minimum temperature less than 32F (0C)\",\"id\":\"DT32\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean maximum soil temperature - 09\",\"id\":\"MX09\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Number
+        days with maximum temperature less than 32F (0C)\",\"id\":\"DX32\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean maximum soil temperature - 05\",\"id\":\"MX05\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean maximum soil temperature - 06\",\"id\":\"MX06\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean maximum soil temperature - 07\",\"id\":\"MX07\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Monthly
+        mean maximum soil temperature - 08\",\"id\":\"MX08\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Extreme
+        maximum snow depth\",\"id\":\"EMSD\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"time
+        of observation\",\"id\":\"TIME\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Number
+        days with greater than 1.00 inch (25.4mm) of precipitation\",\"id\":\"DP1X\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Number
+        days with thunderstorms\",\"id\":\"DYTS\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Percent
+        of possible sunshine\",\"id\":\"PSUN\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Average
+        Average Temperature\",\"id\":\"TAVG\"}],\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Global Summary
+        of the Year (GSOY), Version 1\",\"parsedKeywords\":[\"EARTH SCIENCE > ATMOSPHERE
+        > PRECIPITATION > PRECIPITATION AMOUNT\",\"EARTH SCIENCE > ATMOSPHERE > PRECIPITATION
+        > LIQUID PRECIPITATION > RAIN\",\"EARTH SCIENCE > ATMOSPHERE > PRECIPITATION
+        > SOLID PRECIPITATION > SNOW\",\"EARTH SCIENCE > ATMOSPHERE > ATMOSPHERIC
+        PRESSURE > SURFACE PRESSURE\",\"EARTH SCIENCE > ATMOSPHERE > ATMOSPHERIC TEMPERATURE
+        > SURFACE TEMPERATURE > MAXIMUM/MINIMUM TEMPERATURE\",\"EARTH SCIENCE > ATMOSPHERE
+        > ATMOSPHERIC TEMPERATURE > ATMOSPHERIC TEMPERATURE INDICES > HEATING DEGREE
+        DAYS\",\"EARTH SCIENCE > ATMOSPHERE > ATMOSPHERIC TEMPERATURE > ATMOSPHERIC
+        TEMPERATURE INDICES > COOLING DEGREE DAYS\",\"EARTH SCIENCE > ATMOSPHERE >
+        ATMOSPHERIC TEMPERATURE > ATMOSPHERIC TEMPERATURE INDICES > FREEZING INDEX\",\"EARTH
+        SCIENCE > ATMOSPHERE > ATMOSPHERIC WINDS > SURFACE WINDS\",\"EARTH SCIENCE
+        > ATMOSPHERE > TROPOSPHERIC/LOW LEVEL CLOUDS (OBSERVED/ANALYZED) > FOG\",\"EARTH
+        SCIENCE > ATMOSPHERE > WEATHER EVENTS > RAIN STORMS\"],\"location\":{\"coordinates\":[[[-180.0,90.0],[-180.0,-90.0],[180.0,-90.0],[180.0,90.0],[-180.0,90.0]]],\"type\":\"polygon\"},\"links\":{\"other\":[{\"name\":\"ncei
+        dataset landing page\",\"type\":\"information\",\"url\":\"https://doi.org/10.7289/JWPF-Y430\"},{\"name\":\"kml
+        file\",\"type\":\"download\",\"url\":\"https://gis.ncdc.noaa.gov/kml/gsoy.kmz\"}],\"access\":[{\"name\":\"ncei
+        data search\",\"type\":\"search\",\"url\":\"https://www.ncei.noaa.gov/access/search/data-search/global-summary-of-the-year\"},{\"name\":\"ncei
+        map server\",\"type\":\"search\",\"url\":\"https://www.ncei.noaa.gov/maps/annual/\"},{\"name\":\"ncei
+        direct download\",\"type\":\"download\",\"url\":\"https://www.ncei.noaa.gov/data/global-summary-of-the-year/\"}],\"documentation\":[{\"name\":\"gsoy
+        readme\",\"type\":\"information\",\"url\":\"https://www.ncei.noaa.gov/pub/data/metadata/documents/GSOYReadme.txt\"}],\"samples\":[{\"name\":\"global
+        summary of the year csv sample\",\"type\":\"download\",\"url\":\"https://www.ncei.noaa.gov/pub/data/cdo/samples/gsoy_sample_csv.csv\"},{\"name\":\"global
+        summary of the year pdf sample\",\"type\":\"download\",\"url\":\"https://www.ncei.noaa.gov/pub/data/cdo/samples/gsoy_sample_pdf.pdf\"}]},\"id\":\"global-summary-of-the-year\",\"doiLink\":\"https://doi.org/10.7289/JWPF-Y430\",\"certifiable\":true,\"startDate\":\"1763-01-01\",\"fileId\":\"gov.noaa.ncdc:C00947\"},{\"featured\":false,\"formats\":[{\"name\":\"native\",\"id\":\"native\"}],\"observationTypes\":[],\"keywords\":[\"SEA
+        LEVEL PRESSURE\",\"AIR TEMPERATURE\",\"SURFACE TEMPERATURE\",\"MAXIMUM/MINIMUM
+        TEMPERATURE\",\"PRECIPITATION AMOUNT\"],\"contactInfo\":\"Email ncei.info@noaa.gov
+        Online Resource NCEI Contact Information https://www.ncei.noaa.gov/contact\",\"endDate\":\"2026-09-04\",\"topics\":[],\"orderable\":false,\"description\":\"**Please
+        note, the temperature portion of this dataset has been superseded by a newer
+        version. Users should not use this version except in rare cases (e.g., when
+        reproducing previous studies that used this version). The precipitation subset
+        of this dataset is still the latest version available.** The Global Historical
+        Climatology Network Monthly (GHCN-M) Version 2 dataset created by the NCDC
+        contains historical temperature, precipitation, and pressure data for thousands
+        of land stations worldwide. The period of record varies from station to station,
+        with several thousand extending back to 1950 and several hundred being updated
+        monthly. Both historical and near-real-time GHCN-M data undergo rigorous quality
+        assurance reviews. These reviews include pre-processing checks on source data,
+        time series checks that identify spurious changes in the mean and variance,
+        spatial comparisons that verify the accuracy of the climatological mean and
+        the seasonal cycle, and neighbor checks that identify outliers from both a
+        temporal and a spatial perspective. Only one file for the temperature data
+        is available from the archive (file is for period of record ending in 2011),
+        but precipitation data has been archived daily since 2012.\",\"people\":[],\"searchable\":false,\"frequency\":\"daily\",\"dataTypes\":[],\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Global Historical
+        Climatology Network - Monthly (GHCN-M), Version 2\",\"parsedKeywords\":[\"EARTH
+        SCIENCE > ATMOSPHERE > ATMOSPHERIC PRESSURE > SEA LEVEL PRESSURE\",\"EARTH
+        SCIENCE > ATMOSPHERE > ATMOSPHERIC TEMPERATURE > SURFACE TEMPERATURE > AIR
+        TEMPERATURE\",\"EARTH SCIENCE > ATMOSPHERE > ATMOSPHERIC TEMPERATURE > SURFACE
+        TEMPERATURE\",\"EARTH SCIENCE > ATMOSPHERE > ATMOSPHERIC TEMPERATURE > SURFACE
+        TEMPERATURE > MAXIMUM/MINIMUM TEMPERATURE\",\"EARTH SCIENCE > ATMOSPHERE >
+        PRECIPITATION > PRECIPITATION AMOUNT\"],\"location\":{\"coordinates\":[[[-180.0,90.0],[-180.0,-90.0],[180.0,-90.0],[180.0,90.0],[-180.0,90.0]]],\"type\":\"polygon\"},\"links\":{\"other\":[{\"name\":\"ncei
+        dataset landing page\",\"type\":\"information\",\"url\":\"https://www.ncei.noaa.gov/metadata/geoportal/rest/metadata/item/gov.noaa.ncdc:C00835/html\"}],\"access\":[{\"name\":\"ncei
+        public ftp server\",\"type\":\"download\",\"url\":\"https://www.ncei.noaa.gov/pub/data/ghcn/v2/\"}],\"documentation\":[{\"name\":\"td
+        dataset documentation\",\"type\":\"information\",\"url\":\"https://www.ncei.noaa.gov/pub/data/documentlibrary/tddoc/td9100.pdf\"}]},\"id\":\"global-historical-climatology-network-monthly-v2\",\"doiLink\":\"https://www.ncei.noaa.gov/metadata/geoportal/rest/metadata/item/gov.noaa.ncdc:C00835/html\",\"certifiable\":false,\"startDate\":\"1701-01-01\",\"fileId\":\"gov.noaa.ncdc:C00835\"},{\"featured\":true,\"formats\":[{\"name\":\"pdf\",\"id\":\"pdf\"},{\"name\":\"csv\",\"id\":\"csv\"},{\"name\":\"json\",\"id\":\"json\"}],\"observationTypes\":[{\"name\":\"Land
+        Surface\",\"id\":\"Land Surface\"}],\"keywords\":[\"MAXIMUM/MINIMUM TEMPERATURE\",\"AIR
+        TEMPERATURE\",\"PRECIPITATION AMOUNT\",\"SNOW\",\"SNOW DEPTH\"],\"contactInfo\":\"Email
+        ncei.info@noaa.gov Online Resource NCEI Contact Information https://www.ncei.noaa.gov/contact\",\"endDate\":\"2026-09-04\",\"topics\":[],\"orderable\":true,\"description\":\"The
+        Global Historical Climatology Network - Daily (GHCN-Daily/GHCNd) dataset integrates
+        daily climate observations from approximately 30 different data sources. Version
+        3 was released in September 2012 with the addition of data from two additional
+        station networks. Changes to the processing system associated with the version
+        3 release also allowed for updates to occur 7 days a week rather than only
+        on most weekdays. Version 3 contains station-based measurements from well
+        over 90,000 land-based stations worldwide, about two thirds of which are for
+        precipitation measurement only. Other meteorological elements include, but
+        are not limited to, daily maximum and minimum temperature, temperature at
+        the time of observation, snowfall and snow depth. Over 25,000 stations are
+        regularly updated with observations from within roughly the last month. The
+        dataset is also routinely reconstructed (usually every week) from its roughly
+        30 data sources to ensure that GHCNd is generally in sync with its growing
+        list of constituent sources. During this process, quality assurance checks
+        are applied to the full dataset. Where possible, GHCNd station data are also
+        updated daily from a variety of data streams. Station values for each daily
+        update also undergo a suite of quality checks.\",\"people\":[{\"role\":\"principalInvestigator\",\"organization\":{\"name\":\"DOC/NOAA/NESDIS/NCDC
+        > National Climatic Data Center, NESDIS, NOAA, U.S. Department of Commerce\"},\"name\":\"Menne,
+        Matthew J.\",\"position\":\"\",\"url\":\"\"},{\"role\":\"author\",\"organization\":{\"name\":\"DOC/NOAA/NESDIS/NCDC
+        > National Climatic Data Center, NESDIS, NOAA, U.S. Department of Commerce\"},\"name\":\"Menne,
+        Matthew J.\",\"position\":\"\",\"url\":\"\"},{\"role\":\"principalInvestigator\",\"organization\":{\"name\":\"DOC/NOAA/NESDIS/NCDC
+        > National Climatic Data Center, NESDIS, NOAA, U.S. Department of Commerce\"},\"name\":\"Durre,
+        Imke\",\"position\":\"\",\"url\":\"\"},{\"role\":\"author\",\"organization\":{\"name\":\"DOC/NOAA/NESDIS/NCDC
+        > National Climatic Data Center, NESDIS, NOAA, U.S. Department of Commerce\"},\"name\":\"Durre,
+        Imke\",\"position\":\"\",\"url\":\"\"},{\"role\":\"collaborator\",\"organization\":{\"name\":\"DOC/NOAA/NESDIS/NCDC
+        > National Climatic Data Center, NESDIS, NOAA, U.S. Department of Commerce\"},\"name\":\"Korzeniewski,
+        Bryant\",\"position\":\"\",\"url\":\"\"},{\"role\":\"author\",\"organization\":{\"name\":\"DOC/NOAA/NESDIS/NCDC
+        > National Climatic Data Center, NESDIS, NOAA, U.S. Department of Commerce\"},\"name\":\"Korzeniewski,
+        Bryant\",\"position\":\"\",\"url\":\"\"},{\"role\":\"collaborator\",\"organization\":{\"name\":\"DOC/NOAA/NESDIS/NCDC
+        > National Climatic Data Center, NESDIS, NOAA, U.S. Department of Commerce\"},\"name\":\"McNeill,
+        Shelley\",\"position\":\"\",\"url\":\"\"},{\"role\":\"author\",\"organization\":{\"name\":\"DOC/NOAA/NESDIS/NCDC
+        > National Climatic Data Center, NESDIS, NOAA, U.S. Department of Commerce\"},\"name\":\"McNeill,
+        Shelley\",\"position\":\"\",\"url\":\"\"},{\"role\":\"collaborator\",\"organization\":{\"name\":\"DOC/NOAA/NESDIS/NCDC
+        > National Climatic Data Center, NESDIS, NOAA, U.S. Department of Commerce\"},\"name\":\"Thomas,
+        Kristy\",\"position\":\"\",\"url\":\"\"},{\"role\":\"author\",\"organization\":{\"name\":\"DOC/NOAA/NESDIS/NCDC
+        > National Climatic Data Center, NESDIS, NOAA, U.S. Department of Commerce\"},\"name\":\"Thomas,
+        Kristy\",\"position\":\"\",\"url\":\"\"},{\"role\":\"collaborator\",\"organization\":{\"name\":\"DOC/NOAA/NESDIS/NCDC
+        > National Climatic Data Center, NESDIS, NOAA, U.S. Department of Commerce\"},\"name\":\"Yin,
+        Xungang\",\"position\":\"\",\"url\":\"\"},{\"role\":\"author\",\"organization\":{\"name\":\"DOC/NOAA/NESDIS/NCDC
+        > National Climatic Data Center, NESDIS, NOAA, U.S. Department of Commerce\"},\"name\":\"Yin,
+        Xungang\",\"position\":\"\",\"url\":\"\"},{\"role\":\"collaborator\",\"organization\":{\"name\":\"DOC/NOAA/NESDIS/NCDC
+        > National Climatic Data Center, NESDIS, NOAA, U.S. Department of Commerce\"},\"name\":\"Anthony,
+        Steven\",\"position\":\"\",\"url\":\"\"},{\"role\":\"author\",\"organization\":{\"name\":\"DOC/NOAA/NESDIS/NCDC
+        > National Climatic Data Center, NESDIS, NOAA, U.S. Department of Commerce\"},\"name\":\"Anthony,
+        Steven\",\"position\":\"\",\"url\":\"\"},{\"role\":\"collaborator\",\"organization\":{\"name\":\"DOC/NOAA/NESDIS/NCDC
+        > National Climatic Data Center, NESDIS, NOAA, U.S. Department of Commerce\"},\"name\":\"Ray,
+        Ron\",\"position\":\"\",\"url\":\"\"},{\"role\":\"author\",\"organization\":{\"name\":\"DOC/NOAA/NESDIS/NCDC
+        > National Climatic Data Center, NESDIS, NOAA, U.S. Department of Commerce\"},\"name\":\"Ray,
+        Ron\",\"position\":\"\",\"url\":\"\"},{\"role\":\"collaborator\",\"organization\":{\"name\":\"DOC/NOAA/NESDIS/NCDC
+        > National Climatic Data Center, NESDIS, NOAA, U.S. Department of Commerce\"},\"name\":\"Vose,
+        Russell S.\",\"position\":\"\",\"url\":\"\"},{\"role\":\"author\",\"organization\":{\"name\":\"DOC/NOAA/NESDIS/NCDC
+        > National Climatic Data Center, NESDIS, NOAA, U.S. Department of Commerce\"},\"name\":\"Vose,
+        Russell S.\",\"position\":\"\",\"url\":\"\"},{\"role\":\"collaborator\",\"organization\":{\"name\":\"DOC/NOAA/NESDIS/NCDC
+        > National Climatic Data Center, NESDIS, NOAA, U.S. Department of Commerce\"},\"name\":\"Gleason,
+        Byron E.\",\"position\":\"\",\"url\":\"\"},{\"role\":\"author\",\"organization\":{\"name\":\"DOC/NOAA/NESDIS/NCDC
+        > National Climatic Data Center, NESDIS, NOAA, U.S. Department of Commerce\"},\"name\":\"Gleason,
+        Byron E.\",\"position\":\"\",\"url\":\"\"},{\"role\":\"collaborator\",\"organization\":{\"name\":\"DOC/NOAA/NESDIS/NCDC
+        > National Climatic Data Center, NESDIS, NOAA, U.S. Department of Commerce\"},\"name\":\"Houston,
+        Tamara G.\",\"position\":\"\",\"url\":\"\"},{\"role\":\"author\",\"organization\":{\"name\":\"DOC/NOAA/NESDIS/NCDC
+        > National Climatic Data Center, NESDIS, NOAA, U.S. Department of Commerce\"},\"name\":\"Houston,
+        Tamara G.\",\"position\":\"\",\"url\":\"\"}],\"searchable\":true,\"frequency\":\"daily\",\"dataTypes\":[{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        soil temperature with unknown cover at 10 cm depth\",\"id\":\"SX02\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        soil temperature with unknown cover at 5 cm depth\",\"id\":\"SX01\"},{\"dateRange\":{},\"searchWeight\":10,\"name\":\"Average
+        daily temperature computed as (TMAX+TMIN)/2.0\",\"id\":\"TAXN\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        soil temperature with bare muck cover at 20 cm depth\",\"id\":\"SX83\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Fog,
+        ice fog, or freezing fog (may include heavy fog)\",\"id\":\"WV01\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Thunder\",\"id\":\"WV03\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Number
+        of days included in the multiday wind movement (MDWM)\",\"id\":\"DAWM\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Multiday
+        snowfall total\",\"id\":\"MDSF\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Ash,
+        dust, sand, or other blowing obstruction\",\"id\":\"WV07\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        soil temperature with unknown cover at 20 cm depth\",\"id\":\"SX03\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Direction
+        of fastest 1-minute wind (degrees)\",\"id\":\"WDF1\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Minimum
+        soil temperature with sod cover at 5 cm depth\",\"id\":\"SN51\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Direction
+        of fastest 2-minute wind (degrees)\",\"id\":\"WDF2\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Direction
+        of fastest 5-second wind (degrees)\",\"id\":\"WDF5\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Average
+        Wet Bulb Temperature for the day\",\"id\":\"AWBT\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Minimum
+        soil temperature with sod cover at 150 cm depth\",\"id\":\"SN56\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Minimum
+        soil temperature with sod cover at 180 cm depth\",\"id\":\"SN57\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Minimum
+        soil temperature with sod cover at 50 cm depth\",\"id\":\"SN54\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Minimum
+        soil temperature with sod cover at 100 cm depth\",\"id\":\"SN55\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Minimum
+        soil temperature with sod cover at 10 cm depth\",\"id\":\"SN52\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"24-hour
+        wind movement\",\"id\":\"WDMV\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Minimum
+        soil temperature with sod cover at 20 cm depth\",\"id\":\"SN53\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Number
+        of days included in the multiday precipitation total (MDPR)\",\"id\":\"DAPR\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"station
+        identification code\",\"id\":\"station_name\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Average
+        cloudiness midnight to midnight from manual observations\",\"id\":\"ACMH\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Average
+        cloudiness midnight to midnight from 30-second ceilometer data\",\"id\":\"ACMC\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        soil temperature with grass muck cover at 10 cm depth\",\"id\":\"SX72\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Average
+        Sea Level Pressure for the day\",\"id\":\"ASLP\"},{\"dateRange\":{},\"searchWeight\":10,\"name\":\"Temperature
+        at the time of observation (tenths of degrees C)\",\"id\":\"TOBS\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Average
+        Station Level Pressure for the day\",\"id\":\"ASTP\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        soil temperature with bare muck cover at 10 cm depth\",\"id\":\"SX82\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        soil temperature with bare muck cover at 5 cm depth\",\"id\":\"SX81\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        soil temperature with fallow cover at 20 cm depth\",\"id\":\"SX23\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        soil temperature with fallow cover at 10 cm depth\",\"id\":\"SX22\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        soil temperature with fallow cover at 5 cm depth\",\"id\":\"SX21\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Difference
+        between river and gauge height\",\"id\":\"GAHT\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        relative humidity for the day\",\"id\":\"RHMX\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"name
+        of the station\",\"id\":\"station_info\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Snow
+        depth (mm)\",\"id\":\"SNWD\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Minimum
+        soil temperature with grass muck cover at 10 cm depth\",\"id\":\"SN72\"},{\"dateRange\":{},\"searchWeight\":10,\"name\":\"Maximum
+        temperature (tenths of degrees C)\",\"id\":\"TMAX\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Average
+        daily wind direction (degrees)\",\"id\":\"AWDR\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        soil temperature with grass cover at 20 cm depth\",\"id\":\"SX13\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Thickness
+        of frozen ground layer\",\"id\":\"FRTH\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        soil temperature with grass cover at 10 cm depth\",\"id\":\"SX12\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        soil temperature with grass cover at 5 cm depth\",\"id\":\"SX11\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Direction
+        of peak wind gust (degrees)\",\"id\":\"WDFG\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        soil temperature with grass cover at 180 cm depth\",\"id\":\"SX17\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        soil temperature with grass cover at 100 cm depth\",\"id\":\"SX15\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Snow
+        or ice crystals\",\"id\":\"WV18\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        soil temperature with grass cover at 50 cm depth\",\"id\":\"SX14\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Minimum
+        soil temperature with straw multch cover at 5 cm depth\",\"id\":\"SN61\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Minimum
+        relative humidity for the day\",\"id\":\"RHMN\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Average
+        daily wind speed\",\"id\":\"AWND\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Multiday
+        minimum temperature (use with DATN)\",\"id\":\"MDTN\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Rain
+        or snow shower\",\"id\":\"WV20\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Direction
+        of highest instantaneous wind (degrees)\",\"id\":\"WDFI\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Average
+        Dew Point Temperature for the day\",\"id\":\"ADPT\"},{\"dateRange\":{},\"searchWeight\":10,\"name\":\"Minimum
+        temperature (tenths of degrees C)\",\"id\":\"TMIN\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Daily
+        minimum temperature of water in an evaporation pan (tenths of degrees C)\",\"id\":\"MNPN\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Fastest
+        mile wind direction (degrees)\",\"id\":\"WDFM\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Multiday
+        maximum temperature (use with DATX)\",\"id\":\"MDTX\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Daily
+        total sunshine (minutes)\",\"id\":\"TSUN\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Evaporation
+        of water from evaporation pan\",\"id\":\"EVAP\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Base
+        of frozen ground layer\",\"id\":\"FRGB\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Thunder\",\"id\":\"WT03\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Multiday
+        wind movement\",\"id\":\"MDWM\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Water
+        equivalent of snowfall\",\"id\":\"WESF\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Ice
+        pellets, sleet, snow pellets, or small hail\",\"id\":\"WT04\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Hail
+        (may include small hail)\",\"id\":\"WT05\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Fastest
+        mile wind speed\",\"id\":\"WSFM\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Glaze
+        or rime\",\"id\":\"WT06\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Dust,
+        volcanic ash, blowing dust, blowing sand, or blowing obstruction\",\"id\":\"WT07\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Smoke
+        or haze\",\"id\":\"WT08\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Blowing
+        or drifting snow\",\"id\":\"WT09\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Number
+        of days included in the multiday snow fall total (MDSF)\",\"id\":\"DASF\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Tornado,
+        waterspout, or funnel cloud\",\"id\":\"WT10\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Peak
+        gust time (hours and minutes, i.e., HHMM)\",\"id\":\"PGTM\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"High
+        or damaging winds\",\"id\":\"WT11\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Blowing
+        spray\",\"id\":\"WT12\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Mist\",\"id\":\"WT13\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Top
+        of frozen ground layer\",\"id\":\"FRGT\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Minimum
+        soil temperature with grass cover at 50 cm depth\",\"id\":\"SN14\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Minimum
+        soil temperature with grass cover at 10 cm depth\",\"id\":\"SN12\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Minimum
+        soil temperature with grass cover at 20 cm depth\",\"id\":\"SN13\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Minimum
+        soil temperature with grass cover at 5 cm depth\",\"id\":\"SN11\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Time
+        of fastest mile or fastest 1-minute wind\",\"id\":\"FMTM\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        soil temperature with bare ground cover at 100 cm depth\",\"id\":\"SX35\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Fastest
+        2-minute wind speed\",\"id\":\"WSF2\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        soil temperature with bare ground cover at 50 cm depth\",\"id\":\"SX34\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        soil temperature with bare ground cover at 20 cm depth\",\"id\":\"SX33\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        soil temperature with bare ground cover at 10 cm depth\",\"id\":\"SX32\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Fastest
+        5-second wind speed\",\"id\":\"WSF5\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        soil temperature with bare ground cover at 5 cm depth\",\"id\":\"SX31\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Snowfall
+        (mm)\",\"id\":\"SNOW\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Number
+        of days included in the multiday minimum temperature (MDTN)\",\"id\":\"DATN\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"the
+        elevation of a geophysical point of observation relative to Mean Sea Level\",\"id\":\"alt\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Thickness
+        of ice on water\",\"id\":\"THIC\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Multiday
+        evaporation total (use with DAEV)\",\"id\":\"MDEV\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        soil temperature with bare ground cover at 150 cm depth\",\"id\":\"SX36\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Fastest
+        1-minute wind speed\",\"id\":\"WSF1\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Minimum
+        soil temperature with bare muck cover at 20 cm depth\",\"id\":\"SN83\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Minimum
+        soil temperature with bare muck cover at 5 cm depth\",\"id\":\"SN81\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Minimum
+        soil temperature with bare muck cover at 10 cm depth\",\"id\":\"SN82\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Peak
+        guest wind speed\",\"id\":\"WSFG\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Fog,
+        ice fog, or freezing fog (may include heavy fog)\",\"id\":\"WT01\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Water
+        equivalent of snow on the ground\",\"id\":\"WESD\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Highest
+        instantaneous wind speed\",\"id\":\"WSFI\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Heavy
+        fog or heaving freezing fog (not always distinguished from fog)\",\"id\":\"WT02\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Minimum
+        soil temperature with unknown cover at 20 cm depth\",\"id\":\"SN03\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Minimum
+        soil temperature with unknown cover at 5 cm depth\",\"id\":\"SN01\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Minimum
+        soil temperature with unknown cover at 10 cm depth\",\"id\":\"SN02\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        soil temperature with straw multch cover at 5 cm depth\",\"id\":\"SX61\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Precipitation\",\"id\":\"PRCP\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Daily
+        maximum temperature of water in an evaporation pan (tenths of degrees C)\",\"id\":\"MXPN\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Average
+        relative humidity for the day\",\"id\":\"RHAV\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Minimum
+        soil temperature with bare ground cover at 150 cm depth\",\"id\":\"SN36\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Minimum
+        soil temperature with bare ground cover at 50 cm depth\",\"id\":\"SN34\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Minimum
+        soil temperature with bare ground cover at 100 cm depth\",\"id\":\"SN35\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Minimum
+        soil temperature with bare ground cover at 10 cm depth\",\"id\":\"SN32\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Minimum
+        soil temperature with bare ground cover at 20 cm depth\",\"id\":\"SN33\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Number
+        of days included in the multiday maximum temperature (MDTX)\",\"id\":\"DATX\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Minimum
+        soil temperature with bare ground cover at 5 cm depth\",\"id\":\"SN31\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        soil temperature with sod cover at 180 cm depth\",\"id\":\"SX57\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        soil temperature with sod cover at 150 cm depth\",\"id\":\"SX56\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        soil temperature with sod cover at 100 cm depth\",\"id\":\"SX55\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        soil temperature with sod cover at 50 cm depth\",\"id\":\"SX54\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        soil temperature with sod cover at 20 cm depth\",\"id\":\"SX53\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        soil temperature with sod cover at 10 cm depth\",\"id\":\"SX52\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Maximum
+        soil temperature with sod cover at 5 cm depth\",\"id\":\"SX51\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Drizzle\",\"id\":\"WT14\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Average
+        cloudiness sunrise to sunset from manual observations\",\"id\":\"ACSH\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Freezing
+        drizzle\",\"id\":\"WT15\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Rain
+        (may include freezing rain, drizzle, and freezing drizzle)\",\"id\":\"WT16\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Freezing
+        rain\",\"id\":\"WT17\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Average
+        cloudiness sunrise to sunset from 30-second ceilometer data\",\"id\":\"ACSC\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Snow,
+        snow pellets, snow grains, or ice crystals\",\"id\":\"WT18\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Unknown
+        source of precipitation\",\"id\":\"WT19\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Number
+        of days included in the multiday evaporation total (MDEV)\",\"id\":\"DAEV\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Ground
+        fog\",\"id\":\"WT21\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Number
+        of days with non-zero precipitation included in multiday precipitation t\",\"id\":\"DWPR\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Ice
+        fog or freezing fog\",\"id\":\"WT22\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Daily
+        percent of possible sunshine\",\"id\":\"PSUN\"},{\"dateRange\":{},\"searchWeight\":10,\"name\":\"Average
+        temperature\",\"id\":\"TAVG\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Minimum
+        soil temperature with fallow cover at 20 cm depth\",\"id\":\"SN23\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"time
+        of observation\",\"id\":\"time\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Minimum
+        soil temperature with fallow cover at 5 cm depth\",\"id\":\"SN21\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Multiday
+        precipitation total (use with DAPR and DWPR, if available)\",\"id\":\"MDPR\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Minimum
+        soil temperature with fallow cover at 10 cm depth\",\"id\":\"SN22\"}],\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Global Historical
+        Climatology Network - Daily (GHCN-Daily), Version 3\",\"parsedKeywords\":[\"EARTH
+        SCIENCE > ATMOSPHERE > ATMOSPHERIC TEMPERATURE > SURFACE TEMPERATURE > MAXIMUM/MINIMUM
+        TEMPERATURE\",\"EARTH SCIENCE > ATMOSPHERE > ATMOSPHERIC TEMPERATURE > SURFACE
+        TEMPERATURE > AIR TEMPERATURE\",\"EARTH SCIENCE > ATMOSPHERE > PRECIPITATION
+        > PRECIPITATION AMOUNT\",\"EARTH SCIENCE > ATMOSPHERE > PRECIPITATION > SOLID
+        PRECIPITATION > SNOW\",\"EARTH SCIENCE > TERRESTRIAL HYDROSPHERE > SNOW/ICE
+        > SNOW DEPTH\"],\"location\":{\"coordinates\":[[[-180.0,83.0],[-180.0,-90.0],[180.0,-90.0],[180.0,83.0],[-180.0,83.0]]],\"type\":\"polygon\"},\"links\":{\"other\":[{\"name\":\"ncei
+        dataset landing page\",\"type\":\"information\",\"url\":\"https://doi.org/10.7289/V5D21VHZ\"},{\"name\":\"esri
+        arcgis service for the dataset.\",\"type\":\"search\",\"url\":\"https://gis.ncdc.noaa.gov/arcgis/rest/services/cdo/ghcnd/MapServer\"},{\"name\":\"kmz
+        file for dataset\",\"type\":\"download\",\"url\":\"https://gis.ncdc.noaa.gov/kml/ghcnd.kmz\"},{\"name\":\"google
+        cloud landing page (region: us-central-1)\",\"type\":\"information\",\"url\":\"https://console.cloud.google.com/marketplace/details/noaa-public/ghcn-d\"}],\"access\":[{\"name\":\"ncei
+        direct download\",\"type\":\"download\",\"url\":\"https://www.ncei.noaa.gov/data/global-historical-climatology-network-daily/\"},{\"name\":\"ncei
+        https server\",\"type\":\"download\",\"url\":\"https://www.ncei.noaa.gov/data/global-historical-climatology-network-daily/\"},{\"name\":\"ncei
+        common access search\",\"type\":\"search\",\"url\":\"https://www.ncei.noaa.gov/access/search/dataset-search?text=ghcnd\"},{\"name\":\"ncei
+        gis map viewer\",\"type\":\"search\",\"url\":\"https://www.ncei.noaa.gov/maps/daily/\"},{\"name\":\"aws
+        s3 explorer (region: us-east-1)\",\"type\":\"download\",\"url\":\"https://noaa-ghcn-pds.s3.amazonaws.com/index.html\"}],\"documentation\":[{\"name\":\"ncei
+        project page\",\"type\":\"information\",\"url\":\"https://www.ncei.noaa.gov/products/land-based-station/global-historical-climatology-network-daily\"},{\"name\":\"ghcnd
+        readme file\",\"type\":\"information\",\"url\":\"https://www.ncei.noaa.gov/data/global-historical-climatology-network-daily/doc/readme.txt\"},{\"name\":\"ghcnd
+        station inventory\",\"type\":\"information\",\"url\":\"https://www.ncei.noaa.gov/data/global-historical-climatology-network-daily/doc/ghcnd-stations.txt\"},{\"name\":\"cdo
+        dataset documentation\",\"type\":\"information\",\"url\":\"https://www.ncei.noaa.gov/data/global-historical-climatology-network-daily/doc/GHCND_documentation.pdf\"},{\"name\":\"registry
+        of open data on aws\",\"type\":\"information\",\"url\":\"https://registry.opendata.aws/noaa-ghcn/\"}],\"samples\":[{\"name\":\"ghcn-d
+        pdf sample\",\"type\":\"download\",\"url\":\"https://www.ncei.noaa.gov/data/global-historical-climatology-network-daily/doc/GHCND_sample.pdf\"},{\"name\":\"ghcn-d
+        csv sample\",\"type\":\"download\",\"url\":\"https://www.ncei.noaa.gov/data/global-historical-climatology-network-daily/doc/GHCND_sample.csv\"}]},\"id\":\"daily-summaries\",\"doiLink\":\"https://doi.org/10.7289/V5D21VHZ\",\"certifiable\":true,\"startDate\":\"1880-01-01\",\"fileId\":\"gov.noaa.ncdc:C00861\"},{\"featured\":false,\"formats\":[{\"name\":\"native\",\"id\":\"native\"}],\"observationTypes\":[],\"keywords\":[\"PRECIPITATION\"],\"contactInfo\":\"Email
+        ncei.info@noaa.gov Online Resource NCEI Contact Information https://www.ncei.noaa.gov/contact\",\"endDate\":\"2026-09-04\",\"topics\":[],\"orderable\":false,\"description\":\"The
+        Global Historical Climatology Network (GHCN) Monthly Precipitation, Version
+        4 is a collection of worldwide monthly precipitation values with measurement,
+        quality control, and source flags for global locations. Values are in tenths
+        of a millimeter and coverage is mostly global land masses with voids as expected
+        in less populated areas. It offers significant enhancements over the previous
+        version 2. It contains more values both historically and for the most recent
+        months. Its methods for merging records and quality control have been modernized.
+        It is used by the National Centers for Environmental Information (NCEI) to
+        put recent months' precipitation into a historical context. The data set is
+        updated each month and available through NCEI's data access portal.\",\"people\":[{\"role\":\"author\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Applequist, Scott\",\"position\":\"\",\"url\":\"\"},{\"role\":\"author\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Durre, Imke\",\"position\":\"\",\"url\":\"\"},{\"role\":\"author\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Vose, Russell\",\"position\":\"\",\"url\":\"\"}],\"searchable\":false,\"frequency\":\"monthly\",\"dataTypes\":[],\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Global Historical
+        Climatology Network (GHCN) Monthly Precipitation, Version 4\",\"parsedKeywords\":[\"EARTH
+        SCIENCE > ATMOSPHERE > PRECIPITATION\"],\"location\":{\"coordinates\":[[[-180.0,90.0],[-180.0,-90.0],[180.0,-90.0],[180.0,90.0],[-180.0,90.0]]],\"type\":\"polygon\"},\"links\":{\"other\":[{\"name\":\"ncei
+        dataset landing page\",\"type\":\"information\",\"url\":\"https://doi.org/10.25921/67zp-5m03\"}],\"access\":[{\"name\":\"ncei
+        direct download (data)\",\"type\":\"download\",\"url\":\"https://www.ncei.noaa.gov/data/global-historical-climatology-network-monthly/v4/precipitation/access/\"}],\"documentation\":[{\"name\":\"ncei
+        global historical climatology network monthly (ghcnm)\",\"type\":\"information\",\"url\":\"https://www.ncei.noaa.gov/products/land-based-station/global-historical-climatology-network-monthly\"},{\"name\":\"ncei
+        direct download (dataset documentation)\",\"type\":\"information\",\"url\":\"https://www.ncei.noaa.gov/data/global-historical-climatology-network-monthly/v4/precipitation/doc/\"}]},\"id\":\"global-historical-climatology-network-monthly-v4-precip\",\"doiLink\":\"https://doi.org/10.25921/67zp-5m03\",\"certifiable\":false,\"startDate\":\"1697\",\"fileId\":\"gov.noaa.ncdc:C01657\"},{\"featured\":true,\"formats\":[{\"name\":\"csv\",\"id\":\"csv\"},{\"name\":\"json\",\"id\":\"json\"}],\"observationTypes\":[],\"keywords\":[\"ATMOSPHERIC
+        TEMPERATURE\",\"PRECIPITATION\",\"ATMOSPHERIC PRESSURE\",\"HUMIDITY INDICES\",\"SEA
+        LEVEL PRESSURE\",\"ATMOSPHERIC WINDS\",\"WIND SPEED/WIND DIRECTION\"],\"contactInfo\":\"Email
+        ncei.info@noaa.gov Online Resource NCEI Contact Information https://www.ncei.noaa.gov/contact\",\"endDate\":\"2026-09-04\",\"topics\":[],\"orderable\":false,\"description\":\"Global
+        Historical Climatology Network-hourly (GHCNh) is a multisource collection
+        of weather station (meteorological) observations from the late 18th Century
+        to the present from fixed weather stations over land across the globe. It
+        is replacing the Integrated Surface Dataset (ISD) and will be used to generate
+        the Local Climatological Data and Global Summary of the Day datasets. The
+        hourly dataset is constructed to align with GHCN daily. Version 1 contains
+        approximately 110 separate data sources and will be updated daily using the
+        United States Air Force and NOAA Surface Weather Observations data streams.
+        GHCNh v1 contains the following variables: altimeter; dew_point_temperature;
+        precipitation; pressure_3hr_change; pres_wx_AU1; pres_wx_AU2; pres_wx_AU3;
+        pres_wx_AW1; pres_wx_AW2; pres_wx_AW3; pres_wx_MW1; pres_wx_MW2; pres_wx_MW3;
+        relative_humidity; Remarks; sea_level_pressure; sky_cov_baseht_1; sky_cov_baseht_2;
+        sky_cov_baseht_3; sky_cover_1; sky_cover_2; sky_cover_3; station_level_pressure;
+        dry bulb temperature; visibility; wet_bulb_temperature; wind_direction; wind_gust;
+        wind_speed.\",\"people\":[{\"role\":\"principalInvestigator\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Menne, Matthew
+        J.\",\"position\":\"Physical Scientist\",\"url\":\"http://orcid.org/0000-0001-9725-248X\"},{\"role\":\"author\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Menne, Matthew
+        J.\",\"position\":\"Physical Scientist\",\"url\":\"http://orcid.org/0000-0001-9725-248X\"},{\"role\":\"author\",\"organization\":{\"name\":\"National
+        University of Ireland Maynooth\"},\"name\":\"Noone, Simon\",\"position\":\"\",\"url\":\"https://orcid.org/0000-0003-1661-1423\"},{\"role\":\"author\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Casey, Nancy
+        W.\",\"position\":\"\",\"url\":\"http://orcid.org/0009-0001-7709-889X\"},{\"role\":\"author\",\"organization\":{\"name\":\"UK
+        Met Office Hadley Centre\"},\"name\":\"Dunn, Robert H.\",\"position\":\"\",\"url\":\"https://orcid.org/0000-0003-2469-5989\"},{\"role\":\"author\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"McNeill, Shelley\",\"position\":\"\",\"url\":\"https://orcid.org/0000-0001-8000-6813\"},{\"role\":\"author\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Kantor, Diana\",\"position\":\"\",\"url\":\"\"},{\"role\":\"author\",\"organization\":{\"name\":\"National
+        University of Ireland Maynooth\"},\"name\":\"Thorne, Peter W.\",\"position\":\"\",\"url\":\"\"},{\"role\":\"author\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Orcutt, Karen\",\"position\":\"\",\"url\":\"\"},{\"role\":\"author\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Cunningham, Sam\",\"position\":\"\",\"url\":\"\"},{\"role\":\"author\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Risavi, Nicholas\",\"position\":\"\",\"url\":\"\"}],\"searchable\":true,\"frequency\":\"daily\",\"dataTypes\":[{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Wind
+        Gust\",\"id\":\"wind_gust\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Precipitation\",\"id\":\"precipitation\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Precipitation
+        6 Hour\",\"id\":\"precipitation_6_hour\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Dew
+        Point Temperature\",\"id\":\"dew_point_temperature\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Pres
+        Wx Au3\",\"id\":\"pres_wx_AU3\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Visibility\",\"id\":\"visibility\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Station
+        Level Pressure\",\"id\":\"station_level_pressure\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Sky
+        Cover Summation 1\",\"id\":\"sky_cover_summation_1\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Precipitation
+        18 Hour\",\"id\":\"precipitation_18_hour\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Precipitation
+        15 Hour\",\"id\":\"precipitation_15_hour\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Precipitation
+        12 Hour\",\"id\":\"precipitation_12_hour\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Pressure
+        3Hr Change\",\"id\":\"pressure_3hr_change\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Sky
+        Condition Baseht\",\"id\":\"sky_condition_baseht\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Altimeter\",\"id\":\"altimeter\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Precipitation
+        5 Minute\",\"id\":\"precipitation_5_minute\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Relative
+        Humidity\",\"id\":\"relative_humidity\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Pres
+        Wx Au2\",\"id\":\"pres_wx_AU2\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Pres
+        Wx Au1\",\"id\":\"pres_wx_AU1\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Sky
+        Cover Layer 4\",\"id\":\"sky_cover_layer_4\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Sky
+        Cover Layer Baseht 4\",\"id\":\"sky_cover_layer_baseht_4\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Sky
+        Cover Layer Baseht 3\",\"id\":\"sky_cover_layer_baseht_3\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Sky
+        Cover Layer Baseht 2\",\"id\":\"sky_cover_layer_baseht_2\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Sky
+        Cover Layer Baseht 1\",\"id\":\"sky_cover_layer_baseht_1\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Sky
+        Cover Summation Baseht 3\",\"id\":\"sky_cover_summation_baseht_3\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Sky
+        Cover Summation Baseht 2\",\"id\":\"sky_cover_summation_baseht_2\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Sky
+        Cover Summation Baseht 1\",\"id\":\"sky_cover_summation_baseht_1\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Precipitation
+        9 Hour\",\"id\":\"precipitation_9_hour\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Sky
+        Cover Summation Baseht 4\",\"id\":\"sky_cover_summation_baseht_4\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Temperature\",\"id\":\"temperature\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Sky
+        Cover Summation 3\",\"id\":\"sky_cover_summation_3\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Sky
+        Cover Summation 2\",\"id\":\"sky_cover_summation_2\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Precipitation
+        3 Hour\",\"id\":\"precipitation_3_hour\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Wind
+        Speed\",\"id\":\"wind_speed\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Sky
+        Cover Summation 4\",\"id\":\"sky_cover_summation_4\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Snow
+        Depth\",\"id\":\"snow_depth\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Sky
+        Condition\",\"id\":\"sky_condition\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Pres
+        Wx Mw2\",\"id\":\"pres_wx_MW2\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Pres
+        Wx Mw1\",\"id\":\"pres_wx_MW1\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Wind
+        Direction\",\"id\":\"wind_direction\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Pres
+        Wx Mw3\",\"id\":\"pres_wx_MW3\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Precipitation
+        15 Minute\",\"id\":\"precipitation_15_minute\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Precipitation
+        21 Hour\",\"id\":\"precipitation_21_hour\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Sky
+        Cover Layer 1\",\"id\":\"sky_cover_layer_1\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Sky
+        Cover Layer 2\",\"id\":\"sky_cover_layer_2\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Sky
+        Cover Layer 3\",\"id\":\"sky_cover_layer_3\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Rem\",\"id\":\"REM\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Pres
+        Wx Aw2\",\"id\":\"pres_wx_AW2\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Sea
+        Level Pressure\",\"id\":\"sea_level_pressure\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Pres
+        Wx Aw1\",\"id\":\"pres_wx_AW1\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Ceiling
+        Height\",\"id\":\"ceiling_height\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Precipitation
+        24 Hour\",\"id\":\"precipitation_24_hour\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Wet
+        Bulb Temperature\",\"id\":\"wet_bulb_temperature\"},{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Pres
+        Wx Aw3\",\"id\":\"pres_wx_AW3\"}],\"organization\":{\"name\":\"NOAA National
+        Centers for Environmental Information\"},\"name\":\"Global Historical Climatology
+        Network-hourly (GHCNh), Version 1\",\"parsedKeywords\":[\"EARTH SCIENCE >
+        ATMOSPHERE > ATMOSPHERIC TEMPERATURE\",\"EARTH SCIENCE > ATMOSPHERE > PRECIPITATION\",\"EARTH
+        SCIENCE > ATMOSPHERE > ATMOSPHERIC PRESSURE\",\"EARTH SCIENCE > CLIMATE INDICATORS
+        > ATMOSPHERIC/OCEAN INDICATORS > HUMIDITY INDICES\",\"EARTH SCIENCE > ATMOSPHERE
+        > ATMOSPHERIC PRESSURE > SEA LEVEL PRESSURE\",\"EARTH SCIENCE > ATMOSPHERE
+        > ATMOSPHERIC WINDS\",\"EARTH SCIENCE > ATMOSPHERE > ATMOSPHERIC WINDS > SURFACE
+        WINDS > WIND SPEED/WIND DIRECTION\"],\"location\":{\"coordinates\":[[[-180.0,90.0],[-180.0,-90.0],[180.0,-90.0],[180.0,90.0],[-180.0,90.0]]],\"type\":\"polygon\"},\"links\":{\"other\":[{\"name\":\"ncei
+        dataset landing page\",\"type\":\"information\",\"url\":\"https://doi.org/10.25921/jp3d-3v19\"}],\"access\":[{\"name\":\"ncei
+        dataset search\",\"type\":\"search\",\"url\":\"https://www.ncei.noaa.gov/access/search/data-search/global-historical-climatology-network-hourly\"},{\"name\":\"ncei
+        direct download (dataset files)\",\"type\":\"download\",\"url\":\"https://www.ncei.noaa.gov/oa/global-historical-climatology-network/index.html#hourly/access/by-year/\"},{\"name\":\"ncei
+        direct download (dataset files)\",\"type\":\"download\",\"url\":\"https://www.ncei.noaa.gov/oa/global-historical-climatology-network/index.html#hourly/access/by-station/\"},{\"name\":\"ncei
+        direct download (dataset files)\",\"type\":\"download\",\"url\":\"https://www.ncei.noaa.gov/oa/global-historical-climatology-network/index.html#hourly/archive/\"},{\"name\":\"ncei
+        gis map portal\",\"type\":\"search\",\"url\":\"https://www.ncei.noaa.gov/maps/hourly/\"}],\"documentation\":[{\"name\":\"ncei
+        product information page\",\"type\":\"information\",\"url\":\"https://www.ncei.noaa.gov/products/global-historical-climatology-network-hourly\"},{\"name\":\"ncei
+        direct download (documentation files)\",\"type\":\"information\",\"url\":\"https://www.ncei.noaa.gov/oa/global-historical-climatology-network/index.html#hourly/doc/\"}]},\"id\":\"global-historical-climatology-network-hourly\",\"doiLink\":\"https://doi.org/10.25921/jp3d-3v19\",\"certifiable\":false,\"startDate\":\"1750-01-01\",\"fileId\":\"gov.noaa.ncdc:C01688\"},{\"featured\":false,\"formats\":[{\"name\":\"netcdf\",\"id\":\"netcdf\"}],\"observationTypes\":[],\"keywords\":[\"SEA
+        SURFACE TEMPERATURE\",\"LAND SURFACE TEMPERATURE\",\"SEA SURFACE TEMPERATURE
+        INDICES\"],\"contactInfo\":\"Email ncei.info@noaa.gov Online Resource NCEI
+        Contact Information https://www.ncei.noaa.gov/contact\",\"endDate\":\"2026-09-04\",\"topics\":[],\"orderable\":true,\"description\":\"*This
+        version has been superseded by a newer version. It is highly recommended for
+        users to access the current version. Users should only access this superseded
+        version for special cases, such as reproducing studies. If necessary, this
+        version can be accessed by contacting NCEI.* The NOAA Global Surface Temperature
+        Dataset (NOAAGlobalTemp) is a monthly global merged land-ocean surface temperature
+        analysis product that is derived from two independent analyses. The first
+        is the Extended Reconstructed Sea Surface Temperature (ERSST) analysis and
+        the second is a land surface air temperature (LSAT) analysis that uses the
+        Global Historical Climatology Network - Monthly (GHCN-M) temperature database.
+        The NOAAGlobalTemp data set contains global surface temperatures in gridded
+        (5\xB0 \xD7 5\xB0) and monthly resolution time series (from 1850 to present
+        time) data files. The product is used in climate monitoring assessments of
+        near-surface temperatures on a global scale. This version, v6.0, an updated
+        version to the current operational release v5.1, is implemented by an Artificial
+        Neural Network method to improve the surface temperature reconstruction over
+        the land.\",\"people\":[{\"role\":\"contributor\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Huang, Boyin\",\"position\":\"\",\"url\":\"\"},{\"role\":\"author\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Huang, Boyin\",\"position\":\"\",\"url\":\"\"},{\"role\":\"contributor\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Yin, Xungang\",\"position\":\"\",\"url\":\"\"},{\"role\":\"author\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Yin, Xungang\",\"position\":\"\",\"url\":\"\"},{\"role\":\"contributor\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Menne, Matthew
+        J.\",\"position\":\"\",\"url\":\"\"},{\"role\":\"author\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Menne, Matthew
+        J.\",\"position\":\"\",\"url\":\"\"},{\"role\":\"contributor\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Vose, Russell
+        S.\",\"position\":\"\",\"url\":\"\"},{\"role\":\"author\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Vose, Russell
+        S.\",\"position\":\"\",\"url\":\"\"},{\"role\":\"contributor\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Zhang, Huai-Min\",\"position\":\"\",\"url\":\"\"},{\"role\":\"author\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Zhang, Huai-Min\",\"position\":\"\",\"url\":\"\"}],\"searchable\":true,\"frequency\":\"notPlanned\",\"dataTypes\":[{\"dateRange\":{},\"searchWeight\":1,\"name\":\"Global
+        Temperature Anomalies\",\"id\":\"surface_temperature_anomaly\"}],\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"NOAA Global Surface
+        Temperature Dataset (NOAAGlobalTemp), Version 6.0 (Version Superseded)\",\"parsedKeywords\":[\"EARTH
+        SCIENCE > OCEANS > OCEAN TEMPERATURE > SEA SURFACE TEMPERATURE\",\"EARTH SCIENCE
+        > LAND SURFACE > SURFACE THERMAL PROPERTIES > LAND SURFACE TEMPERATURE\",\"EARTH
+        SCIENCE > CLIMATE INDICATORS > ATMOSPHERIC/OCEAN INDICATORS > SEA SURFACE
+        TEMPERATURE INDICES\"],\"location\":{\"coordinates\":[[[-180.0,90.0],[-180.0,-90.0],[180.0,-90.0],[180.0,90.0],[-180.0,90.0]]],\"type\":\"polygon\"},\"links\":{\"other\":[{\"name\":\"ncei
+        dataset landing page\",\"type\":\"information\",\"url\":\"https://doi.org/10.25921/rzxg-p717\"}],\"access\":[{\"name\":\"ncei
+        direct download (dataset files)\",\"type\":\"download\",\"url\":\"https://www.ncei.noaa.gov/data/noaa-global-surface-temperature/v6/access/\"},{\"name\":\"ncei
+        thredds\",\"type\":\"download\",\"url\":\"https://www.ncei.noaa.gov/thredds/catalog/noaa-global-temp-v6/catalog.html\"}],\"documentation\":[{\"name\":\"ncei
+        product information page\",\"type\":\"information\",\"url\":\"https://www.ncei.noaa.gov/products/land-based-station/noaa-global-temp\"},{\"name\":\"ncei
+        direct download (documentation files)\",\"type\":\"information\",\"url\":\"https://www.ncei.noaa.gov/data/noaa-global-surface-temperature/v6/doc/\"}]},\"id\":\"noaa-global-surface-temperature\",\"doiLink\":\"https://doi.org/10.25921/rzxg-p717\",\"certifiable\":false,\"startDate\":\"1850-01\",\"fileId\":\"gov.noaa.ncdc:C01704\"},{\"featured\":false,\"formats\":[{\"name\":\"netcdf\",\"id\":\"netcdf\"}],\"observationTypes\":[],\"keywords\":[\"MAXIMUM/MINIMUM
+        TEMPERATURE\",\"PRECIPITATION AMOUNT\"],\"contactInfo\":\"Email ncei.info@noaa.gov
+        Online Resource NCEI Contact Information https://www.ncei.noaa.gov/contact\",\"endDate\":\"2026-09-04\",\"topics\":[],\"orderable\":false,\"description\":\"The
+        NOAA Monthly U.S. Climate Gridded Dataset (NClimGrid) consists of four climate
+        variables derived from the GHCN-D dataset: maximum temperature, minimum temperature,
+        average temperature and precipitation. Each file provides monthly values in
+        a 5x5 lat/lon grid for the Continental United States. Data is available from
+        1895 to the present. In March 2015, new Alaska data was included in the nClimDiv
+        dataset. The Alaska nClimDiv data were created and updated using similar methodology
+        as that for the CONUS. It includes maximum temperature, minimum temperature,
+        average temperature and precipitation. In January 2025, the National Centers
+        for Environmental Information (NCEI) began summarizing the State of the Climate
+        for Hawaii. This was made possible through a collaboration between NCEI and
+        the University of Hawaii/Hawaii Climate Data Portal and completes a long-standing
+        gap in NCEI's ability to characterize the State of the Climate for all 50
+        states. NCEI maintains monthly statewide, divisional, and gridded average
+        temperature, maximum temperatures (highs), minimum temperature (lows) and
+        precipitation data for Hawaii over the period 1991-2025.\",\"people\":[{\"role\":\"principalInvestigator\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Russell Vose\",\"position\":\"\",\"url\":\"\"},{\"role\":\"author\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Russell Vose\",\"position\":\"\",\"url\":\"\"},{\"role\":\"collaborator\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Scott Applequist\",\"position\":\"\",\"url\":\"\"},{\"role\":\"author\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Scott Applequist\",\"position\":\"\",\"url\":\"\"},{\"role\":\"collaborator\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Mike Squires\",\"position\":\"\",\"url\":\"\"},{\"role\":\"author\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Mike Squires\",\"position\":\"\",\"url\":\"\"},{\"role\":\"collaborator\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Imke Durre\",\"position\":\"\",\"url\":\"\"},{\"role\":\"author\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Imke Durre\",\"position\":\"\",\"url\":\"\"},{\"role\":\"collaborator\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Matthew J. Menne\",\"position\":\"\",\"url\":\"\"},{\"role\":\"author\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Matthew J. Menne\",\"position\":\"\",\"url\":\"\"},{\"role\":\"collaborator\",\"organization\":{\"name\":\"DOC/NOAA/NESDIS/NCDC
+        > National Climatic Data Center, NESDIS, NOAA, U.S. Department of Commerce\"},\"name\":\"Claude
+        N. Williams Jr.\",\"position\":\"\",\"url\":\"\"},{\"role\":\"author\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Claude N. Williams
+        Jr.\",\"position\":\"\",\"url\":\"\"},{\"role\":\"collaborator\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Chris Fenimore\",\"position\":\"\",\"url\":\"\"},{\"role\":\"author\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Chris Fenimore\",\"position\":\"\",\"url\":\"\"},{\"role\":\"collaborator\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Karin Gleason\",\"position\":\"\",\"url\":\"\"},{\"role\":\"author\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Karin Gleason\",\"position\":\"\",\"url\":\"\"},{\"role\":\"collaborator\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Derek Arndt\",\"position\":\"\",\"url\":\"\"},{\"role\":\"author\",\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"Derek Arndt\",\"position\":\"\",\"url\":\"\"}],\"searchable\":false,\"frequency\":\"monthly\",\"dataTypes\":[],\"organization\":{\"name\":\"NOAA
+        National Centers for Environmental Information\"},\"name\":\"NOAA Monthly
+        U.S. Climate Gridded Dataset (NClimGrid)\",\"parsedKeywords\":[\"EARTH SCIENCE
+        > ATMOSPHERE > ATMOSPHERIC TEMPERATURE > SURFACE TEMPERATURE > MAXIMUM/MINIMUM
+        TEMPERATURE\",\"EARTH SCIENCE > ATMOSPHERE > PRECIPITATION > PRECIPITATION
+        AMOUNT\"],\"location\":{\"coordinates\":[[[172.0,72.0],[172.0,18.0],[-65.0,18.0],[-65.0,72.0],[172.0,72.0]]],\"type\":\"polygon\"},\"links\":{\"other\":[{\"name\":\"ncei
+        dataset landing page\",\"type\":\"information\",\"url\":\"https://doi.org/10.7289/V5SX6B56\"},{\"name\":\"azure
+        landing page (region: europe-west, us-east)\",\"type\":\"information\",\"url\":\"https://microsoft.github.io/AIforEarthDataSets/data/noaa-nclimgrid.html\"}],\"access\":[{\"name\":\"ncei
+        direct download (archive)\",\"type\":\"download\",\"url\":\"https://www.ncei.noaa.gov/data/nclimgrid-monthly/access\"},{\"name\":\"ncei
+        direct download (real-time)\",\"type\":\"download\",\"url\":\"https://www.ncei.noaa.gov/pub/data/cirs/climgrid/\"},{\"name\":\"ncei
+        thredds catalog\",\"type\":\"download\",\"url\":\"https://www.ncei.noaa.gov/thredds/catalog/data-in-development/nclimgrid/catalog.html\"},{\"name\":\"aws
+        s3 explorer (region: us-east-1)\",\"type\":\"download\",\"url\":\"https://noaa-nclimgrid-monthly-pds.s3.amazonaws.com/index.html\"}],\"documentation\":[{\"name\":\"hawaii
+        climate data portal\",\"type\":\"information\",\"url\":\"https://www.hawaii.edu/climate-data-portal/\"},{\"name\":\"dataset
+        readme\",\"type\":\"information\",\"url\":\"https://www.ncei.noaa.gov/pub/data/cirs/climgrid/gridded-readme.txt\"},{\"name\":\"ncei
+        direct download (dataset documentation)\",\"type\":\"information\",\"url\":\"https://www.ncei.noaa.gov/data/nclimgrid-monthly/doc/\"},{\"name\":\"registry
+        of open data on aws\",\"type\":\"information\",\"url\":\"https://registry.opendata.aws/noaa-nclimgrid/\"}]},\"id\":\"gridded-5km-ghcn-daily-temperature-and-precipitation\",\"doiLink\":\"https://doi.org/10.7289/V5SX6B56\",\"certifiable\":false,\"startDate\":\"1895-01-01\",\"fileId\":\"gov.noaa.ncdc:C00332\"}],\"startDate\":\"1697-01-01T00:00:00.000Z\"}"
+    headers:
+      access-control-allow-headers:
+      - X-Requested-With, Content-Type
+      access-control-allow-origin:
+      - '*'
+      connection:
+      - Keep-Alive
+      content-type:
+      - application/json
+      date:
+      - Sat, 05 Sep 2026 02:47:47 GMT
+      keep-alive:
+      - timeout=3, max=100
+      server:
+      - Apache
+      strict-transport-security:
+      - max-age=31536000
+      transfer-encoding:
+      - chunked
+      vary:
+      - Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+    status:
+      code: 200
+      message: ''
+version: 1
